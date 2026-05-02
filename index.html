@@ -444,62 +444,68 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
       <div class="modal-head">
         <h3 id="modal-title">Get your second opinion</h3>
         <p class="modal-pkg" id="modal-pkg-label"></p>
-        <p id="modal-sub" style="font-size:13px;color:var(--muted);line-height:1.65;margin-top:6px">Choose your payment method. After payment you will be redirected to upload your scan.</p>
+        <p id="modal-sub" style="font-size:13px;color:var(--muted);line-height:1.65;margin-top:6px"></p>
       </div>
       <div class="modal-body">
-
         <div class="disc">
-          <div class="disc-title">Important medical notice</div>
-          <div class="disc-text">This service provides educational second opinions only. It is not a substitute for professional medical diagnosis or treatment. In case of emergency, contact your local emergency services immediately.</div>
+          <div class="disc-title" id="m-disc-title">Important medical notice</div>
+          <div class="disc-text" id="m-disc-text">This service provides educational second opinions only. It is not a substitute for professional medical diagnosis or treatment. In case of emergency, contact your local emergency services immediately.</div>
         </div>
-
-        <!-- LEGAL CHECKBOXES -->
         <div class="legal-checks">
           <label class="check-row" id="chk1-row">
             <input type="checkbox" id="chk-terms" onchange="checkReady()"/>
-            <span>I have read and agree to the <a href="terms.html" target="_blank">Terms of Service</a> and confirm that I understand this service does not constitute medical advice, diagnosis, or treatment. I acknowledge that the evaluations provided are for educational and informational purposes only.</span>
+            <span id="m-chk1-text">I have read and agree to the <a href="terms.html" target="_blank" id="m-terms-link">Terms of Service</a> and confirm that I understand this service does not constitute medical advice, diagnosis, or treatment.</span>
           </label>
           <label class="check-row" id="chk2-row">
             <input type="checkbox" id="chk-privacy" onchange="checkReady()"/>
-            <span>I consent to the processing of my personal data and medical imaging files in accordance with the <a href="privacy.html" target="_blank">Privacy Policy & Datenschutzerklärung</a> (GDPR/DSGVO). I understand my data will be used solely to provide the requested service and deleted after 30 days.</span>
+            <span id="m-chk2-text">I consent to the processing of my personal data and medical imaging files in accordance with the <a href="privacy.html" target="_blank" id="m-privacy-link">Privacy Policy</a> (GDPR/DSGVO). My data will be deleted after 30 days.</span>
           </label>
         </div>
-
-        <div class="pay-err" id="pay-err" style="display:none">Please accept both agreements to continue.</div>
-
-        <!-- PAYMENT BUTTONS -->
-        <div class="pay-section" id="pay-btns">
-          <div class="pay-label">Pay securely with</div>
+        <div class="pay-err" id="pay-err" style="display:none"></div>
+        <div class="pay-section">
+          <div class="pay-label" id="m-pay-label">Pay securely with</div>
           <div class="pay-row">
-            <button class="pay-btn stripe" id="stripe-btn" onclick="payStripe()">
-              <svg width="44" height="18" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.4 9.8c0-.7.6-1 1.5-1 1.3 0 3 .4 4.3 1.1V6.4C9.8 5.8 8.4 5.5 7 5.5 3.5 5.5 1 7.3 1 10c0 4.2 5.8 3.5 5.8 5.3 0 .8-.7 1.1-1.7 1.1C3.8 16.4 2 15.9.5 15v3.5c1.6.7 3.2 1 4.8 1 3.6 0 6.2-1.8 6.2-4.5C11.5 10.7 5.4 11.5 5.4 9.8zm13.2-7.3L15 3.2l-.1 13.4h3.6L18.6 2.5zm7 5.3L22 6.1c-2 .7-3.3 2.4-3.3 4.8 0 3 1.9 4.8 4.9 4.8 1.3 0 2.4-.3 3-.7v-3c-.6.4-1.3.7-2.2.7-1.4 0-2.4-.9-2.4-2.4 0-1.4.9-2.3 2.3-2.5zm9.6-.2c-.5 0-1 .1-1.4.3V5.7h-3.5v12.8l3.5-.7V12c.4.2.9.3 1.4.3 2.8 0 4.8-2.2 4.8-5 0-2.6-1.9-4.7-4.8-4.7zm-.7 7.1c-.5 0-.9-.2-1.2-.4V9.4c.3-.2.7-.4 1.2-.4 1.2 0 2 1 2 2.5s-.8 2.5-2 2.5zm10-7.1c-3.2 0-5.1 2.1-5.1 5s1.9 5 5.2 5c3.2 0 5.1-2.1 5.1-5s-2-5-5.2-5zm0 7.6c-1.1 0-1.7-.9-1.7-2.6s.6-2.6 1.7-2.6 1.7.9 1.7 2.6-.6 2.6-1.7 2.6z" fill="white"/></svg>
-              Pay with Card
+            <button class="pay-btn stripe" onclick="payStripe()">
+              <svg width="40" height="17" viewBox="0 0 60 25" xmlns="http://www.w3.org/2000/svg"><path d="M5.4 9.8c0-.7.6-1 1.5-1 1.3 0 3 .4 4.3 1.1V6.4C9.8 5.8 8.4 5.5 7 5.5 3.5 5.5 1 7.3 1 10c0 4.2 5.8 3.5 5.8 5.3 0 .8-.7 1.1-1.7 1.1C3.8 16.4 2 15.9.5 15v3.5c1.6.7 3.2 1 4.8 1 3.6 0 6.2-1.8 6.2-4.5C11.5 10.7 5.4 11.5 5.4 9.8zm13.2-7.3L15 3.2l-.1 13.4h3.6L18.6 2.5zm7 5.3L22 6.1c-2 .7-3.3 2.4-3.3 4.8 0 3 1.9 4.8 4.9 4.8 1.3 0 2.4-.3 3-.7v-3c-.6.4-1.3.7-2.2.7-1.4 0-2.4-.9-2.4-2.4 0-1.4.9-2.3 2.3-2.5zm9.6-.2c-.5 0-1 .1-1.4.3V5.7h-3.5v12.8l3.5-.7V12c.4.2.9.3 1.4.3 2.8 0 4.8-2.2 4.8-5 0-2.6-1.9-4.7-4.8-4.7zm-.7 7.1c-.5 0-.9-.2-1.2-.4V9.4c.3-.2.7-.4 1.2-.4 1.2 0 2 1 2 2.5s-.8 2.5-2 2.5zm10-7.1c-3.2 0-5.1 2.1-5.1 5s1.9 5 5.2 5c3.2 0 5.1-2.1 5.1-5s-2-5-5.2-5zm0 7.6c-1.1 0-1.7-.9-1.7-2.6s.6-2.6 1.7-2.6 1.7.9 1.7 2.6-.6 2.6-1.7 2.6z" fill="white"/></svg>
+              <span id="m-stripe-btn">Pay with Card</span>
             </button>
-            <div class="pay-or">or</div>
-            <div id="paypal-btn-container"></div>
+            <div class="pay-or" id="m-or">or</div>
+            <button class="pay-btn" id="paypal-btn" onclick="payPayPal()" style="background:#FFC439;color:#003087;font-weight:700;gap:8px">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#003087"><path d="M7 21.5l.5-3H4l2.3-13.5h6.5c2.5 0 4 .8 4 3.5 0 3.5-2.7 5-6 5H8.5L7.7 17l-.7 4.5z"/></svg>
+              <span id="m-paypal-btn">Pay with PayPal</span>
+            </button>
           </div>
         </div>
-
-        <div class="pay-secure">🔒 Secure payment · SSL encrypted · No card data stored on this site</div>
+        <div class="pay-secure" id="m-secure">🔒 Secure payment · SSL encrypted · No card data stored on this site</div>
       </div>
     </div>
 
-    <!-- STEP 2: UPLOAD (shown after payment) -->
+    <!-- STEP 2: PAYMENT PENDING -->
+    <div id="step-pending" style="display:none">
+      <div class="modal-head">
+        <h3 id="m-pending-title">Waiting for payment confirmation</h3>
+        <p id="m-pending-pkg" class="modal-pkg"></p>
+      </div>
+      <div class="modal-body" style="text-align:center;padding-top:32px;padding-bottom:40px">
+        <div style="font-size:48px;margin-bottom:20px">⏳</div>
+        <p id="m-pending-text" style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:28px">Complete the payment in the tab that opened. Once done, click the button below to continue.</p>
+        <button class="sbtn" onclick="confirmPayment()" style="margin-bottom:12px" id="m-confirm-btn">I have completed the payment →</button>
+        <button onclick="resetPayment()" style="background:none;border:none;font-size:12px;color:var(--faint);cursor:pointer;font-family:'Outfit',sans-serif;display:block;margin:0 auto" id="m-back-btn">← Go back</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: UPLOAD -->
     <div id="step-upload" style="display:none">
       <div class="modal-head">
-        <h3>Upload your scan</h3>
+        <h3 id="m-upload-title">Upload your scan</h3>
         <p class="modal-pkg" id="upload-pkg-label"></p>
-        <p style="font-size:13px;color:var(--muted);margin-top:6px;line-height:1.65">Payment confirmed ✓ Now upload your scan files and fill in your details.</p>
+        <p id="m-upload-sub" style="font-size:13px;color:var(--muted);margin-top:6px;line-height:1.65">✓ Payment confirmed. Now upload your scan and fill in your details.</p>
       </div>
       <div class="modal-body">
-        <div class="disc">
-          <div class="disc-title">Important notice</div>
-          <div class="disc-text">This service provides educational second opinions only — not a final medical diagnosis. Always consult your treating physician for clinical decisions. Not for emergency use.</div>
-        </div>
         <div class="uzone" onclick="document.getElementById('file-input').click()">
           <div style="font-size:32px;margin-bottom:12px">📁</div>
-          <p>Drag & drop your files here, or <strong>click to select</strong></p>
-          <small>DICOM · JPEG · PNG · PDF · max 50 MB per file</small>
+          <p id="m-up-text">Drag & drop your files here, or <strong>click to select</strong></p>
+          <small id="m-up-fmt">DICOM · JPEG · PNG · PDF · max 50 MB per file</small>
           <input type="file" id="file-input" multiple accept=".dcm,.jpg,.jpeg,.png,.pdf" style="display:none" onchange="showFiles(this)"/>
         </div>
         <div id="file-list" style="font-size:12px;color:var(--muted);margin-bottom:16px;display:none"></div>
@@ -510,10 +516,10 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
         <div class="frow">
           <select id="inp-lang">
             <option value="">Language preference...</option>
-            <option>Turkish / Türkçe</option>
-            <option>Azerbaijani / Azəricə</option>
-            <option>Russian / Русский</option>
-            <option>German / Deutsch</option>
+            <option>Türkçe</option>
+            <option>Azərbaycanca</option>
+            <option>Русский</option>
+            <option>Deutsch</option>
             <option>English</option>
           </select>
           <select id="inp-pkg">
@@ -523,17 +529,14 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
             <option>Premium — €99</option>
           </select>
         </div>
-        <textarea id="inp-note" placeholder="Brief clinical context (optional): symptoms, date of scan, prior diagnosis..."></textarea>
-        <div class="fnote">Your data is handled securely. Files are encrypted and deleted after 30 days. By submitting you confirm your agreement to the Terms of Service and Privacy Policy.</div>
+        <textarea id="inp-note" placeholder="Brief clinical context (optional)..."></textarea>
+        <div class="fnote" id="m-fnote">Your data is handled securely and deleted after 30 days.</div>
         <button class="sbtn" id="submit-btn" onclick="submitForm()">Submit scan →</button>
       </div>
     </div>
 
   </div>
 </div>
-
-<!-- PAYPAL SDK -->
-<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <script>
 /* ── STRIPE & PAYPAL ── */
@@ -542,12 +545,91 @@ const STRIPE={
   'Standard — €59':'https://buy.stripe.com/aFa4greLK3bfh2547y8ww02',
   'Premium — €99': 'https://buy.stripe.com/aFa00bdHG6nr3bf0Vm8ww01'
 };
-const PAYPAL_IDS={
+const PAYPAL={
   'Basic — €29':   'FP9CMPXGDRQB2',
   'Standard — €59':'6K3FNDGCHL4VY',
   'Premium — €99': 'NU9C4F9TJ3X62'
 };
-let currentPkg='';
+let currentPkg='', currentLang='en', paymentDone=false;
+
+/* ── MODAL TRANSLATIONS ── */
+const MT={
+  en:{
+    title:'Get your second opinion',sub:'Choose your payment method. After payment you will be able to upload your scan.',
+    discTitle:'Important medical notice',discText:'This service provides educational second opinions only. It is not a substitute for professional medical diagnosis or treatment. In case of emergency, call 112.',
+    chk1:'I have read and agree to the <a href="terms.html" target="_blank">Terms of Service</a> and confirm that this service does not constitute medical advice, diagnosis, or treatment.',
+    chk2:'I consent to the processing of my personal data and medical imaging files in accordance with the <a href="privacy.html" target="_blank">Privacy Policy</a> (GDPR/DSGVO). My data will be deleted after 30 days.',
+    payErr:'Please accept both agreements to continue.',
+    payLabel:'Pay securely with',stripe:'Pay with Card',paypal:'Pay with PayPal',or:'or',
+    secure:'🔒 Secure payment · SSL encrypted · No card data stored on this site',
+    pendingTitle:'Waiting for payment confirmation',pendingText:'Complete the payment in the tab that opened. Once done, click the button below.',
+    confirmBtn:'I have completed the payment →',backBtn:'← Go back',
+    uploadTitle:'Upload your scan',uploadSub:'✓ Payment confirmed. Now upload your scan and fill in your details.',
+    upText:'Drag & drop your files here, or <strong>click to select</strong>',upFmt:'DICOM · JPEG · PNG · PDF · max 50 MB per file',
+    namePh:'Your name',emailPh:'Email address',notePh:'Brief clinical context (optional): symptoms, date of scan, prior diagnosis...',
+    fnote:'Your data is handled securely and deleted after 30 days.',submitBtn:'Submit scan →'
+  },
+  tr:{
+    title:'İkinci görüşünüzü alın',sub:'Ödeme yöntemini seçin. Ödeme sonrası görüntünüzü yükleyebileceksiniz.',
+    discTitle:'Önemli tıbbi uyarı',discText:'Bu hizmet yalnızca eğitsel ikinci görüş sunar. Tıbbi tanı veya tedavinin yerini tutmaz. Acil durumlarda 112'yi arayın.',
+    chk1:'<a href="terms.html" target="_blank">Kullanım Koşulları</a>'nı okudum ve kabul ediyorum. Bu hizmetin tıbbi tavsiye, tanı veya tedavi niteliği taşımadığını onaylıyorum.',
+    chk2:'Kişisel verilerimin ve tıbbi görüntü dosyalarımın <a href="privacy.html" target="_blank">Gizlilik Politikası</a> (GDPR/DSGVO) kapsamında işlenmesine onay veriyorum. Verilerim 30 gün sonra silinecektir.',
+    payErr:'Devam etmek için her iki onayı da vermeniz gerekmektedir.',
+    payLabel:'Güvenli ödeme yöntemi seçin',stripe:'Kart ile öde',paypal:'PayPal ile öde',or:'veya',
+    secure:'🔒 Güvenli ödeme · SSL şifreli · Kart bilgisi saklanmaz',
+    pendingTitle:'Ödeme onayı bekleniyor',pendingText:'Açılan sekmede ödemeyi tamamlayın. Tamamladıktan sonra aşağıdaki butona tıklayın.',
+    confirmBtn:'Ödemeyi tamamladım →',backBtn:'← Geri dön',
+    uploadTitle:'Görüntünüzü yükleyin',uploadSub:'✓ Ödeme onaylandı. Şimdi görüntünüzü yükleyin.',
+    upText:'Dosyalarınızı sürükleyin veya <strong>seçmek için tıklayın</strong>',upFmt:'DICOM · JPEG · PNG · PDF · maks 50 MB',
+    namePh:'Adınız',emailPh:'E-posta adresiniz',notePh:'Klinik bağlam (isteğe bağlı): belirtiler, görüntü tarihi, önceki tanı...',
+    fnote:'Verileriniz güvenle saklanır ve 30 gün sonra silinir.',submitBtn:'Görüntüyü gönder →'
+  },
+  az:{
+    title:'İkinci rəyinizi alın',sub:'Ödəniş üsulunu seçin. Ödəmədən sonra görüntünüzü yükləyə bilərsiniz.',
+    discTitle:'Mühüm tibbi xəbərdarlıq',discText:'Bu xidmət yalnız təhsil məqsədli ikinci rəy təqdim edir. Tibbi diaqnoz və ya müalicənin əvəzini tutmur. Təcili hallarda 112-ni zəng edin.',
+    chk1:'<a href="terms.html" target="_blank">İstifadə Şərtlərini</a> oxudum və qəbul edirəm. Bu xidmətin tibbi məsləhət, diaqnoz və ya müalicə mahiyyəti daşımadığını təsdiqləyirəm.',
+    chk2:'Şəxsi məlumatlarımın və tibbi görüntü fayllarımın <a href="privacy.html" target="_blank">Məxfilik Siyasəti</a> (GDPR/DSGVO) çərçivəsində işlənməsinə razılıq verirəm. Məlumatlarım 30 gün sonra silinəcəkdir.',
+    payErr:'Davam etmək üçün hər iki razılığı verməlisiniz.',
+    payLabel:'Təhlükəsiz ödəniş üsulunu seçin',stripe:'Kartla ödə',paypal:'PayPal ilə ödə',or:'və ya',
+    secure:'🔒 Təhlükəsiz ödəniş · SSL şifrəli · Kart məlumatı saxlanılmır',
+    pendingTitle:'Ödəniş təsdiqi gözlənilir',pendingText:'Açılan nişanda ödənişi tamamlayın. Tamamladıqdan sonra aşağıdakı düyməni basın.',
+    confirmBtn:'Ödənişi tamamladım →',backBtn:'← Geri qayıt',
+    uploadTitle:'Görüntünüzü yükləyin',uploadSub:'✓ Ödəniş təsdiqləndi. İndi görüntünüzü yükləyin.',
+    upText:'Fayllarınızı sürükləyin və ya <strong>seçmək üçün klikləyin</strong>',upFmt:'DICOM · JPEG · PNG · PDF · maks 50 MB',
+    namePh:'Adınız',emailPh:'E-poçt ünvanınız',notePh:'Klinik kontekst (istəyə bağlı): simptomlar, görüntü tarixi, əvvəlki diaqnoz...',
+    fnote:'Məlumatlarınız etibarlı şəkildə saxlanılır və 30 gün sonra silinir.',submitBtn:'Görüntünü göndər →'
+  },
+  de:{
+    title:'Ihre Zweitmeinung anfragen',sub:'Wählen Sie Ihre Zahlungsmethode. Nach der Zahlung können Sie Ihre Aufnahme hochladen.',
+    discTitle:'Wichtiger medizinischer Hinweis',discText:'Dieser Dienst bietet ausschließlich bildungsorientierte Zweitmeinungen. Er ersetzt keine professionelle Diagnose oder Behandlung. Im Notfall 112 anrufen.',
+    chk1:'Ich habe die <a href="terms.html" target="_blank">Nutzungsbedingungen</a> gelesen und akzeptiere sie. Ich bestätige, dass dieser Dienst keine medizinische Beratung, Diagnose oder Behandlung darstellt.',
+    chk2:'Ich stimme der Verarbeitung meiner personenbezogenen Daten und medizinischen Bilddateien gemäß der <a href="privacy.html" target="_blank">Datenschutzerklärung</a> (DSGVO) zu. Meine Daten werden nach 30 Tagen gelöscht.',
+    payErr:'Bitte akzeptieren Sie beide Vereinbarungen, um fortzufahren.',
+    payLabel:'Sicher bezahlen mit',stripe:'Mit Karte bezahlen',paypal:'Mit PayPal bezahlen',or:'oder',
+    secure:'🔒 Sichere Zahlung · SSL-verschlüsselt · Keine Kartendaten gespeichert',
+    pendingTitle:'Warte auf Zahlungsbestätigung',pendingText:'Schließen Sie die Zahlung im geöffneten Tab ab. Klicken Sie danach auf die Schaltfläche unten.',
+    confirmBtn:'Zahlung abgeschlossen →',backBtn:'← Zurück',
+    uploadTitle:'Aufnahme hochladen',uploadSub:'✓ Zahlung bestätigt. Laden Sie jetzt Ihre Aufnahme hoch.',
+    upText:'Dateien hierher ziehen oder <strong>zum Auswählen klicken</strong>',upFmt:'DICOM · JPEG · PNG · PDF · max. 50 MB',
+    namePh:'Ihr Name',emailPh:'E-Mail-Adresse',notePh:'Klinischer Kontext (optional): Symptome, Aufnahmedatum, Vordiagnose...',
+    fnote:'Ihre Daten werden sicher gespeichert und nach 30 Tagen gelöscht.',submitBtn:'Aufnahme senden →'
+  },
+  ru:{
+    title:'Получить второе мнение',sub:'Выберите способ оплаты. После оплаты вы сможете загрузить снимок.',
+    discTitle:'Важное медицинское уведомление',discText:'Этот сервис предоставляет только образовательное второе мнение. Он не заменяет профессиональный диагноз или лечение. В экстренных случаях звоните 112.',
+    chk1:'Я прочитал(а) и принимаю <a href="terms.html" target="_blank">Условия использования</a>. Подтверждаю, что данный сервис не является медицинской консультацией, диагнозом или лечением.',
+    chk2:'Я даю согласие на обработку моих персональных данных и медицинских файлов в соответствии с <a href="privacy.html" target="_blank">Политикой конфиденциальности</a> (GDPR/DSGVO). Мои данные будут удалены через 30 дней.',
+    payErr:'Пожалуйста, примите оба соглашения, чтобы продолжить.',
+    payLabel:'Оплатить безопасно через',stripe:'Оплатить картой',paypal:'Оплатить через PayPal',or:'или',
+    secure:'🔒 Безопасная оплата · SSL-шифрование · Данные карты не хранятся',
+    pendingTitle:'Ожидание подтверждения оплаты',pendingText:'Завершите оплату в открывшейся вкладке. После этого нажмите кнопку ниже.',
+    confirmBtn:'Оплата завершена →',backBtn:'← Назад',
+    uploadTitle:'Загрузите снимок',uploadSub:'✓ Оплата подтверждена. Теперь загрузите снимок.',
+    upText:'Перетащите файлы сюда или <strong>нажмите для выбора</strong>',upFmt:'DICOM · JPEG · PNG · PDF · макс. 50 МБ',
+    namePh:'Ваше имя',emailPh:'Адрес эл. почты',notePh:'Клинический контекст (необязательно): симптомы, дата снимка, предыдущий диагноз...',
+    fnote:'Ваши данные надёжно защищены и удалятся через 30 дней.',submitBtn:'Отправить снимок →'
+  }
+};
 
 /* ── SCROLL ── */
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}})},{threshold:.08});
@@ -556,18 +638,22 @@ window.addEventListener('scroll',()=>document.getElementById('nav').classList.to
 
 /* ── MODAL ── */
 function openModal(pkg){
-  currentPkg=pkg;
+  currentPkg=pkg; paymentDone=false;
   document.getElementById('modal').classList.add('open');
-  document.getElementById('modal-pkg-label').textContent='Selected: '+pkg;
-  document.getElementById('upload-pkg-label').textContent='Package: '+pkg;
-  document.getElementById('inp-pkg').value=pkg;
   document.getElementById('chk-terms').checked=false;
   document.getElementById('chk-privacy').checked=false;
   document.getElementById('pay-err').style.display='none';
+  document.getElementById('chk1-row').classList.remove('err');
+  document.getElementById('chk2-row').classList.remove('err');
   document.getElementById('step-payment').style.display='block';
+  document.getElementById('step-pending').style.display='none';
   document.getElementById('step-upload').style.display='none';
+  document.getElementById('inp-pkg').value=pkg;
+  document.getElementById('upload-pkg-label').textContent=pkg;
+  document.getElementById('modal-pkg-label').textContent=pkg;
+  document.getElementById('m-pending-pkg').textContent=pkg;
   document.body.style.overflow='hidden';
-  renderPayPal(pkg);
+  applyModalLang(currentLang);
 }
 function closeModal(){
   document.getElementById('modal').classList.remove('open');
@@ -575,6 +661,35 @@ function closeModal(){
 }
 function closeModalOutside(e){if(e.target===document.getElementById('modal'))closeModal();}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+function applyModalLang(l){
+  const t=MT[l]||MT.en;
+  document.getElementById('modal-title').textContent=t.title;
+  document.getElementById('modal-sub').textContent=t.sub;
+  document.getElementById('m-disc-title').textContent=t.discTitle;
+  document.getElementById('m-disc-text').textContent=t.discText;
+  document.getElementById('m-chk1-text').innerHTML=t.chk1;
+  document.getElementById('m-chk2-text').innerHTML=t.chk2;
+  document.getElementById('pay-err').textContent=t.payErr;
+  document.getElementById('m-pay-label').textContent=t.payLabel;
+  document.getElementById('m-stripe-btn').textContent=t.stripe;
+  document.getElementById('m-paypal-btn').textContent=t.paypal;
+  document.getElementById('m-or').textContent=t.or;
+  document.getElementById('m-secure').textContent=t.secure;
+  document.getElementById('m-pending-title').textContent=t.pendingTitle;
+  document.getElementById('m-pending-text').textContent=t.pendingText;
+  document.getElementById('m-confirm-btn').textContent=t.confirmBtn;
+  document.getElementById('m-back-btn').textContent=t.backBtn;
+  document.getElementById('m-upload-title').textContent=t.uploadTitle;
+  document.getElementById('m-upload-sub').textContent=t.uploadSub;
+  document.getElementById('m-up-text').innerHTML=t.upText;
+  document.getElementById('m-up-fmt').textContent=t.upFmt;
+  document.getElementById('inp-name').placeholder=t.namePh;
+  document.getElementById('inp-email').placeholder=t.emailPh;
+  document.getElementById('inp-note').placeholder=t.notePh;
+  document.getElementById('m-fnote').textContent=t.fnote;
+  document.getElementById('submit-btn').textContent=t.submitBtn;
+}
 
 /* ── LEGAL CHECKS ── */
 function checkReady(){
@@ -596,39 +711,36 @@ function payStripe(){
   if(!validateChecks())return;
   const url=STRIPE[currentPkg];
   if(url)window.open(url,'_blank');
-  setTimeout(()=>showUploadStep(),800);
+  showPendingStep();
 }
 
 /* ── PAYPAL ── */
-function renderPayPal(pkg){
-  const container=document.getElementById('paypal-btn-container');
-  container.innerHTML='';
-  const id=PAYPAL_IDS[pkg];
-  const form=document.createElement('form');
-  form.action='https://www.paypal.com/cgi-bin/webscr';
-  form.method='post';
-  form.target='_blank';
-  form.style.width='100%';
-  form.innerHTML=`
-    <input type="hidden" name="cmd" value="_s-xclick"/>
-    <input type="hidden" name="hosted_button_id" value="${id}"/>
-    <input type="hidden" name="currency_code" value="EUR"/>
-    <button type="submit" onclick="return handlePaypal()" style="width:100%;padding:13px 20px;background:#FFC439;color:#003087;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:'Outfit',sans-serif;border-radius:2px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s;" onmouseover="this.style.background='#f0b429'" onmouseout="this.style.background='#FFC439'">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="#003087"><path d="M7 21.5l.5-3H4l2.3-13.5h6.5c2.5 0 4 .8 4 3.5 0 3.5-2.7 5-6 5H8.5L7.7 17l-.7 4.5z"/></svg>
-      Pay with PayPal
-    </button>`;
-  container.appendChild(form);
-}
-function handlePaypal(){
-  if(!validateChecks())return false;
-  setTimeout(()=>showUploadStep(),1200);
-  return true;
+function payPayPal(){
+  if(!validateChecks())return;
+  const id=PAYPAL[currentPkg];
+  const url='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id='+id;
+  window.open(url,'_blank');
+  showPendingStep();
 }
 
-/* ── UPLOAD STEP ── */
-function showUploadStep(){
+/* ── STEPS ── */
+function showPendingStep(){
   document.getElementById('step-payment').style.display='none';
+  document.getElementById('step-pending').style.display='block';
+  document.getElementById('step-upload').style.display='none';
+  document.querySelector('.modal').scrollTop=0;
+}
+function confirmPayment(){
+  paymentDone=true;
+  document.getElementById('step-payment').style.display='none';
+  document.getElementById('step-pending').style.display='none';
   document.getElementById('step-upload').style.display='block';
+  document.querySelector('.modal').scrollTop=0;
+}
+function resetPayment(){
+  document.getElementById('step-payment').style.display='block';
+  document.getElementById('step-pending').style.display='none';
+  document.getElementById('step-upload').style.display='none';
   document.querySelector('.modal').scrollTop=0;
 }
 
@@ -642,26 +754,27 @@ function showFiles(input){
 function submitForm(){
   const name=document.getElementById('inp-name').value.trim();
   const email=document.getElementById('inp-email').value.trim();
-  if(!name||!email){alert('Please fill in your name and email.');return;}
+  if(!name||!email){alert((MT[currentLang]||MT.en).namePh+' / '+((MT[currentLang]||MT.en).emailPh));return;}
   const btn=document.getElementById('submit-btn');
-  btn.textContent='Sending…';btn.style.opacity='.6';btn.style.pointerEvents='none';
+  btn.textContent='⏳';btn.style.opacity='.6';btn.style.pointerEvents='none';
   setTimeout(()=>{
     closeModal();
-    btn.textContent='Submit scan →';btn.style.opacity='';btn.style.pointerEvents='';
-    alert('Thank you '+name+'! We have received your scan. You will receive a confirmation at '+email+' within a few hours.');
+    btn.style.opacity='';btn.style.pointerEvents='';
+    alert('✓ '+name+' — '+email);
   },1200);
 }
 
-/* ── LANGUAGE ── */
+/* ── MAIN LANGUAGE ── */
 const L={
-en:{"h-badge":"Germany · Radiology · Second Opinion","h-title":"Your scan, explained by a <em>German-trained physician</em>","h-sub":"Upload your MRI or CT. Receive a clear, medically-informed second opinion — in your own language, within 48 hours.","h-cta1":"Get second opinion","h-cta2":"How it works","nl-how":"How it works","nl-price":"Pricing","nl-edu":"For doctors ↗","nl-about":"About me","nl-cta":"Get second opinion","t1":"Response time","t2":"Languages","t3":"German standard","t4":"Secure & private","s1-lbl":"Process","s1-head":"How it works","s1-sub":"Four simple steps from your scan to a clear explanation.","st1":"Upload your images","sd1":"Send your MRI or CT files along with the original report if available.","st2":"Review by a physician","sd2":"A German-trained radiology resident evaluates your images using European diagnostic standards.","st3":"Receive your explanation","sd3":"You receive a bilingual report: technical evaluation + plain-language explanation in your language.","st4":"Speak with your doctor","sd4":"Use our summary to have a more informed conversation with your treating physician.","s2-lbl":"Pricing","s2-head":"Simple, transparent pricing","s2-sub":"One-time payment per report. No subscriptions, no hidden fees.","p1-tier":"Basic","p1-name":"Written opinion","p1-per":"/report","p1-desc":"Written evaluation + plain-language summary","p1f1":"One scan reviewed","p1f2":"Written PDF report","p1f3":"48h turnaround","p1f4":"Explanation in your language","p1-btn":"Upload & get started","p2-badge":"Most popular","p2-tier":"Standard","p2-name":"Opinion + consultation","p2-per":"/report","p2-desc":"Full evaluation + 15-min video consultation","p2f1":"Everything in Basic","p2f2":"15-min video call","p2f3":"Priority 24h review","p2f4":"Q&A via email","p2-btn":"Upload & get started","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Full second opinion","p3-per":"/report","p3-desc":"Comprehensive evaluation + extended consultation + follow-up","p3f1":"Everything in Standard","p3f2":"30-min consultation","p3f3":"Follow-up Q&A (7 days)","p3f4":"Comparison with prior scans","p3-btn":"Upload & get started","s4-lbl":"About me","a-name":"Adalat Ganjali","a-role":"Radiology Resident · EvKB Bielefeld, Germany","a-bio":"I work as a radiology resident in Germany's healthcare system. I understand what it feels like to receive a report full of terminology that means nothing. My mission: bringing German diagnostic quality and plain-language clarity across borders and languages.","a-notice":"This service is entirely independent from my role at EvKB Bielefeld hospital and is offered in a personal capacity.","pq-text":"\"I designed this service around one question: what would I want for my own family member receiving a scan report they can't understand?\"","pq-cite":"— Adalat Ganjali · Radiology Resident · EvKB Bielefeld, Germany","s6-lbl":"Contact","s6-head":"Get in touch","c2-type":"Email","c2-label":"info@radioloq.com","c2-btn":"Send email","c3-type":"Video call","c3-label":"Book a free intro","c3-btn":"Book 15 min","cta-head":"Are you a physician?","cta-sub":"Structured radiology education courses — from reading your first scan to German-standard board preparation.","cta-btn":"View courses →","footer-txt":"© 2025 Radioloq · Educational second opinion service · Not a substitute for medical advice · Germany · info@radioloq.com"},
-tr:{"h-badge":"Almanya · Radyoloji · İkinci Görüş","h-title":"Görüntünüz, <em>Almanya'da çalışan bir hekim</em> tarafından açıklandı","h-sub":"MR veya BT görüntünüzü yükleyin. 48 saat içinde kendi dilinizde net bir ikinci görüş alın.","h-cta1":"İkinci görüş al","h-cta2":"Nasıl çalışır","nl-how":"Nasıl çalışır","nl-price":"Fiyatlar","nl-edu":"Doktorlar için ↗","nl-about":"Hakkımda","nl-cta":"İkinci görüş al","t1":"Yanıt süresi","t2":"Dil","t3":"Alman standardı","t4":"Güvenli & gizli","s1-lbl":"Süreç","s1-head":"Nasıl çalışır","s1-sub":"Görüntünüzden net açıklamaya dört basit adım.","st1":"Görüntülerinizi yükleyin","sd1":"MR veya BT dosyalarınızı orijinal raporunuzla birlikte gönderin.","st2":"Hekim tarafından inceleme","sd2":"Almanya'da görev yapan bir radyoloji asistanı görüntülerinizi Avrupa standartlarıyla değerlendirir.","st3":"Açıklamanızı alın","sd3":"İki dilli rapor alırsınız: teknik değerlendirme + kendi dilinizde sade açıklama.","st4":"Doktorunuzla konuşun","sd4":"Özetimizi tedavi eden doktorunuzla daha bilinçli görüşme için kullanın.","s2-lbl":"Fiyatlar","s2-head":"Basit, şeffaf fiyatlar","s2-sub":"Rapor başına tek seferlik ödeme. Abonelik yok.","p1-tier":"Temel","p1-name":"Yazılı görüş","p1-per":"/rapor","p1-desc":"Yazılı değerlendirme + dilinizde sade açıklama","p1f1":"Bir görüntü incelemesi","p1f2":"PDF rapor","p1f3":"48 saat teslimat","p1f4":"Kendi dilinizde açıklama","p1-btn":"Yükle & başla","p2-badge":"En popüler","p2-tier":"Standart","p2-name":"Görüş + danışma","p2-per":"/rapor","p2-desc":"Tam değerlendirme + 15 dk video görüşmesi","p2f1":"Temel'in tamamı","p2f2":"15 dk video görüşme","p2f3":"Öncelikli 24 saat","p2f4":"E-posta sorular","p2-btn":"Yükle & başla","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Tam ikinci görüş","p3-per":"/rapor","p3-desc":"Kapsamlı değerlendirme + uzun danışma + takip","p3f1":"Standart'ın tamamı","p3f2":"30 dk danışma","p3f3":"7 gün takip soruları","p3f4":"Önceki görüntülerle karşılaştırma","p3-btn":"Yükle & başla","s4-lbl":"Hakkımda","a-name":"Adalat Ganjali","a-role":"Radyoloji Asistanı · EvKB Bielefeld, Almanya","a-bio":"Almanya sağlık sisteminde radyoloji alanında çalışan bir asistan hekimim. Amacım: Alman tanı kalitesini ve sade dili sınır ve dil ötesine taşımak.","a-notice":"Bu hizmet, EvKB Bielefeld'deki görevimden tamamen bağımsız olup kişisel kapasitemde sunulmaktadır.","pq-text":"\"Bu hizmeti tek bir soruyu düşünerek tasarladım: kendi aile üyem için ne isterdim?\"","pq-cite":"— Adalat Ganjali · Radyoloji Asistanı · EvKB Bielefeld, Almanya","s6-lbl":"İletişim","s6-head":"Bize ulaşın","c2-type":"E-posta","c2-label":"info@radioloq.com","c2-btn":"E-posta gönder","c3-type":"Video görüşme","c3-label":"Ücretsiz tanışma","c3-btn":"15 dk rezervasyon","cta-head":"Doktor musunuz?","cta-sub":"Radyoloji eğitim kursları — ilk görüntüden Alman standartlarında sınav hazırlığına.","cta-btn":"Kurslara bak →","footer-txt":"© 2025 Radioloq · Eğitsel ikinci görüş hizmeti · Tıbbi tavsiye yerine geçmez · Almanya · info@radioloq.com"},
+en:{"h-badge":"Germany · Radiology · Second Opinion","h-title":"Your scan, explained by a <em>German-trained physician</em>","h-sub":"Upload your MRI or CT. Receive a clear, medically-informed second opinion — in your own language, within 48 hours.","h-cta1":"Get second opinion","h-cta2":"How it works","nl-how":"How it works","nl-price":"Pricing","nl-edu":"For doctors ↗","nl-about":"About me","nl-cta":"Get second opinion","t1":"Response time","t2":"Languages","t3":"German standard","t4":"Secure & private","s1-lbl":"Process","s1-head":"How it works","s1-sub":"Four simple steps from your scan to a clear explanation.","st1":"Upload your images","sd1":"Send your MRI or CT files along with the original report if available.","st2":"Review by a physician","sd2":"A German-trained radiology resident evaluates your images using European diagnostic standards.","st3":"Receive your explanation","sd3":"You receive a bilingual report: technical evaluation + plain-language explanation in your language.","st4":"Speak with your doctor","sd4":"Use our summary to have a more informed conversation with your treating physician.","s2-lbl":"Pricing","s2-head":"Simple, transparent pricing","s2-sub":"One-time payment per report. No subscriptions, no hidden fees.","p1-tier":"Basic","p1-name":"Written opinion","p1-per":"/report","p1-desc":"Written evaluation + plain-language summary","p1f1":"One scan reviewed","p1f2":"Written PDF report","p1f3":"48h turnaround","p1f4":"Explanation in your language","p1-btn":"Upload & get started","p2-badge":"Most popular","p2-tier":"Standard","p2-name":"Opinion + consultation","p2-per":"/report","p2-desc":"Full evaluation + 15-min video consultation","p2f1":"Everything in Basic","p2f2":"15-min video call","p2f3":"Priority 24h review","p2f4":"Q&A via email","p2-btn":"Upload & get started","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Full second opinion","p3-per":"/report","p3-desc":"Comprehensive evaluation + extended consultation + follow-up","p3f1":"Everything in Standard","p3f2":"30-min consultation","p3f3":"Follow-up Q&A (7 days)","p3f4":"Comparison with prior scans","p3-btn":"Upload & get started","s4-lbl":"About me","a-name":"Adalat Ganjali","a-role":"Radiology Resident · EvKB Bielefeld, Germany","a-bio":"I work as a radiology resident in Germany. I understand what it feels like to receive a report full of terminology that means nothing. My mission: bringing German diagnostic quality and plain-language clarity across borders and languages.","a-notice":"This service is entirely independent from my role at EvKB Bielefeld hospital and is offered in a personal capacity.","pq-text":"\"I designed this service around one question: what would I want for my own family member receiving a scan report they can\'t understand?\"","pq-cite":"— Adalat Ganjali · Radiology Resident · EvKB Bielefeld, Germany","s6-lbl":"Contact","s6-head":"Get in touch","c2-type":"Email","c2-label":"info@radioloq.com","c2-btn":"Send email","c3-type":"Video call","c3-label":"Book a free intro","c3-btn":"Book 15 min","cta-head":"Are you a physician?","cta-sub":"Structured radiology education courses — from reading your first scan to German-standard board preparation.","cta-btn":"View courses →","footer-txt":"© 2025 Radioloq · Educational second opinion service · Not a substitute for medical advice · Germany · info@radioloq.com"},
+tr:{"h-badge":"Almanya · Radyoloji · İkinci Görüş","h-title":"Görüntünüz, <em>Almanya'da çalışan bir hekim</em> tarafından açıklandı","h-sub":"MR veya BT görüntünüzü yükleyin. 48 saat içinde kendi dilinizde net bir ikinci görüş alın.","h-cta1":"İkinci görüş al","h-cta2":"Nasıl çalışır","nl-how":"Nasıl çalışır","nl-price":"Fiyatlar","nl-edu":"Doktorlar için ↗","nl-about":"Hakkımda","nl-cta":"İkinci görüş al","t1":"Yanıt süresi","t2":"Dil","t3":"Alman standardı","t4":"Güvenli & gizli","s1-lbl":"Süreç","s1-head":"Nasıl çalışır","s1-sub":"Görüntünüzden net açıklamaya dört basit adım.","st1":"Görüntülerinizi yükleyin","sd1":"MR veya BT dosyalarınızı orijinal raporunuzla birlikte gönderin.","st2":"Hekim tarafından inceleme","sd2":"Almanya'da görev yapan bir radyoloji asistanı görüntülerinizi Avrupa standartlarıyla değerlendirir.","st3":"Açıklamanızı alın","sd3":"İki dilli rapor alırsınız: teknik değerlendirme + kendi dilinizde sade açıklama.","st4":"Doktorunuzla konuşun","sd4":"Özetimizi tedavi eden doktorunuzla daha bilinçli görüşme için kullanın.","s2-lbl":"Fiyatlar","s2-head":"Basit, şeffaf fiyatlar","s2-sub":"Rapor başına tek seferlik ödeme. Abonelik yok.","p1-tier":"Temel","p1-name":"Yazılı görüş","p1-per":"/rapor","p1-desc":"Yazılı değerlendirme + dilinizde sade açıklama","p1f1":"Bir görüntü incelemesi","p1f2":"PDF rapor","p1f3":"48 saat teslimat","p1f4":"Kendi dilinizde açıklama","p1-btn":"Yükle & başla","p2-badge":"En popüler","p2-tier":"Standart","p2-name":"Görüş + danışma","p2-per":"/rapor","p2-desc":"Tam değerlendirme + 15 dk video görüşmesi","p2f1":"Temel'in tamamı","p2f2":"15 dk video görüşme","p2f3":"Öncelikli 24 saat","p2f4":"E-posta sorular","p2-btn":"Yükle & başla","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Tam ikinci görüş","p3-per":"/rapor","p3-desc":"Kapsamlı değerlendirme + uzun danışma + takip","p3f1":"Standart'ın tamamı","p3f2":"30 dk danışma","p3f3":"7 gün takip soruları","p3f4":"Önceki görüntülerle karşılaştırma","p3-btn":"Yükle & başla","s4-lbl":"Hakkımda","a-name":"Adalat Ganjali","a-role":"Radyoloji Asistanı · EvKB Bielefeld, Almanya","a-bio":"Almanya sağlık sisteminde radyoloji asistanı olarak çalışıyorum. Amacım: Alman tanı kalitesini ve sade dili sınır ve dil ötesine taşımak.","a-notice":"Bu hizmet, EvKB Bielefeld'deki görevimden tamamen bağımsız olup kişisel kapasitemde sunulmaktadır.","pq-text":"\"Bu hizmeti tek bir soruyu düşünerek tasarladım: kendi aile üyem için ne isterdim?\"","pq-cite":"— Adalat Ganjali · Radyoloji Asistanı · EvKB Bielefeld, Almanya","s6-lbl":"İletişim","s6-head":"Bize ulaşın","c2-type":"E-posta","c2-label":"info@radioloq.com","c2-btn":"E-posta gönder","c3-type":"Video görüşme","c3-label":"Ücretsiz tanışma","c3-btn":"15 dk rezervasyon","cta-head":"Doktor musunuz?","cta-sub":"Radyoloji eğitim kursları — ilk görüntüden Alman standartlarında sınav hazırlığına.","cta-btn":"Kurslara bak →","footer-txt":"© 2025 Radioloq · Eğitsel ikinci görüş hizmeti · Tıbbi tavsiye yerine geçmez · Almanya · info@radioloq.com"},
 az:{"h-badge":"Almaniya · Radiologiya · İkinci Rəy","h-title":"Görüntünüz, <em>Almaniyadakı bir həkim</em> tərəfindən izah edildi","h-sub":"MRT və ya KT görüntünüzü yükləyin. 48 saat ərzində öz dilinizdə aydın ikinci rəy alın.","h-cta1":"İkinci rəy al","h-cta2":"Necə işləyir","nl-how":"Necə işləyir","nl-price":"Qiymətlər","nl-edu":"Həkimlər üçün ↗","nl-about":"Haqqımda","nl-cta":"İkinci rəy al","t1":"Cavab müddəti","t2":"Dil","t3":"Alman standartı","t4":"Təhlükəsiz & məxfi","s1-lbl":"Proses","s1-head":"Necə işləyir","s1-sub":"Görüntünüzdən aydın izahata dörd sadə addım.","st1":"Görüntülərinizi yükləyin","sd1":"MRT və ya KT fayllarınızı orijinal hesabatla birlikdə göndərin.","st2":"Həkim tərəfindən baxış","sd2":"Almaniyadakı radiologiya rezidenti Avropa diaqnostika standartlarından istifadə edərək görüntülərinizi qiymətləndirir.","st3":"İzahatınızı alın","sd3":"İki dilli hesabat alırsınız: texniki qiymətləndirmə + öz dilinizdə sadə izahat.","st4":"Həkiminizlə danışın","sd4":"Xülasəmizdən müalicə həkiminizlə daha məlumatlı söhbət üçün istifadə edin.","s2-lbl":"Qiymət","s2-head":"Sadə, şəffaf qiymətlər","s2-sub":"Hesabat başına birdəfəlik ödəniş. Abunə yoxdur.","p1-tier":"Əsas","p1-name":"Yazılı rəy","p1-per":"/hesabat","p1-desc":"Yazılı qiymətləndirmə + dilinizdə sadə izahat","p1f1":"Bir görüntü baxışı","p1f2":"PDF hesabat","p1f3":"48 saat çatdırılma","p1f4":"Öz dilinizdə izahat","p1-btn":"Yüklə & başla","p2-badge":"Ən populyar","p2-tier":"Standart","p2-name":"Rəy + məsləhət","p2-per":"/hesabat","p2-desc":"Tam qiymətləndirmə + 15 dəq video məsləhət","p2f1":"Əsasın hamısı","p2f2":"15 dəq video görüş","p2f3":"Prioritet 24 saat","p2f4":"E-poçt sualları","p2-btn":"Yüklə & başla","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Tam ikinci rəy","p3-per":"/hesabat","p3-desc":"Hərtərəfli qiymətləndirmə + uzun məsləhət + izləmə","p3f1":"Standartın hamısı","p3f2":"30 dəq məsləhət","p3f3":"7 gün təqib sualları","p3f4":"Əvvəlki görüntülərlə müqayisə","p3-btn":"Yüklə & başla","s4-lbl":"Haqqımda","a-name":"Adalat Ganjali","a-role":"Radiologiya Rezidenti · EvKB Bielefeld, Almaniya","a-bio":"Almaniyanın səhiyyə sistemində radiologiya rezidenti kimi çalışıram. Məqsədim: Alman diaqnostika keyfiyyətini sərhəd və dil xaricindən əlçatan etmək.","a-notice":"Bu xidmət EvKB Bielefeld xəstəxanasındakı rolumdan tamamilə müstəqildir və şəxsi imkanlarım çərçivəsində təqdim edilir.","pq-text":"\"Bu xidməti bir sual əsasında qurdum: öz ailə üzvüm üçün nə istərdim?\"","pq-cite":"— Adalat Ganjali · Radiologiya Rezidenti · EvKB Bielefeld, Almaniya","s6-lbl":"Əlaqə","s6-head":"Bizimlə əlaqə","c2-type":"E-poçt","c2-label":"info@radioloq.com","c2-btn":"E-poçt göndər","c3-type":"Video görüş","c3-label":"Pulsuz tanışlıq","c3-btn":"15 dəq. rezervasiya","cta-head":"Həkimsiniz?","cta-sub":"Strukturlaşdırılmış radiologiya kursları — ilk skanı oxumaqdan Alman standartlı hazırlığa qədər.","cta-btn":"Kurslara bax →","footer-txt":"© 2025 Radioloq · Təhsil məqsədli ikinci rəy xidməti · Tibbi məsləhətin əvəzi deyil · Almaniya · info@radioloq.com"},
-de:{"h-badge":"Deutschland · Radiologie · Zweitmeinung","h-title":"Ihre Aufnahme, erklärt von einem <em>in Deutschland tätigen Arzt</em>","h-sub":"Laden Sie Ihr MRT oder CT hoch. Erhalten Sie innerhalb von 48 Stunden eine klare Zweitmeinung — in Ihrer Sprache.","h-cta1":"Zweitmeinung anfragen","h-cta2":"So funktioniert es","nl-how":"So funktioniert es","nl-price":"Preise","nl-edu":"Für Ärzte ↗","nl-about":"Über mich","nl-cta":"Zweitmeinung anfragen","t1":"Antwortzeit","t2":"Sprachen","t3":"Deutscher Standard","t4":"Sicher & vertraulich","s1-lbl":"Ablauf","s1-head":"So funktioniert es","s1-sub":"Vier einfache Schritte von Ihrer Aufnahme zur klaren Erklärung.","st1":"Bilder hochladen","sd1":"Senden Sie Ihre MRT- oder CT-Dateien zusammen mit dem Originalbefund.","st2":"Ärztliche Beurteilung","sd2":"Ein Assistenzarzt der Radiologie in Deutschland bewertet Ihre Bilder nach europäischen Diagnosestandards.","st3":"Erklärung erhalten","sd3":"Sie erhalten einen zweisprachigen Bericht: technische Auswertung + verständliche Erklärung.","st4":"Mit Ihrem Arzt sprechen","sd4":"Nutzen Sie unsere Zusammenfassung für ein informierteres Gespräch.","s2-lbl":"Preise","s2-head":"Einfache, transparente Preise","s2-sub":"Einmalige Zahlung pro Bericht. Keine Abonnements.","p1-tier":"Basis","p1-name":"Schriftliche Meinung","p1-per":"/Bericht","p1-desc":"Schriftliche Auswertung + verständliche Zusammenfassung","p1f1":"Eine Aufnahme","p1f2":"PDF-Bericht","p1f3":"48h Bearbeitung","p1f4":"Erklärung in Ihrer Sprache","p1-btn":"Hochladen & starten","p2-badge":"Beliebteste Wahl","p2-tier":"Standard","p2-name":"Meinung + Beratung","p2-per":"/Bericht","p2-desc":"Vollständige Auswertung + 15-Min-Videogespräch","p2f1":"Alles aus Basis","p2f2":"15 Min. Videogespräch","p2f3":"Priorität 24h","p2f4":"Fragen per E-Mail","p2-btn":"Hochladen & starten","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Vollständige Zweitmeinung","p3-per":"/Bericht","p3-desc":"Umfassende Auswertung + Beratung + Nachbetreuung","p3f1":"Alles aus Standard","p3f2":"30 Min. Beratung","p3f3":"7 Tage Nachfragen","p3f4":"Vergleich mit Voraufnahmen","p3-btn":"Hochladen & starten","s4-lbl":"Über mich","a-name":"Adalat Ganjali","a-role":"Assistenzarzt Radiologie · EvKB Bielefeld","a-bio":"Ich bin Assistenzarzt in der Radiologie im deutschen Gesundheitssystem. Mein Ziel: hochwertige Befundung grenzübergreifend zugänglich machen.","a-notice":"Dieses Angebot ist vollständig unabhängig von meiner Tätigkeit am EvKB Bielefeld und wird in persönlicher Eigenschaft erbracht.","pq-text":"\"Ich habe diesen Dienst um eine Frage herum entwickelt: Was würde ich mir für mein eigenes Familienmitglied wünschen?\"","pq-cite":"— Adalat Ganjali · Assistenzarzt Radiologie · EvKB Bielefeld","s6-lbl":"Kontakt","s6-head":"Kontakt aufnehmen","c2-type":"E-Mail","c2-label":"info@radioloq.com","c2-btn":"E-Mail senden","c3-type":"Videogespräch","c3-label":"Kostenloses Kennenlernen","c3-btn":"15 Min. buchen","cta-head":"Sind Sie Arzt?","cta-sub":"Strukturierte Radiologie-Kurse — vom ersten Scan bis zur Facharztprüfungsvorbereitung.","cta-btn":"Kurse ansehen →","footer-txt":"© 2025 Radioloq · Zweitmeinungsservice · Kein Ersatz für ärztliche Beratung · Deutschland · info@radioloq.com"},
-ru:{"h-badge":"Германия · Радиология · Второе мнение","h-title":"Ваш снимок, объяснённый <em>врачом из Германии</em>","h-sub":"Загрузите МРТ или КТ. Получите чёткое второе мнение на вашем языке в течение 48 часов.","h-cta1":"Получить второе мнение","h-cta2":"Как это работает","nl-how":"Как работает","nl-price":"Цены","nl-edu":"Для врачей ↗","nl-about":"Обо мне","nl-cta":"Получить второе мнение","t1":"Время ответа","t2":"Языки","t3":"Немецкий стандарт","t4":"Безопасно & конфиденциально","s1-lbl":"Процесс","s1-head":"Как это работает","s1-sub":"Четыре простых шага от снимка до понятного объяснения.","st1":"Загрузите снимки","sd1":"Отправьте файлы МРТ или КТ вместе с заключением.","st2":"Проверка врачом","sd2":"Ординатор радиологии из Германии оценивает ваши снимки по европейским стандартам.","st3":"Получите объяснение","sd3":"Вы получаете двуязычный отчёт: техническую оценку + понятное объяснение.","st4":"Поговорите с врачом","sd4":"Используйте наше резюме для информированной беседы с лечащим врачом.","s2-lbl":"Цены","s2-head":"Простые, прозрачные цены","s2-sub":"Разовая оплата за отчёт. Без подписок.","p1-tier":"Базовый","p1-name":"Письменное мнение","p1-per":"/отчёт","p1-desc":"Письменная оценка + понятное резюме на вашем языке","p1f1":"Один снимок","p1f2":"PDF-отчёт","p1f3":"48 ч. обработки","p1f4":"Объяснение на вашем языке","p1-btn":"Загрузить & начать","p2-badge":"Самый популярный","p2-tier":"Стандарт","p2-name":"Мнение + консультация","p2-per":"/отчёт","p2-desc":"Полная оценка + 15-минутная видеоконсультация","p2f1":"Всё из Базового","p2f2":"Видеозвонок 15 мин.","p2f3":"Приоритет 24 ч.","p2f4":"Вопросы по эл. почте","p2-btn":"Загрузить & начать","p3-badge":"Премиум","p3-tier":"Премиум","p3-name":"Полное второе мнение","p3-per":"/отчёт","p3-desc":"Полная оценка + расширенная консультация + поддержка","p3f1":"Всё из Стандарта","p3f2":"Консультация 30 мин.","p3f3":"Вопросы 7 дней","p3f4":"Сравнение с предыдущими снимками","p3-btn":"Загрузить & начать","s4-lbl":"Обо мне","a-name":"Адалат Ганджали","a-role":"Ординатор радиологии · EvKB Bielefeld, Германия","a-bio":"Я работаю ординатором радиологии в Германии. Моя цель: сделать качественную интерпретацию доступной независимо от границ и языков.","a-notice":"Данная услуга полностью независима от моей должности в EvKB Bielefeld и предоставляется в личном качестве.","pq-text":"\"Я создал этот сервис вокруг одного вопроса: чего бы я хотел для собственного члена семьи?\"","pq-cite":"— Адалат Ганджали · Ординатор радиологии · EvKB Bielefeld, Германия","s6-lbl":"Контакт","s6-head":"Связаться с нами","c2-type":"Эл. почта","c2-label":"info@radioloq.com","c2-btn":"Написать письмо","c3-type":"Видеозвонок","c3-label":"Бесплатное знакомство","c3-btn":"Забронировать 15 мин.","cta-head":"Вы врач?","cta-sub":"Структурированные курсы радиологии — от первого снимка до подготовки по немецким стандартам.","cta-btn":"Смотреть курсы →","footer-txt":"© 2025 Radioloq · Образовательный сервис · Не заменяет медицинскую консультацию · Германия · info@radioloq.com"}
+de:{"h-badge":"Deutschland · Radiologie · Zweitmeinung","h-title":"Ihre Aufnahme, erklärt von einem <em>in Deutschland tätigen Arzt</em>","h-sub":"Laden Sie Ihr MRT oder CT hoch. Erhalten Sie innerhalb von 48 Stunden eine klare Zweitmeinung — in Ihrer Sprache.","h-cta1":"Zweitmeinung anfragen","h-cta2":"So funktioniert es","nl-how":"So funktioniert es","nl-price":"Preise","nl-edu":"Für Ärzte ↗","nl-about":"Über mich","nl-cta":"Zweitmeinung anfragen","t1":"Antwortzeit","t2":"Sprachen","t3":"Deutscher Standard","t4":"Sicher & vertraulich","s1-lbl":"Ablauf","s1-head":"So funktioniert es","s1-sub":"Vier einfache Schritte von Ihrer Aufnahme zur klaren Erklärung.","st1":"Bilder hochladen","sd1":"Senden Sie Ihre MRT- oder CT-Dateien zusammen mit dem Originalbefund.","st2":"Ärztliche Beurteilung","sd2":"Ein Assistenzarzt der Radiologie bewertet Ihre Bilder nach europäischen Diagnosestandards.","st3":"Erklärung erhalten","sd3":"Sie erhalten einen zweisprachigen Bericht: technische Auswertung + verständliche Erklärung.","st4":"Mit Ihrem Arzt sprechen","sd4":"Nutzen Sie unsere Zusammenfassung für ein informierteres Gespräch.","s2-lbl":"Preise","s2-head":"Einfache, transparente Preise","s2-sub":"Einmalige Zahlung pro Bericht. Keine Abonnements.","p1-tier":"Basis","p1-name":"Schriftliche Meinung","p1-per":"/Bericht","p1-desc":"Schriftliche Auswertung + verständliche Zusammenfassung","p1f1":"Eine Aufnahme","p1f2":"PDF-Bericht","p1f3":"48h Bearbeitung","p1f4":"Erklärung in Ihrer Sprache","p1-btn":"Hochladen & starten","p2-badge":"Beliebteste Wahl","p2-tier":"Standard","p2-name":"Meinung + Beratung","p2-per":"/Bericht","p2-desc":"Vollständige Auswertung + 15-Min-Videogespräch","p2f1":"Alles aus Basis","p2f2":"15 Min. Videogespräch","p2f3":"Priorität 24h","p2f4":"Fragen per E-Mail","p2-btn":"Hochladen & starten","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Vollständige Zweitmeinung","p3-per":"/Bericht","p3-desc":"Umfassende Auswertung + Beratung + Nachbetreuung","p3f1":"Alles aus Standard","p3f2":"30 Min. Beratung","p3f3":"7 Tage Nachfragen","p3f4":"Vergleich mit Voraufnahmen","p3-btn":"Hochladen & starten","s4-lbl":"Über mich","a-name":"Adalat Ganjali","a-role":"Assistenzarzt Radiologie · EvKB Bielefeld","a-bio":"Ich bin Assistenzarzt in der Radiologie in Deutschland. Mein Ziel: hochwertige Befundung grenzübergreifend zugänglich machen.","a-notice":"Dieses Angebot ist vollständig unabhängig von meiner Tätigkeit am EvKB Bielefeld.","pq-text":"\"Ich habe diesen Dienst um eine Frage entwickelt: Was würde ich mir für mein eigenes Familienmitglied wünschen?\"","pq-cite":"— Adalat Ganjali · Assistenzarzt Radiologie · EvKB Bielefeld","s6-lbl":"Kontakt","s6-head":"Kontakt aufnehmen","c2-type":"E-Mail","c2-label":"info@radioloq.com","c2-btn":"E-Mail senden","c3-type":"Videogespräch","c3-label":"Kostenloses Kennenlernen","c3-btn":"15 Min. buchen","cta-head":"Sind Sie Arzt?","cta-sub":"Strukturierte Radiologie-Kurse — vom ersten Scan bis zur Facharztprüfungsvorbereitung.","cta-btn":"Kurse ansehen →","footer-txt":"© 2025 Radioloq · Zweitmeinungsservice · Kein Ersatz für ärztliche Beratung · Deutschland · info@radioloq.com"},
+ru:{"h-badge":"Германия · Радиология · Второе мнение","h-title":"Ваш снимок, объяснённый <em>врачом из Германии</em>","h-sub":"Загрузите МРТ или КТ. Получите чёткое второе мнение на вашем языке в течение 48 часов.","h-cta1":"Получить второе мнение","h-cta2":"Как это работает","nl-how":"Как работает","nl-price":"Цены","nl-edu":"Для врачей ↗","nl-about":"Обо мне","nl-cta":"Получить второе мнение","t1":"Время ответа","t2":"Языки","t3":"Немецкий стандарт","t4":"Безопасно & конфиденциально","s1-lbl":"Процесс","s1-head":"Как это работает","s1-sub":"Четыре простых шага от снимка до понятного объяснения.","st1":"Загрузите снимки","sd1":"Отправьте файлы МРТ или КТ вместе с заключением.","st2":"Проверка врачом","sd2":"Ординатор радиологии из Германии оценивает снимки по европейским стандартам.","st3":"Получите объяснение","sd3":"Вы получаете двуязычный отчёт: техническую оценку + понятное объяснение.","st4":"Поговорите с врачом","sd4":"Используйте наше резюме для информированной беседы с лечащим врачом.","s2-lbl":"Цены","s2-head":"Простые, прозрачные цены","s2-sub":"Разовая оплата за отчёт. Без подписок.","p1-tier":"Базовый","p1-name":"Письменное мнение","p1-per":"/отчёт","p1-desc":"Письменная оценка + понятное резюме","p1f1":"Один снимок","p1f2":"PDF-отчёт","p1f3":"48 ч. обработки","p1f4":"Объяснение на вашем языке","p1-btn":"Загрузить & начать","p2-badge":"Самый популярный","p2-tier":"Стандарт","p2-name":"Мнение + консультация","p2-per":"/отчёт","p2-desc":"Полная оценка + 15-минутная видеоконсультация","p2f1":"Всё из Базового","p2f2":"Видеозвонок 15 мин.","p2f3":"Приоритет 24 ч.","p2f4":"Вопросы по эл. почте","p2-btn":"Загрузить & начать","p3-badge":"Премиум","p3-tier":"Премиум","p3-name":"Полное второе мнение","p3-per":"/отчёт","p3-desc":"Полная оценка + расширенная консультация + поддержка","p3f1":"Всё из Стандарта","p3f2":"Консультация 30 мин.","p3f3":"Вопросы 7 дней","p3f4":"Сравнение с предыдущими снимками","p3-btn":"Загрузить & начать","s4-lbl":"Обо мне","a-name":"Адалат Ганджали","a-role":"Ординатор радиологии · EvKB Bielefeld, Германия","a-bio":"Я работаю ординатором радиологии в Германии. Моя цель: сделать качественную интерпретацию доступной независимо от границ и языков.","a-notice":"Данная услуга полностью независима от моей должности в EvKB Bielefeld.","pq-text":"\"Я создал этот сервис вокруг одного вопроса: чего бы я хотел для собственного члена семьи?\"","pq-cite":"— Адалат Ганджали · Ординатор радиологии · EvKB Bielefeld, Германия","s6-lbl":"Контакт","s6-head":"Связаться с нами","c2-type":"Эл. почта","c2-label":"info@radioloq.com","c2-btn":"Написать письмо","c3-type":"Видеозвонок","c3-label":"Бесплатное знакомство","c3-btn":"Забронировать 15 мин.","cta-head":"Вы врач?","cta-sub":"Структурированные курсы радиологии — от первого снимка до подготовки по немецким стандартам.","cta-btn":"Смотреть курсы →","footer-txt":"© 2025 Radioloq · Образовательный сервис · Не заменяет медицинскую консультацию · Германия · info@radioloq.com"}
 };
 
 function setLang(l,btn){
+  currentLang=l;
   document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   const c=L[l];
@@ -672,6 +785,7 @@ function setLang(l,btn){
     if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=val;continue;}
     el.textContent=val;
   }
+  if(document.getElementById('modal').classList.contains('open'))applyModalLang(l);
 }
 </script>
 </body>
