@@ -6,194 +6,260 @@
 <title>Radioloq — German Radiology Second Opinion</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --black:#080808;--navy:#0a1628;--navy2:#0f2040;
-  --teal:#1db87f;--teal2:#5dcaa5;--teal3:#e1f5ee;
-  --off:#f8f7f4;--light:#f2f1ed;
-  --text:#111110;--muted:#6b6b67;--faint:#9a9a96;
-  --border:rgba(0,0,0,0.09);--borderl:rgba(255,255,255,0.1);
+  --cream:#F5F0E8;--cream2:#EDE8DC;--cream3:#E4DDD0;--parchment:#FAF8F3;
+  --burgundy:#7B2D3A;--burgundy2:#9B3A4A;--burgundy3:#F5E8EB;
+  --navy:#0C1E3C;--navy2:#081426;--navy3:#142848;--navy-light:#E8EDF5;
+  --ink:#1A1208;--ink2:#3D3320;--muted:#7A7060;--faint:#A89E8C;
+  --gold:#C9A84C;--gold2:#E8C97A;
+  --border:rgba(26,18,8,.09);--border2:rgba(26,18,8,.15);
+  --borderl:rgba(255,255,255,.08);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Outfit',sans-serif;font-size:15px;line-height:1.7;color:var(--text);background:var(--black);overflow-x:hidden}
+body{font-family:'Outfit',sans-serif;font-size:15px;line-height:1.7;color:var(--ink);background:var(--navy2);overflow-x:hidden}
 
-.reveal{opacity:0;transform:translateY(44px);transition:opacity .85s cubic-bezier(.25,.46,.45,.94),transform .85s cubic-bezier(.25,.46,.45,.94)}
-.reveal.fl{transform:translateX(-52px)}
-.reveal.fr{transform:translateX(52px)}
-.reveal.fz{transform:scale(.91);opacity:0}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(48px);transition:opacity .9s cubic-bezier(.22,.61,.36,1),transform .9s cubic-bezier(.22,.61,.36,1)}
+.reveal.fl{transform:translateX(-54px)}.reveal.fr{transform:translateX(54px)}.reveal.fz{transform:scale(.93);opacity:0}
 .reveal.on{opacity:1;transform:none}
-.d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}.d4{transition-delay:.48s}
+.d1{transition-delay:.11s}.d2{transition-delay:.22s}.d3{transition-delay:.33s}.d4{transition-delay:.44s}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:0 40px;height:58px;display:flex;align-items:center;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
-nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(20px);border-color:var(--borderl)}
-.logo{font-family:'Playfair Display',serif;font-size:21px;color:#fff;text-decoration:none;margin-right:auto;letter-spacing:-.3px}
-.logo em{color:var(--teal2);font-style:italic}
-.nlinks{display:flex;gap:2px;margin-right:18px}
-.nlinks a{color:rgba(255,255,255,.58);text-decoration:none;font-size:13px;padding:7px 13px;border-radius:20px;transition:all .2s}
-.nlinks a:hover{color:#fff;background:rgba(255,255,255,.08)}
-.ncta{background:var(--teal);color:#fff;border:none;padding:9px 20px;border-radius:20px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;transition:all .2s}
-.ncta:hover{background:#17a370;transform:scale(1.03)}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;height:60px;display:flex;align-items:center;padding:0 48px;transition:all .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(8,14,26,.96);backdrop-filter:blur(20px);border-color:var(--borderl)}
+.logo{font-family:'Playfair Display',serif;font-size:21px;color:#fff;text-decoration:none;margin-right:auto;letter-spacing:-.2px}
+.logo em{color:var(--gold2);font-style:italic}
+.nlinks{display:flex;gap:2px;margin-right:16px}
+.nlinks a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;padding:6px 13px;border-radius:3px;transition:all .2s}
+.nlinks a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.ncta{background:var(--burgundy);color:#fff;border:none;padding:9px 20px;border-radius:3px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;transition:all .2s;letter-spacing:.2px}
+.ncta:hover{background:var(--burgundy2)}
 .lbar{display:flex;gap:5px;margin-right:14px}
-.lb{font-size:11px;font-weight:500;padding:5px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:transparent;cursor:pointer;color:rgba(255,255,255,.5);font-family:'Outfit',sans-serif;transition:all .18s}
-.lb.on{background:var(--teal);color:#fff;border-color:var(--teal)}
-.lb:hover:not(.on){background:rgba(255,255,255,.08);color:#fff}
+.lb{font-size:11px;font-weight:500;padding:5px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.15);background:transparent;cursor:pointer;color:rgba(255,255,255,.45);font-family:'Outfit',sans-serif;transition:all .18s}
+.lb.on{background:var(--burgundy);color:#fff;border-color:var(--burgundy)}
+.lb:hover:not(.on){background:rgba(255,255,255,.07);color:#fff}
 
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 80px;position:relative;overflow:hidden}
-.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 50% 28%,rgba(29,184,127,.13) 0%,transparent 65%);pointer-events:none}
-.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:56px 56px;pointer-events:none}
-.hi{max-width:760px;position:relative;z-index:1}
-.hbadge{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:7px 18px;border:1px solid rgba(93,202,165,.32);border-radius:30px;color:var(--teal2);margin-bottom:30px}
-.hdot{width:7px;height:7px;border-radius:50%;background:var(--teal2);animation:blink 2s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(34px,6vw,68px);line-height:1.1;color:#fff;margin-bottom:22px;letter-spacing:-1px}
-.hero h1 em{color:var(--teal2);font-style:italic}
-.hsub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,.58);max-width:540px;margin:0 auto 42px;line-height:1.8;font-weight:300}
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--navy2);display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 32px 80px;position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 50% 25%,rgba(123,45,58,.22) 0%,transparent 62%);pointer-events:none}
+.hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);background-size:100% 88px,380px 100%;pointer-events:none}
+.hscan{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.1),rgba(201,168,76,.2),rgba(201,168,76,.1),transparent);animation:scan 14s linear infinite}
+@keyframes scan{0%{top:0}100%{top:100%}}
+.hcorner{position:absolute;width:44px;height:44px}
+.hcorner::before,.hcorner::after{content:'';position:absolute;background:rgba(201,168,76,.28)}
+.hcorner::before{width:1px;height:100%}.hcorner::after{width:100%;height:1px}
+.htl{top:28px;left:28px}.htl::before{top:0;left:0}.htl::after{top:0;left:0}
+.htr{top:28px;right:28px}.htr::before{top:0;right:0}.htr::after{top:0;right:0}
+.hbl{bottom:28px;left:28px}.hbl::before{bottom:0;left:0}.hbl::after{bottom:0;left:0}
+.hbr{bottom:28px;right:28px}.hbr::before{bottom:0;right:0}.hbr::after{bottom:0;right:0}
+.hi{max-width:740px;position:relative;z-index:1}
+.heyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold2);margin-bottom:30px}
+.hedot{width:5px;height:5px;border-radius:50%;background:var(--gold2);animation:glow 2.5s ease-in-out infinite;box-shadow:0 0 8px var(--gold)}
+@keyframes glow{0%,100%{opacity:1;box-shadow:0 0 7px var(--gold)}50%{opacity:.35;box-shadow:none}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,70px);line-height:1.08;color:#fff;margin-bottom:22px;letter-spacing:-1.2px;font-weight:500}
+.hero h1 em{color:var(--gold2);font-style:italic}
+.hsub{font-size:clamp(15px,1.8vw,18px);color:rgba(255,255,255,.5);max-width:540px;margin:0 auto 42px;line-height:1.85;font-weight:300}
 .hbtns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-p{background:var(--teal);color:#fff;border:none;padding:14px 32px;border-radius:30px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .25s}
-.btn-p:hover{background:#17a370;transform:translateY(-2px);box-shadow:0 12px 30px rgba(29,184,127,.32)}
-.btn-g{background:transparent;color:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.24);padding:14px 32px;border-radius:30px;font-size:15px;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .25s}
-.btn-g:hover{background:rgba(255,255,255,.08)}
-.sarrow{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:rgba(255,255,255,.28);font-size:10px;letter-spacing:2px;text-transform:uppercase}
-.sa{width:18px;height:18px;border-right:1px solid rgba(255,255,255,.28);border-bottom:1px solid rgba(255,255,255,.28);transform:rotate(45deg);animation:bob 2s ease-in-out infinite}
-@keyframes bob{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+.btn-burg{background:var(--burgundy);color:#fff;border:none;padding:14px 34px;border-radius:3px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .25s;letter-spacing:.2px}
+.btn-burg:hover{background:var(--burgundy2);transform:translateY(-2px)}
+.btn-out{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.2);padding:14px 34px;border-radius:3px;font-size:15px;cursor:pointer;font-family:'Outfit',sans-serif;text-decoration:none;display:inline-block;transition:all .25s}
+.btn-out:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.35)}
+.scue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.22);font-size:10px;letter-spacing:2.5px;text-transform:uppercase}
+.scueline{width:1px;height:36px;background:linear-gradient(to bottom,rgba(255,255,255,.22),transparent);animation:grow 2s ease-in-out infinite}
+@keyframes grow{0%,100%{height:24px;opacity:.25}50%{height:44px;opacity:.65}}
 
-.trust{background:var(--navy);border-top:1px solid rgba(255,255,255,.06)}
-.ti{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
-.titem{padding:26px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
-.titem:last-child{border-right:none}
-.tnum{font-family:'Playfair Display',serif;font-size:30px;color:#fff;line-height:1}
-.tlbl{font-size:12px;color:rgba(255,255,255,.38);margin-top:5px}
+/* ── STAT BAR ── */
+.statbar{background:var(--navy3);border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.statbar-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:26px 18px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.stat:last-child{border-right:none}
+.stat-num{font-family:'Playfair Display',serif;font-size:30px;color:#fff;line-height:1;margin-bottom:5px}
+.stat-lbl{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.5px}
 
-.sec{padding:88px 24px}
-.sec.alt{background:#fff}
-.sec.off{background:var(--off)}
-.si{max-width:1000px;margin:0 auto}
-.slbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--teal);font-weight:500;margin-bottom:10px}
-.sh{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);margin-bottom:12px;letter-spacing:-.4px;line-height:1.2}
-.ss{font-size:15px;color:var(--muted);max-width:500px;margin-bottom:44px;line-height:1.75;font-weight:300}
+/* ── LIGHT SECTIONS ── */
+.sec{padding:96px 32px}
+.sec.cream{background:var(--cream)}
+.sec.parchment{background:var(--parchment)}
+.sec.cream2{background:var(--cream2)}
+.sec.navy{background:var(--navy);color:#fff}
+.si{max-width:1060px;margin:0 auto}
+.slbl{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--burgundy);font-weight:500;margin-bottom:12px}
+.slbl.light{color:var(--gold2)}
+.sh{font-family:'Playfair Display',serif;font-size:clamp(28px,3.8vw,44px);margin-bottom:14px;letter-spacing:-.4px;line-height:1.18;font-weight:500}
+.ss{font-size:15px;color:var(--muted);max-width:510px;margin-bottom:48px;line-height:1.8;font-weight:300}
+.ss.light{color:rgba(255,255,255,.5)}
 
-.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.scard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .3s;position:relative;overflow:hidden}
-.scard::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--teal2));transform:scaleX(0);transform-origin:left;transition:transform .4s}
-.scard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.09)}
+/* ── HOW IT WORKS ── */
+.sgrid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.scard{background:var(--parchment);padding:32px 28px;transition:background .25s;position:relative;overflow:hidden}
+.scard::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--burgundy),var(--burgundy2));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.scard:hover{background:#fff}
 .scard:hover::after{transform:scaleX(1)}
-.snum{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;margin-bottom:14px}
-.scard h4{font-size:16px;font-weight:500;margin-bottom:7px}
-.scard p{font-size:13px;color:var(--muted);line-height:1.7}
+.snum{width:38px;height:38px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;margin-bottom:16px}
+.scard h4{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-bottom:9px;letter-spacing:-.2px}
+.scard p{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300}
 
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.pcard{background:#fff;border:1px solid var(--border);border-radius:22px;padding:30px 22px;position:relative;transition:all .3s}
-.pcard:hover{transform:translateY(-5px);box-shadow:0 20px 48px rgba(0,0,0,.1)}
+/* ── PRICING ── */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border2)}
+.pcard{background:var(--parchment);padding:32px 26px;border-right:1px solid var(--border2);position:relative;transition:background .25s}
+.pcard:last-child{border-right:none}
+.pcard:hover{background:#fff}
 .pcard.feat{background:var(--navy);border-color:var(--navy)}
-.tbadge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:10px;padding:4px 14px;border-radius:20px;white-space:nowrap;font-weight:500;letter-spacing:.5px}
-.tbadge.t{background:var(--teal);color:#fff}
-.tbadge.p{background:#534ab7;color:#fff}
-.ptier{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--faint);margin-bottom:9px}
-.pname{font-size:17px;font-weight:500;margin-bottom:12px}
-.pamt{font-family:'Playfair Display',serif;font-size:38px;color:var(--navy);line-height:1;margin-bottom:4px}
-.pamt span{font-size:14px;font-family:'Outfit',sans-serif;color:var(--muted);font-weight:300}
-.pdesc{font-size:13px;color:var(--muted);margin:12px 0 16px;padding-bottom:16px;border-bottom:1px solid var(--border);line-height:1.6}
-.pfeats{list-style:none;margin-bottom:22px}
-.pfeats li{font-size:13px;color:var(--muted);padding:4px 0;display:flex;gap:8px;align-items:flex-start}
-.dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:6px}
-.dt{background:var(--teal)}.dp{background:#534ab7}.dg{background:#ccc}
-.pbtn{width:100%;padding:12px;border-radius:30px;font-size:14px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;border:none;transition:all .2s}
-.pbtn.nv{background:var(--navy);color:#fff}.pbtn.nv:hover{background:#1a3a5c}
-.pbtn.tl{background:var(--teal);color:#fff}.pbtn.tl:hover{background:#17a370}
-.pbtn.wh{background:#fff;color:var(--navy);border:2px solid rgba(255,255,255,.25)}.pbtn.wh:hover{background:rgba(255,255,255,.92)}
+.pcard.feat:hover{background:var(--navy3)}
+.pbadge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:9px;padding:4px 14px;white-space:nowrap;font-weight:500;letter-spacing:.8px;text-transform:uppercase}
+.pbadge.b{background:var(--burgundy);color:#fff}
+.pbadge.n{background:var(--navy);color:#fff}
+.ptier{font-size:10px;text-transform:uppercase;letter-spacing:1.8px;color:var(--faint);margin-bottom:8px}
+.pname{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;margin-bottom:14px;letter-spacing:-.2px}
+.pamt{font-family:'Playfair Display',serif;font-size:40px;color:var(--navy);line-height:1;margin-bottom:4px}
+.pamt span{font-size:13px;font-family:'Outfit',sans-serif;color:var(--muted);font-weight:300}
+.pdesc{font-size:13px;color:var(--muted);margin:12px 0 16px;padding-bottom:16px;border-bottom:1px solid var(--border);line-height:1.65}
+.pfeats{list-style:none;margin-bottom:24px}
+.pfeats li{font-size:13px;color:var(--muted);padding:5px 0;display:flex;gap:9px;align-items:flex-start;border-bottom:1px solid rgba(0,0,0,.04)}
+.pfeats li:last-child{border-bottom:none}
+.fdot{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:7px}
+.db{background:var(--burgundy)}.dn{background:var(--navy)}.dg{background:#C0B8A8}
+/* feat card overrides */
+.feat-txt .ptier,.feat-txt .pdesc,.feat-txt .pfeats li{color:rgba(255,255,255,.55)}
+.feat-txt .pname{color:#fff}.feat-txt .pamt{color:#fff}
+.feat-txt .pamt span{color:rgba(255,255,255,.4)}
+.feat-txt .pfeats li{border-bottom-color:rgba(255,255,255,.07)}
+.pbtn{width:100%;padding:13px;font-size:13px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;border:none;transition:all .2s;letter-spacing:.3px;text-transform:uppercase;border-radius:2px}
+.pbtn.burg{background:var(--burgundy);color:#fff}.pbtn.burg:hover{background:var(--burgundy2)}
+.pbtn.nv{background:var(--navy);color:#fff}.pbtn.nv:hover{background:var(--navy3)}
+.pbtn.wh{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.18)}.pbtn.wh:hover{background:rgba(255,255,255,.2)}
 .pbtn.pp{background:#534ab7;color:#fff}.pbtn.pp:hover{background:#3d3589}
 
-.feat-white .pamt{color:#fff}
-.feat-white .ptier,.feat-white .pdesc,.feat-white .pfeats li{color:rgba(255,255,255,.6)}
-.feat-white .pname{color:#fff}
-
-.brow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.bcard{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .3s;cursor:pointer;text-decoration:none;color:inherit;display:block}
-.bcard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+/* ── BLOG ── */
+.brow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border2)}
+.bcard{background:var(--parchment);border-right:1px solid var(--border2);overflow:hidden;transition:background .25s;cursor:pointer}
+.bcard:last-child{border-right:none}
+.bcard:hover{background:#fff}
 .bthumb{height:130px;display:flex;align-items:center;justify-content:center;font-size:44px}
-.bg-bl{background:#e6f1fb}.bg-tl{background:var(--teal3)}.bg-am{background:#faeeda}
-.bbody{padding:18px 20px}
-.bcat{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--teal);font-weight:500;margin-bottom:7px}
-.btitle{font-size:15px;font-weight:500;line-height:1.35;margin-bottom:7px}
-.bexc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:12px}
-.blink{font-size:12px;color:var(--teal);font-weight:500}
+.bg-bl{background:#E6F1FB}.bg-tl{background:var(--burgundy3)}.bg-am{background:#FAEEDA}
+.bbody{padding:20px 22px}
+.bcat{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--burgundy);font-weight:500;margin-bottom:8px}
+.btitle{font-family:'Playfair Display',serif;font-size:16px;font-weight:500;line-height:1.3;margin-bottom:8px;letter-spacing:-.1px}
+.bexc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px;font-weight:300}
+.blink{font-size:12px;color:var(--burgundy);font-weight:500;text-decoration:none}
 
-.awrap{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:center}
-.avis{background:var(--navy);border-radius:22px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:76px;color:var(--teal2)}
-.aname{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:5px}
-.arole{font-size:13px;color:var(--teal);font-weight:500;margin-bottom:18px}
-.abio{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:22px;font-weight:300}
+/* ── ABOUT ── */
+.awrap{display:grid;grid-template-columns:280px 1fr;gap:56px;align-items:center}
+.avis-photo{width:280px;height:280px;flex-shrink:0;overflow:hidden;max-width:280px;border:1px solid var(--border2)}
+.aname{font-family:'Playfair Display',serif;font-size:32px;margin-bottom:5px;letter-spacing:-.3px}
+.arole{font-size:13px;color:var(--burgundy);font-weight:500;margin-bottom:20px;letter-spacing:.2px}
+.abio{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:16px;font-weight:300}
+.anotice{font-size:12px;color:var(--faint);line-height:1.7;margin-bottom:20px;padding:12px 16px;border-left:2px solid var(--border2);background:var(--cream2);font-style:italic}
 .tags{display:flex;gap:7px;flex-wrap:wrap}
-.tag{font-size:11px;padding:5px 12px;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:var(--off)}
+.tag{font-size:11px;padding:5px 12px;border:1px solid var(--border2);color:var(--muted);background:var(--cream2)}
 
-.disc{border-left:3px solid #e24b4a;background:#fcebeb;border-radius:0 8px 8px 0;padding:14px 18px;margin-bottom:26px}
-.dtitle{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#a32d2d;font-weight:500;margin-bottom:5px}
-.dtext{font-size:13px;color:#791f1f;line-height:1.65}
+/* ── PULL QUOTE ── */
+.pq{border-left:3px solid var(--burgundy);padding:22px 30px;background:var(--cream2)}
+.pq p{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--ink);line-height:1.6;letter-spacing:-.2px}
+.pq cite{display:block;margin-top:10px;font-size:11px;color:var(--muted);font-family:'Outfit',sans-serif;letter-spacing:.8px;text-transform:uppercase}
 
-.ubox{background:#fff;border:1px solid var(--border);border-radius:22px;padding:38px;box-shadow:0 4px 24px rgba(0,0,0,.05)}
-.uzone{border:2px dashed rgba(0,0,0,.13);border-radius:14px;padding:44px 24px;text-align:center;background:var(--off);cursor:pointer;transition:all .25s;margin-bottom:22px}
-.uzone:hover{border-color:var(--teal);background:var(--teal3)}
-.uzone p{font-size:14px;color:var(--muted)}
-.uzone strong{color:var(--teal)}
-.uzone small{display:block;margin-top:7px;font-size:11px;color:var(--faint)}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}
-input[type=text],input[type=email],select,textarea{width:100%;padding:13px 15px;font-size:14px;border:1px solid rgba(0,0,0,.11);border-radius:10px;background:#fff;color:var(--text);font-family:'Outfit',sans-serif;transition:border-color .2s;outline:none;-webkit-appearance:none}
-input:focus,select:focus,textarea:focus{border-color:var(--teal)}
-textarea{min-height:90px;resize:vertical;margin-bottom:13px}
-.fnote{font-size:11px;color:var(--faint);margin-bottom:16px;line-height:1.6}
-.sbtn{width:100%;padding:15px;background:var(--navy);color:#fff;border:none;border-radius:30px;font-size:16px;font-weight:500;cursor:pointer;font-family:'Playfair Display',serif;transition:all .25s}
-.sbtn:hover{background:#1a3a5c;transform:translateY(-1px);box-shadow:0 8px 24px rgba(10,22,40,.22)}
+/* ── UPLOAD MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(8,14,26,.85);z-index:1000;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(6px)}
+.modal-overlay.open{display:flex}
+.modal{background:var(--cream);max-width:560px;width:100%;max-height:92vh;overflow-y:auto;position:relative;animation:mup .35s cubic-bezier(.22,.61,.36,1)}
+@keyframes mup{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);line-height:1;z-index:2}
+.modal-close:hover{color:var(--ink)}
+.modal-head{padding:28px 32px 0}
+.modal-head h3{font-family:'Playfair Display',serif;font-size:22px;margin-bottom:4px;letter-spacing:-.2px}
+.modal-pkg{color:var(--burgundy);font-size:13px;font-weight:500;margin-top:4px}
+.modal-body{padding:20px 32px 32px}
+.disc{border-left:3px solid #E24B4A;background:#FCEBEB;padding:12px 16px;margin-bottom:20px}
+.disc-title{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:#A32D2D;font-weight:500;margin-bottom:4px}
+.disc-text{font-size:12px;color:#791F1F;line-height:1.65}
+/* Legal checks */
+.legal-checks{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.check-row{display:flex;gap:10px;align-items:flex-start;cursor:pointer;padding:12px 14px;border:1px solid var(--border2);background:var(--parchment);transition:background .2s}
+.check-row:hover{background:var(--cream2)}
+.check-row input[type=checkbox]{flex-shrink:0;margin-top:2px;width:15px;height:15px;accent-color:var(--burgundy);cursor:pointer}
+.check-row span{font-size:12px;color:var(--ink2);line-height:1.65}
+.check-row a{color:var(--burgundy);text-decoration:underline}
+.check-row.err{border-color:#E24B4A;background:#FCEBEB}
+.pay-err{font-size:12px;color:#A32D2D;margin-bottom:14px;padding:8px 12px;background:#FCEBEB;border-left:2px solid #E24B4A}
+/* Payment */
+.pay-section{margin-bottom:16px}
+.pay-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--faint);margin-bottom:12px;font-weight:500}
+.pay-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pay-btn{display:flex;align-items:center;justify-content:center;gap:10px;padding:13px 24px;border:none;cursor:pointer;font-size:13px;font-weight:500;font-family:'Outfit',sans-serif;transition:all .2s;border-radius:2px;flex:1;min-width:140px}
+.pay-btn.stripe{background:#635BFF;color:#fff}.pay-btn.stripe:hover{background:#4f46e5;transform:translateY(-1px)}
+.pay-or{font-size:11px;color:var(--faint);flex-shrink:0}
+#paypal-btn-container{flex:1;min-width:140px}
+.pay-secure{font-size:11px;color:var(--faint);text-align:center;margin-top:14px;letter-spacing:.3px}
+/* Upload zone */
+.uzone{border:2px dashed var(--border2);padding:36px 24px;text-align:center;background:var(--parchment);cursor:pointer;transition:all .25s;margin-bottom:18px}
+.uzone:hover{border-color:var(--burgundy);background:var(--burgundy3)}
+.uzone p{font-size:14px;color:var(--muted)}.uzone strong{color:var(--burgundy)}
+.uzone small{display:block;margin-top:6px;font-size:11px;color:var(--faint)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+input[type=text],input[type=email],select,textarea{width:100%;padding:12px 14px;font-size:14px;border:1px solid var(--border2);background:var(--parchment);color:var(--ink);font-family:'Outfit',sans-serif;outline:none;transition:border-color .2s;-webkit-appearance:none;border-radius:0}
+input:focus,select:focus,textarea:focus{border-color:var(--burgundy)}
+textarea{min-height:80px;resize:vertical;margin-bottom:12px}
+.fnote{font-size:11px;color:var(--faint);margin-bottom:14px;line-height:1.6}
+.sbtn{width:100%;padding:14px;background:var(--navy);color:#fff;border:none;font-size:14px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;transition:all .25s;letter-spacing:.4px;text-transform:uppercase;border-radius:0}
+.sbtn:hover{background:var(--navy3)}
+@media(max-width:480px){.modal-head{padding:20px 20px 0}.modal-body{padding:16px 20px 24px}.frow{grid-template-columns:1fr}.pay-row{flex-direction:column}}
 
-.crow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.ccard{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px 20px;text-align:center;transition:all .3s}
-.ccard:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
-.cicon{font-size:30px;margin-bottom:11px}
+/* ── CONTACT ── */
+.crow{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--border2)}
+.ccard{background:var(--parchment);padding:32px 28px;border-right:1px solid var(--border2);transition:background .25s}
+.ccard:last-child{border-right:none}
+.ccard:hover{background:#fff}
+.cicon{font-size:28px;margin-bottom:14px}
 .ctype{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--faint);margin-bottom:5px}
-.clabel{font-size:15px;font-weight:500;margin-bottom:15px}
-.cbtn{display:block;width:100%;padding:11px;border-radius:30px;font-size:13px;font-weight:500;cursor:pointer;border:none;font-family:'Outfit',sans-serif;text-decoration:none;text-align:center;transition:all .2s}
-.cbtn:hover{opacity:.85;transform:translateY(-1px)}
+.clabel{font-family:'Playfair Display',serif;font-size:18px;font-weight:500;margin-bottom:16px;letter-spacing:-.1px}
+.cbtn{display:block;width:100%;padding:12px;font-size:13px;font-weight:500;cursor:pointer;border:none;font-family:'Outfit',sans-serif;text-decoration:none;text-align:center;transition:all .2s;letter-spacing:.3px;text-transform:uppercase;border-radius:2px}
+.cbtn:hover{opacity:.85}
 .cbtn.nv{background:var(--navy);color:#fff}
-.cbtn.wa{background:#25d366;color:#fff}
-.cbtn.ol{background:transparent;border:1px solid var(--border);color:var(--text)}
+.cbtn.ol{background:transparent;border:1px solid var(--border2);color:var(--ink)}
+.cbtn.ol:hover{background:var(--cream3)}
 
-.ctabanner{background:var(--navy);padding:88px 24px;text-align:center;position:relative;overflow:hidden}
-.ctabanner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(29,184,127,.1) 0%,transparent 70%);pointer-events:none}
-.ctabanner h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,46px);color:#fff;margin-bottom:14px;letter-spacing:-.4px;position:relative}
-.ctabanner p{font-size:15px;color:rgba(255,255,255,.52);max-width:460px;margin:0 auto 34px;font-weight:300;position:relative}
+/* ── CTA BAND ── */
+.ctaband{background:var(--navy2);padding:88px 32px;text-align:center;position:relative;overflow:hidden}
+.ctaband::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 50%,rgba(123,45,58,.14) 0%,transparent 70%);pointer-events:none}
+.ctaband h2{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,46px);color:#fff;margin-bottom:14px;letter-spacing:-.4px;position:relative}
+.ctaband p{font-size:15px;color:rgba(255,255,255,.45);max-width:440px;margin:0 auto 34px;font-weight:300;position:relative}
 
-footer{background:var(--black);color:rgba(255,255,255,.32);padding:44px 24px;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+/* ── FOOTER ── */
+footer{background:var(--ink);color:rgba(255,255,255,.3);padding:48px 32px;text-align:center;border-top:1px solid rgba(255,255,255,.05)}
 .flogo{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:14px}
-.flogo em{color:var(--teal2);font-style:italic}
+.flogo em{color:var(--gold2);font-style:italic}
 .flinks{display:flex;gap:22px;justify-content:center;margin-bottom:18px;flex-wrap:wrap}
-.flinks a{color:rgba(255,255,255,.32);text-decoration:none;font-size:13px;transition:color .2s}
+.flinks a{color:rgba(255,255,255,.3);text-decoration:none;font-size:12px;transition:color .2s;letter-spacing:.3px}
 .flinks a:hover{color:rgba(255,255,255,.7)}
-footer p{font-size:11px;max-width:580px;margin:0 auto;line-height:1.8}
+footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
 
 @media(max-width:768px){
-  nav{padding:0 18px}
-  .nlinks{display:none}
+  nav{padding:0 18px}.nlinks{display:none}
   .sgrid,.pgrid,.brow,.crow{grid-template-columns:1fr}
-  .awrap{grid-template-columns:1fr}
-  .avis{display:none}
+  .scard,.pcard,.bcard,.ccard{border-right:none!important;border-bottom:1px solid var(--border2)}
+  .awrap{grid-template-columns:1fr}.avis-photo{display:none}
   .frow{grid-template-columns:1fr}
-  .ti{grid-template-columns:repeat(2,1fr)}
-  .titem:nth-child(2){border-right:none}
-  .titem:nth-child(3){border-top:1px solid rgba(255,255,255,.06)}
+  .statbar-inner{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(3){border-top:1px solid rgba(255,255,255,.06)}
+  .hcorner{display:none}
+  .modal-head{padding:24px 22px 0}.modal-body{padding:18px 22px 28px}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="nav">
   <a href="#" class="logo">Radio<em>loq</em></a>
   <div class="nlinks">
     <a href="#how" id="nl-how">How it works</a>
     <a href="#pricing" id="nl-price">Pricing</a>
-    <a href="courses.html" id="nl-edu">For doctors</a>
-    <a href="#blog" id="nl-blog">Learn</a>
-    <a href="#about" id="nl-about">About</a>
+    <a href="https://courses.radioloq.com" id="nl-edu">For doctors ↗</a>
+    <a href="#about" id="nl-about">About me</a>
   </div>
   <div class="lbar">
     <button class="lb on" onclick="setLang('en',this)">EN</button>
@@ -202,33 +268,38 @@ footer p{font-size:11px;max-width:580px;margin:0 auto;line-height:1.8}
     <button class="lb" onclick="setLang('de',this)">DE</button>
     <button class="lb" onclick="setLang('ru',this)">RU</button>
   </div>
-  <a href="#upload" class="ncta" id="nl-cta">Get second opinion</a>
+  <a href="#pricing" class="ncta" id="nl-cta">Get second opinion</a>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hbg"></div><div class="hgrid"></div>
+  <div class="hbg"></div><div class="hgrid"></div><div class="hscan"></div>
+  <div class="hcorner htl"></div><div class="hcorner htr"></div>
+  <div class="hcorner hbl"></div><div class="hcorner hbr"></div>
   <div class="hi">
-    <div class="hbadge reveal fz"><span class="hdot"></span><span id="h-badge">Germany · Radiology · Second Opinion</span></div>
+    <div class="heyebrow reveal fz"><span class="hedot"></span><span id="h-badge">Germany · Radiology · Second Opinion</span></div>
     <h1 class="reveal d1" id="h-title">Your scan, explained by a <em>German-trained physician</em></h1>
     <p class="hsub reveal d2" id="h-sub">Upload your MRI or CT. Receive a clear, medically-informed second opinion — in your own language, within 48 hours.</p>
     <div class="hbtns reveal d3">
-      <a href="#upload" class="btn-p" id="h-cta1">Upload your scan</a>
-      <a href="#how" class="btn-g" id="h-cta2">How it works</a>
+      <a href="#pricing" class="btn-burg" id="h-cta1">Get second opinion</a>
+      <a href="#how" class="btn-out" id="h-cta2">How it works</a>
     </div>
   </div>
-  <div class="sarrow"><div class="sa"></div><span>scroll</span></div>
+  <div class="scue"><div class="scueline"></div><span>scroll</span></div>
 </section>
 
-<div class="trust">
-  <div class="ti">
-    <div class="titem reveal"><div class="tnum">48h</div><div class="tlbl" id="t1">Response time</div></div>
-    <div class="titem reveal d1"><div class="tnum">5</div><div class="tlbl" id="t2">Languages</div></div>
-    <div class="titem reveal d2"><div class="tnum">DE</div><div class="tlbl" id="t3">German standard</div></div>
-    <div class="titem reveal d3"><div class="tnum">100%</div><div class="tlbl" id="t4">Secure & private</div></div>
+<!-- STAT BAR -->
+<div class="statbar">
+  <div class="statbar-inner">
+    <div class="stat reveal"><div class="stat-num">48h</div><div class="stat-lbl" id="t1">Response time</div></div>
+    <div class="stat reveal d1"><div class="stat-num">5</div><div class="stat-lbl" id="t2">Languages</div></div>
+    <div class="stat reveal d2"><div class="stat-num">DE</div><div class="stat-lbl" id="t3">German standard</div></div>
+    <div class="stat reveal d3"><div class="stat-num">100%</div><div class="stat-lbl" id="t4">Secure & private</div></div>
   </div>
 </div>
 
-<section class="sec off" id="how">
+<!-- HOW IT WORKS -->
+<section class="sec cream" id="how">
   <div class="si">
     <div class="slbl reveal" id="s1-lbl">Process</div>
     <div class="sh reveal d1" id="s1-head">How it works</div>
@@ -242,184 +313,363 @@ footer p{font-size:11px;max-width:580px;margin:0 auto;line-height:1.8}
   </div>
 </section>
 
-<section class="sec alt" id="pricing">
+<!-- PRICING -->
+<section class="sec parchment" id="pricing">
   <div class="si">
     <div class="slbl reveal" id="s2-lbl">Pricing</div>
     <div class="sh reveal d1" id="s2-head">Simple, transparent pricing</div>
     <div class="ss reveal d2" id="s2-sub">One-time payment per report. No subscriptions, no hidden fees.</div>
-    <div class="pgrid">
-      <div class="pcard reveal fl">
+    <div class="pgrid reveal d2">
+      <div class="pcard">
         <div class="ptier" id="p1-tier">Basic</div>
         <div class="pname" id="p1-name">Written opinion</div>
-        <div class="pamt">€49 <span id="p1-per">/report</span></div>
+        <div class="pamt">€29 <span id="p1-per">/report</span></div>
         <div class="pdesc" id="p1-desc">Written evaluation + plain-language summary in your language</div>
         <ul class="pfeats">
-          <li><span class="dot dg"></span><span id="p1f1">One scan reviewed</span></li>
-          <li><span class="dot dg"></span><span id="p1f2">Written PDF report</span></li>
-          <li><span class="dot dg"></span><span id="p1f3">48h turnaround</span></li>
-          <li><span class="dot dg"></span><span id="p1f4">Explanation in your language</span></li>
+          <li><span class="fdot dg"></span><span id="p1f1">One scan reviewed</span></li>
+          <li><span class="fdot dg"></span><span id="p1f2">Written PDF report</span></li>
+          <li><span class="fdot dg"></span><span id="p1f3">48h turnaround</span></li>
+          <li><span class="fdot dg"></span><span id="p1f4">Explanation in your language</span></li>
         </ul>
-        <button class="pbtn nv" onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})"><span id="p1-btn">Get started</span></button>
+        <button class="pbtn burg" onclick="openModal('Basic — €29')"><span id="p1-btn">Upload & get started</span></button>
       </div>
-      <div class="pcard feat feat-white reveal d1">
-        <div class="tbadge t" id="p2-badge">Most popular</div>
+      <div class="pcard feat feat-txt">
+        <div class="pbadge b" id="p2-badge">Most popular</div>
         <div class="ptier" id="p2-tier">Standard</div>
         <div class="pname" id="p2-name">Opinion + consultation</div>
-        <div class="pamt">€89 <span id="p2-per">/report</span></div>
+        <div class="pamt">€59 <span id="p2-per">/report</span></div>
         <div class="pdesc" id="p2-desc">Full evaluation + 15-min video consultation</div>
         <ul class="pfeats">
-          <li><span class="dot dt"></span><span id="p2f1">Everything in Basic</span></li>
-          <li><span class="dot dt"></span><span id="p2f2">15-min video call</span></li>
-          <li><span class="dot dt"></span><span id="p2f3">Priority 24h review</span></li>
-          <li><span class="dot dt"></span><span id="p2f4">Q&amp;A via WhatsApp</span></li>
+          <li><span class="fdot dn"></span><span id="p2f1">Everything in Basic</span></li>
+          <li><span class="fdot dn"></span><span id="p2f2">15-min video call</span></li>
+          <li><span class="fdot dn"></span><span id="p2f3">Priority 24h review</span></li>
+          <li><span class="fdot dn"></span><span id="p2f4">Q&amp;A via email</span></li>
         </ul>
-        <button class="pbtn wh" onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})"><span id="p2-btn">Get started</span></button>
+        <button class="pbtn wh" onclick="openModal('Standard — €59')"><span id="p2-btn">Upload & get started</span></button>
       </div>
-      <div class="pcard reveal fr d2">
-        <div class="tbadge p" id="p3-badge">Premium</div>
+      <div class="pcard">
+        <div class="pbadge n" id="p3-badge">Premium</div>
         <div class="ptier" id="p3-tier">Premium</div>
         <div class="pname" id="p3-name">Full second opinion</div>
-        <div class="pamt">€149 <span id="p3-per">/report</span></div>
+        <div class="pamt">€99 <span id="p3-per">/report</span></div>
         <div class="pdesc" id="p3-desc">Comprehensive evaluation + extended consultation + follow-up</div>
         <ul class="pfeats">
-          <li><span class="dot dp"></span><span id="p3f1">Everything in Standard</span></li>
-          <li><span class="dot dp"></span><span id="p3f2">30-min consultation</span></li>
-          <li><span class="dot dp"></span><span id="p3f3">Follow-up Q&amp;A (7 days)</span></li>
-          <li><span class="dot dp"></span><span id="p3f4">Comparison with prior scans</span></li>
+          <li><span class="fdot db"></span><span id="p3f1">Everything in Standard</span></li>
+          <li><span class="fdot db"></span><span id="p3f2">30-min consultation</span></li>
+          <li><span class="fdot db"></span><span id="p3f3">Follow-up Q&amp;A (7 days)</span></li>
+          <li><span class="fdot db"></span><span id="p3f4">Comparison with prior scans</span></li>
         </ul>
-        <button class="pbtn pp" onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})"><span id="p3-btn">Get started</span></button>
+        <button class="pbtn nv" onclick="openModal('Premium — €99')"><span id="p3-btn">Upload & get started</span></button>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec off" id="blog">
+<!-- ABOUT -->
+<section class="sec cream" id="about">
   <div class="si">
-    <div class="slbl reveal" id="sb-lbl">Learn</div>
-    <div class="sh reveal d1" id="sb-head">Understanding your scan</div>
-    <div class="ss reveal d2" id="sb-sub">Plain-language guides written for patients, not physicians.</div>
-    <div class="brow">
-      <div class="bcard reveal fl"><div class="bthumb bg-bl">🧠</div><div class="bbody"><div class="bcat" id="bc1">MRI Guide</div><div class="btitle" id="bt1">What is an MRI? How does it work?</div><div class="bexc" id="be1">No radiation, just magnets. What happens inside the machine.</div><span class="blink" id="bl1">Read more →</span></div></div>
-      <div class="bcard reveal d1"><div class="bthumb bg-tl">🫁</div><div class="bbody"><div class="bcat" id="bc2">CT Guide</div><div class="btitle" id="bt2">CT scan: what your doctor sees</div><div class="bexc" id="be2">A CT is like slicing bread — but of your body. Learn the grey tones.</div><span class="blink" id="bl2">Read more →</span></div></div>
-      <div class="bcard reveal fr d2"><div class="bthumb bg-am">📄</div><div class="bbody"><div class="bcat" id="bc3">Report Guide</div><div class="btitle" id="bt3">How to read a radiology report</div><div class="bexc" id="be3">Decode the most common radiology terms used in reports.</div><span class="blink" id="bl3">Read more →</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec alt" id="about">
-  <div class="si">
-    <div class="slbl reveal" id="s4-lbl">About</div>
+    <div class="slbl reveal" id="s4-lbl">About me</div>
     <div class="awrap">
-      <div class="avis reveal fl fz">E</div>
+      <div class="avis-photo reveal fl fz">
+        <img src="photo.jpg" alt="Adalat Ganjali" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+      </div>
       <div>
-        <div class="aname reveal" id="a-name">Dr. Eddy</div>
-        <div class="arole reveal d1" id="a-role">Radiology Resident · Evangelical Hospital, NRW Germany</div>
-        <div class="abio reveal d2" id="a-bio">I work as a physician in Germany's healthcare system with a specialisation in diagnostic radiology. My mission: bringing German diagnostic quality and plain-language clarity across borders and languages.</div>
-        <div class="tags reveal d3">
-          <span class="tag" id="cr1">German medical licence</span>
-          <span class="tag" id="cr2">Radiology training</span>
-          <span class="tag" id="cr3">Multilingual</span>
-          <span class="tag" id="cr4">NRW, Germany</span>
-        </div>
+        <div class="aname reveal" id="a-name">Adalat Ganjali</div>
+        <div class="arole reveal d1" id="a-role">Radiology Resident · EvKB Bielefeld, Germany</div>
+        <div class="abio reveal d2" id="a-bio">I work as a physician in Germany's healthcare system with a specialisation in diagnostic radiology. I understand what it feels like to receive a report full of terminology that means nothing — I've seen it countless times. My mission: bringing German diagnostic quality and plain-language clarity across borders and languages.</div>
+        <div class="anotice reveal d2" id="a-notice">This service is entirely independent from my role at EvKB Bielefeld hospital and is offered in a personal capacity.</div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="sec off" id="upload">
-  <div class="si">
-    <div class="slbl reveal" id="s5-lbl">Submit</div>
-    <div class="sh reveal d1" id="s5-head">Upload your scan</div>
-    <div class="ubox reveal d2">
-      <div class="disc">
-        <div class="dtitle" id="disc-title">Important notice</div>
-        <div class="dtext" id="disc-text">This service provides educational second opinions only — not a final medical diagnosis. Always consult your treating physician for clinical decisions. Not for emergency use.</div>
-      </div>
-      <div class="uzone" id="uzone">
-        <div style="font-size:34px;margin-bottom:12px">📁</div>
-        <p id="up-text">Drag & drop your files here, or <strong>click to select</strong></p>
-        <small id="up-fmt">DICOM · JPEG · PNG · PDF · max 50 MB per file</small>
-      </div>
-      <div class="frow">
-        <input type="text" id="inp-name" placeholder="Your name"/>
-        <input type="email" id="inp-email" placeholder="Email address"/>
-      </div>
-      <div class="frow">
-        <select id="inp-lang">
-          <option value="">Language preference...</option>
-          <option>Turkish / Türkçe</option>
-          <option>Azerbaijani / Azəricə</option>
-          <option>Russian / Русский</option>
-          <option>German / Deutsch</option>
-          <option>English</option>
-        </select>
-        <select id="inp-pkg">
-          <option value="">Select package...</option>
-          <option>Basic — €49</option>
-          <option>Standard — €89</option>
-          <option>Premium — €149</option>
-        </select>
-      </div>
-      <textarea id="inp-note" placeholder="Brief clinical context (optional): symptoms, date of scan, prior diagnosis..."></textarea>
-      <div class="fnote" id="f-note">Your data is handled securely and confidentially. Files are not shared with third parties.</div>
-      <button class="sbtn" id="submit-btn" onclick="alert('Thank you! We will contact you within 24 hours.')">Submit request →</button>
-    </div>
+<!-- PULL QUOTE -->
+<div class="sec cream2" style="padding:0 32px">
+  <div style="max-width:1060px;margin:0 auto;padding:56px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <blockquote class="pq reveal">
+      <p id="pq-text">"I designed this service around one question: what would I want for my own family member receiving a scan report they can't understand?"</p>
+      <cite id="pq-cite">— Adalat Ganjali · Radiology Resident · EvKB Bielefeld, Germany</cite>
+    </blockquote>
   </div>
-</section>
+</div>
 
-<section class="sec alt" id="contact">
+<!-- CONTACT -->
+<section class="sec parchment" id="contact">
   <div class="si">
     <div class="slbl reveal" id="s6-lbl">Contact</div>
     <div class="sh reveal d1" id="s6-head">Get in touch</div>
-    <div class="crow">
-      <div class="ccard reveal fl"><div class="cicon">💬</div><div class="ctype" id="c1-type">Fastest response</div><div class="clabel" id="c1-label">WhatsApp</div><a href="https://wa.me/49XXXXXXXXXX" class="cbtn wa" id="c1-btn">Open WhatsApp</a></div>
-      <div class="ccard reveal d1"><div class="cicon">✉️</div><div class="ctype" id="c2-type">Email</div><div class="clabel" id="c2-label">hello@radioloq.com</div><a href="mailto:hello@radioloq.com" class="cbtn ol" id="c2-btn">Send email</a></div>
-      <div class="ccard reveal fr d2"><div class="cicon">📅</div><div class="ctype" id="c3-type">Video call</div><div class="clabel" id="c3-label">Book a free intro</div><a href="#" class="cbtn nv" id="c3-btn">Book 15 min</a></div>
+    <div class="crow reveal d2">
+      <div class="ccard">
+        <div class="cicon">✉️</div>
+        <div class="ctype" id="c2-type">Email</div>
+        <div class="clabel" id="c2-label">info@radioloq.com</div>
+        <a href="mailto:info@radioloq.com" class="cbtn ol" id="c2-btn">Send email</a>
+      </div>
+      <div class="ccard">
+        <div class="cicon">📅</div>
+        <div class="ctype" id="c3-type">Video call</div>
+        <div class="clabel" id="c3-label">Book a free intro</div>
+        <a href="https://calendly.com/adalat-ganjali/15min" target="_blank" class="cbtn nv" id="c3-btn">Book 15 min</a>
+      </div>
     </div>
   </div>
 </section>
 
-<div class="ctabanner">
+<!-- CTA BAND -->
+<div class="ctaband">
   <h2 class="reveal" id="cta-head">Are you a physician?</h2>
   <p class="reveal d1" id="cta-sub">Structured radiology education courses — from reading your first scan to German-standard board preparation.</p>
-  <a href="courses.html" class="btn-p reveal d2" id="cta-btn">View courses →</a>
+  <a href="https://courses.radioloq.com" class="btn-burg reveal d2" id="cta-btn">View courses →</a>
 </div>
 
+<!-- FOOTER -->
 <footer>
   <div class="flogo">Radio<em>loq</em></div>
   <div class="flinks">
     <a href="#how" id="fl1">How it works</a>
     <a href="#pricing" id="fl2">Pricing</a>
-    <a href="courses.html" id="fl3">For doctors</a>
-    <a href="#blog" id="fl4">Learn</a>
+    <a href="https://courses.radioloq.com" id="fl3">For doctors</a>
     <a href="#contact" id="fl5">Contact</a>
   </div>
-  <p id="footer-txt">© 2025 Radioloq · Educational second opinion service · Not a substitute for medical advice · Germany · hello@radioloq.com</p>
+  <p id="footer-txt">© 2025 Radioloq · Educational second opinion service · Not a substitute for medical advice · Germany · info@radioloq.com</p>
 </footer>
 
+<!-- UPLOAD + PAYMENT MODAL -->
+<div class="modal-overlay" id="modal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+
+    <!-- STEP 1: PAYMENT -->
+    <div id="step-payment">
+      <div class="modal-head">
+        <h3 id="modal-title">Get your second opinion</h3>
+        <p class="modal-pkg" id="modal-pkg-label"></p>
+        <p id="modal-sub" style="font-size:13px;color:var(--muted);line-height:1.65;margin-top:6px">Choose your payment method. After payment you will be redirected to upload your scan.</p>
+      </div>
+      <div class="modal-body">
+
+        <div class="disc">
+          <div class="disc-title">Important medical notice</div>
+          <div class="disc-text">This service provides educational second opinions only. It is not a substitute for professional medical diagnosis or treatment. In case of emergency, contact your local emergency services immediately.</div>
+        </div>
+
+        <!-- LEGAL CHECKBOXES -->
+        <div class="legal-checks">
+          <label class="check-row" id="chk1-row">
+            <input type="checkbox" id="chk-terms" onchange="checkReady()"/>
+            <span>I have read and agree to the <a href="terms.html" target="_blank">Terms of Service</a> and confirm that I understand this service does not constitute medical advice, diagnosis, or treatment. I acknowledge that the evaluations provided are for educational and informational purposes only.</span>
+          </label>
+          <label class="check-row" id="chk2-row">
+            <input type="checkbox" id="chk-privacy" onchange="checkReady()"/>
+            <span>I consent to the processing of my personal data and medical imaging files in accordance with the <a href="privacy.html" target="_blank">Privacy Policy & Datenschutzerklärung</a> (GDPR/DSGVO). I understand my data will be used solely to provide the requested service and deleted after 30 days.</span>
+          </label>
+        </div>
+
+        <div class="pay-err" id="pay-err" style="display:none">Please accept both agreements to continue.</div>
+
+        <!-- PAYMENT BUTTONS -->
+        <div class="pay-section" id="pay-btns">
+          <div class="pay-label">Pay securely with</div>
+          <div class="pay-row">
+            <button class="pay-btn stripe" id="stripe-btn" onclick="payStripe()">
+              <svg width="44" height="18" viewBox="0 0 60 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.4 9.8c0-.7.6-1 1.5-1 1.3 0 3 .4 4.3 1.1V6.4C9.8 5.8 8.4 5.5 7 5.5 3.5 5.5 1 7.3 1 10c0 4.2 5.8 3.5 5.8 5.3 0 .8-.7 1.1-1.7 1.1C3.8 16.4 2 15.9.5 15v3.5c1.6.7 3.2 1 4.8 1 3.6 0 6.2-1.8 6.2-4.5C11.5 10.7 5.4 11.5 5.4 9.8zm13.2-7.3L15 3.2l-.1 13.4h3.6L18.6 2.5zm7 5.3L22 6.1c-2 .7-3.3 2.4-3.3 4.8 0 3 1.9 4.8 4.9 4.8 1.3 0 2.4-.3 3-.7v-3c-.6.4-1.3.7-2.2.7-1.4 0-2.4-.9-2.4-2.4 0-1.4.9-2.3 2.3-2.5zm9.6-.2c-.5 0-1 .1-1.4.3V5.7h-3.5v12.8l3.5-.7V12c.4.2.9.3 1.4.3 2.8 0 4.8-2.2 4.8-5 0-2.6-1.9-4.7-4.8-4.7zm-.7 7.1c-.5 0-.9-.2-1.2-.4V9.4c.3-.2.7-.4 1.2-.4 1.2 0 2 1 2 2.5s-.8 2.5-2 2.5zm10-7.1c-3.2 0-5.1 2.1-5.1 5s1.9 5 5.2 5c3.2 0 5.1-2.1 5.1-5s-2-5-5.2-5zm0 7.6c-1.1 0-1.7-.9-1.7-2.6s.6-2.6 1.7-2.6 1.7.9 1.7 2.6-.6 2.6-1.7 2.6z" fill="white"/></svg>
+              Pay with Card
+            </button>
+            <div class="pay-or">or</div>
+            <div id="paypal-btn-container"></div>
+          </div>
+        </div>
+
+        <div class="pay-secure">🔒 Secure payment · SSL encrypted · No card data stored on this site</div>
+      </div>
+    </div>
+
+    <!-- STEP 2: UPLOAD (shown after payment) -->
+    <div id="step-upload" style="display:none">
+      <div class="modal-head">
+        <h3>Upload your scan</h3>
+        <p class="modal-pkg" id="upload-pkg-label"></p>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;line-height:1.65">Payment confirmed ✓ Now upload your scan files and fill in your details.</p>
+      </div>
+      <div class="modal-body">
+        <div class="disc">
+          <div class="disc-title">Important notice</div>
+          <div class="disc-text">This service provides educational second opinions only — not a final medical diagnosis. Always consult your treating physician for clinical decisions. Not for emergency use.</div>
+        </div>
+        <div class="uzone" onclick="document.getElementById('file-input').click()">
+          <div style="font-size:32px;margin-bottom:12px">📁</div>
+          <p>Drag & drop your files here, or <strong>click to select</strong></p>
+          <small>DICOM · JPEG · PNG · PDF · max 50 MB per file</small>
+          <input type="file" id="file-input" multiple accept=".dcm,.jpg,.jpeg,.png,.pdf" style="display:none" onchange="showFiles(this)"/>
+        </div>
+        <div id="file-list" style="font-size:12px;color:var(--muted);margin-bottom:16px;display:none"></div>
+        <div class="frow">
+          <input type="text" id="inp-name" placeholder="Your name"/>
+          <input type="email" id="inp-email" placeholder="Email address"/>
+        </div>
+        <div class="frow">
+          <select id="inp-lang">
+            <option value="">Language preference...</option>
+            <option>Turkish / Türkçe</option>
+            <option>Azerbaijani / Azəricə</option>
+            <option>Russian / Русский</option>
+            <option>German / Deutsch</option>
+            <option>English</option>
+          </select>
+          <select id="inp-pkg">
+            <option value="">Package...</option>
+            <option>Basic — €29</option>
+            <option>Standard — €59</option>
+            <option>Premium — €99</option>
+          </select>
+        </div>
+        <textarea id="inp-note" placeholder="Brief clinical context (optional): symptoms, date of scan, prior diagnosis..."></textarea>
+        <div class="fnote">Your data is handled securely. Files are encrypted and deleted after 30 days. By submitting you confirm your agreement to the Terms of Service and Privacy Policy.</div>
+        <button class="sbtn" id="submit-btn" onclick="submitForm()">Submit scan →</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PAYPAL SDK -->
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
 <script>
-const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');observer.unobserve(e.target)}})},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+/* ── STRIPE & PAYPAL ── */
+const STRIPE={
+  'Basic — €29':   'https://buy.stripe.com/bJe8wHavu7rv9zD33u8ww03',
+  'Standard — €59':'https://buy.stripe.com/aFa4greLK3bfh2547y8ww02',
+  'Premium — €99': 'https://buy.stripe.com/aFa00bdHG6nr3bf0Vm8ww01'
+};
+const PAYPAL_IDS={
+  'Basic — €29':   'FP9CMPXGDRQB2',
+  'Standard — €59':'6K3FNDGCHL4VY',
+  'Premium — €99': 'NU9C4F9TJ3X62'
+};
+let currentPkg='';
+
+/* ── SCROLL ── */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');obs.unobserve(x.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>50));
 
+/* ── MODAL ── */
+function openModal(pkg){
+  currentPkg=pkg;
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modal-pkg-label').textContent='Selected: '+pkg;
+  document.getElementById('upload-pkg-label').textContent='Package: '+pkg;
+  document.getElementById('inp-pkg').value=pkg;
+  document.getElementById('chk-terms').checked=false;
+  document.getElementById('chk-privacy').checked=false;
+  document.getElementById('pay-err').style.display='none';
+  document.getElementById('step-payment').style.display='block';
+  document.getElementById('step-upload').style.display='none';
+  document.body.style.overflow='hidden';
+  renderPayPal(pkg);
+}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function closeModalOutside(e){if(e.target===document.getElementById('modal'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+/* ── LEGAL CHECKS ── */
+function checkReady(){
+  document.getElementById('pay-err').style.display='none';
+  document.getElementById('chk1-row').classList.remove('err');
+  document.getElementById('chk2-row').classList.remove('err');
+}
+function validateChecks(){
+  const t=document.getElementById('chk-terms').checked;
+  const p=document.getElementById('chk-privacy').checked;
+  if(!t)document.getElementById('chk1-row').classList.add('err');
+  if(!p)document.getElementById('chk2-row').classList.add('err');
+  if(!t||!p){document.getElementById('pay-err').style.display='block';return false;}
+  return true;
+}
+
+/* ── STRIPE ── */
+function payStripe(){
+  if(!validateChecks())return;
+  const url=STRIPE[currentPkg];
+  if(url)window.open(url,'_blank');
+  setTimeout(()=>showUploadStep(),800);
+}
+
+/* ── PAYPAL ── */
+function renderPayPal(pkg){
+  const container=document.getElementById('paypal-btn-container');
+  container.innerHTML='';
+  const id=PAYPAL_IDS[pkg];
+  const form=document.createElement('form');
+  form.action='https://www.paypal.com/cgi-bin/webscr';
+  form.method='post';
+  form.target='_blank';
+  form.style.width='100%';
+  form.innerHTML=`
+    <input type="hidden" name="cmd" value="_s-xclick"/>
+    <input type="hidden" name="hosted_button_id" value="${id}"/>
+    <input type="hidden" name="currency_code" value="EUR"/>
+    <button type="submit" onclick="return handlePaypal()" style="width:100%;padding:13px 20px;background:#FFC439;color:#003087;border:none;cursor:pointer;font-size:13px;font-weight:700;font-family:'Outfit',sans-serif;border-radius:2px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s;" onmouseover="this.style.background='#f0b429'" onmouseout="this.style.background='#FFC439'">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="#003087"><path d="M7 21.5l.5-3H4l2.3-13.5h6.5c2.5 0 4 .8 4 3.5 0 3.5-2.7 5-6 5H8.5L7.7 17l-.7 4.5z"/></svg>
+      Pay with PayPal
+    </button>`;
+  container.appendChild(form);
+}
+function handlePaypal(){
+  if(!validateChecks())return false;
+  setTimeout(()=>showUploadStep(),1200);
+  return true;
+}
+
+/* ── UPLOAD STEP ── */
+function showUploadStep(){
+  document.getElementById('step-payment').style.display='none';
+  document.getElementById('step-upload').style.display='block';
+  document.querySelector('.modal').scrollTop=0;
+}
+
+/* ── FILES ── */
+function showFiles(input){
+  const list=document.getElementById('file-list');
+  if(input.files.length){list.style.display='block';list.innerHTML='📎 '+Array.from(input.files).map(f=>f.name).join(', ');}
+}
+
+/* ── SUBMIT ── */
+function submitForm(){
+  const name=document.getElementById('inp-name').value.trim();
+  const email=document.getElementById('inp-email').value.trim();
+  if(!name||!email){alert('Please fill in your name and email.');return;}
+  const btn=document.getElementById('submit-btn');
+  btn.textContent='Sending…';btn.style.opacity='.6';btn.style.pointerEvents='none';
+  setTimeout(()=>{
+    closeModal();
+    btn.textContent='Submit scan →';btn.style.opacity='';btn.style.pointerEvents='';
+    alert('Thank you '+name+'! We have received your scan. You will receive a confirmation at '+email+' within a few hours.');
+  },1200);
+}
+
+/* ── LANGUAGE ── */
 const L={
-en:{"h-badge":"Germany · Radiology · Second Opinion","h-title":"Your scan, explained by a <em>German-trained physician</em>","h-sub":"Upload your MRI or CT. Receive a clear, medically-informed second opinion — in your own language, within 48 hours.","h-cta1":"Upload your scan","h-cta2":"How it works","nl-how":"How it works","nl-price":"Pricing","nl-edu":"For doctors","nl-blog":"Learn","nl-about":"About","nl-cta":"Get second opinion","t1":"Response time","t2":"Languages","t3":"German standard","t4":"Secure & private","s1-lbl":"Process","s1-head":"How it works","s1-sub":"Four simple steps from your scan to a clear explanation.","st1":"Upload your images","sd1":"Send your MRI or CT files along with the original report if available.","st2":"Review by a physician","sd2":"A German-trained physician evaluates your images using European diagnostic standards.","st3":"Receive your explanation","sd3":"You receive a bilingual report: technical evaluation + plain-language explanation in your language.","st4":"Speak with your doctor","sd4":"Use our summary to have a more informed conversation with your treating physician.","s2-lbl":"Pricing","s2-head":"Simple, transparent pricing","s2-sub":"One-time payment per report. No subscriptions, no hidden fees.","p1-tier":"Basic","p1-name":"Written opinion","p1-per":"/report","p1-desc":"Written evaluation + plain-language summary","p1f1":"One scan reviewed","p1f2":"Written PDF report","p1f3":"48h turnaround","p1f4":"Explanation in your language","p1-btn":"Get started","p2-badge":"Most popular","p2-tier":"Standard","p2-name":"Opinion + consultation","p2-per":"/report","p2-desc":"Full evaluation + 15-min video consultation","p2f1":"Everything in Basic","p2f2":"15-min video call","p2f3":"Priority 24h review","p2f4":"Q&A via WhatsApp","p2-btn":"Get started","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Full second opinion","p3-per":"/report","p3-desc":"Comprehensive evaluation + extended consultation + follow-up","p3f1":"Everything in Standard","p3f2":"30-min consultation","p3f3":"Follow-up Q&A (7 days)","p3f4":"Comparison with prior scans","p3-btn":"Get started","sb-lbl":"Learn","sb-head":"Understanding your scan","sb-sub":"Plain-language guides written for patients, not physicians.","bc1":"MRI Guide","bt1":"What is an MRI? How does it work?","be1":"No radiation, just magnets. What happens inside the machine.","bl1":"Read more →","bc2":"CT Guide","bt2":"CT scan: what your doctor sees","be2":"A CT is like slicing bread — but of your body.","bl2":"Read more →","bc3":"Report Guide","bt3":"How to read a radiology report","be3":"Decode the most common radiology terms.","bl3":"Read more →","s4-lbl":"About","a-name":"Dr. Eddy","a-role":"Radiology Resident · Evangelical Hospital, NRW Germany","a-bio":"I work as a physician in Germany's healthcare system with a specialisation in diagnostic radiology. My mission: bringing German diagnostic quality and plain-language clarity across borders and languages.","cr1":"German medical licence","cr2":"Radiology training","cr3":"Multilingual","cr4":"NRW, Germany","s5-lbl":"Submit","s5-head":"Upload your scan","disc-title":"Important notice","disc-text":"This service provides educational second opinions only — not a final medical diagnosis. Always consult your treating physician.","up-text":"Drag & drop your files here, or click to select","up-fmt":"DICOM · JPEG · PNG · PDF · max 50 MB","inp-name":"Your name","inp-email":"Email address","inp-note":"Clinical context (optional): symptoms, date of scan, prior diagnosis...","f-note":"Your data is handled securely. Files are not shared with third parties.","submit-btn":"Submit request →","s6-lbl":"Contact","s6-head":"Get in touch","c1-type":"Fastest response","c1-label":"WhatsApp","c1-btn":"Open WhatsApp","c2-type":"Email","c2-label":"hello@radioloq.com","c2-btn":"Send email","c3-type":"Video call","c3-label":"Book a free intro","c3-btn":"Book 15 min","cta-head":"Are you a physician?","cta-sub":"Structured radiology education courses — from reading your first scan to German-standard board preparation.","cta-btn":"View courses →","footer-txt":"© 2025 Radioloq · Educational second opinion service · Not a substitute for medical advice · Germany"},
-tr:{"h-badge":"Almanya · Radyoloji · İkinci Görüş","h-title":"Görüntünüz, <em>Almanya'da çalışan bir hekim</em> tarafından açıklandı","h-sub":"MR veya BT görüntünüzü yükleyin. 48 saat içinde kendi dilinizde net bir ikinci görüş alın.","h-cta1":"Görüntü yükle","h-cta2":"Nasıl çalışır","nl-how":"Nasıl çalışır","nl-price":"Fiyatlar","nl-edu":"Doktorlar için","nl-blog":"Öğren","nl-about":"Hakkımda","nl-cta":"İkinci görüş al","t1":"Yanıt süresi","t2":"Dil","t3":"Alman standardı","t4":"Güvenli & gizli","s1-lbl":"Süreç","s1-head":"Nasıl çalışır","s1-sub":"Görüntünüzden net açıklamaya dört basit adım.","st1":"Görüntülerinizi yükleyin","sd1":"MR veya BT dosyalarınızı orijinal raporunuzla birlikte gönderin.","st2":"Hekim tarafından inceleme","sd2":"Almanya'da görev yapan bir hekim görüntülerinizi Avrupa standartlarıyla değerlendirir.","st3":"Açıklamanızı alın","sd3":"İki dilli rapor alırsınız: teknik değerlendirme + kendi dilinizde sade açıklama.","st4":"Doktorunuzla konuşun","sd4":"Özetimizi tedavi eden doktorunuzla daha bilinçli görüşme için kullanın.","s2-lbl":"Fiyatlar","s2-head":"Basit, şeffaf fiyatlar","s2-sub":"Rapor başına tek seferlik ödeme. Abonelik yok, gizli ücret yok.","p1-tier":"Temel","p1-name":"Yazılı görüş","p1-per":"/rapor","p1-desc":"Yazılı değerlendirme + dilinizde sade açıklama","p1f1":"Bir görüntü incelemesi","p1f2":"PDF rapor","p1f3":"48 saat teslimat","p1f4":"Kendi dilinizde açıklama","p1-btn":"Başla","p2-badge":"En popüler","p2-tier":"Standart","p2-name":"Görüş + danışma","p2-per":"/rapor","p2-desc":"Tam değerlendirme + 15 dk video görüşmesi","p2f1":"Temel'in tamamı","p2f2":"15 dk video görüşme","p2f3":"Öncelikli 24 saat","p2f4":"WhatsApp sorular","p2-btn":"Başla","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Tam ikinci görüş","p3-per":"/rapor","p3-desc":"Kapsamlı değerlendirme + uzun danışma + takip","p3f1":"Standart'ın tamamı","p3f2":"30 dk danışma","p3f3":"7 gün takip soruları","p3f4":"Önceki görüntülerle karşılaştırma","p3-btn":"Başla","sb-lbl":"Öğren","sb-head":"Görüntünüzü anlamak","sb-sub":"Radyolojiyi açıklayan sade rehberler — hastalar için.","bc1":"MR Rehberi","bt1":"MR nedir? Nasıl çalışır?","be1":"Radyasyon yok, sadece mıknatıslar. Neler olduğunu öğrenin.","bl1":"Devamını oku →","bc2":"BT Rehberi","bt2":"BT taraması: doktorunuz ne görüyor?","be2":"BT taraması ekmeği dilimlemek gibidir — ama vücudunuzu.","bl2":"Devamını oku →","bc3":"Rapor Rehberi","bt3":"Radyoloji raporu nasıl okunur?","be3":"En yaygın radyoloji terimlerini deşifre edin.","bl3":"Devamını oku →","s4-lbl":"Hakkımda","a-name":"Dr. Eddy","a-role":"Radyoloji Asistanı · Evangelik Hastane, NRW Almanya","a-bio":"Almanya sağlık sisteminde radyoloji alanında uzmanlaşmış bir hekim olarak çalışıyorum. Amacım: Alman tanı kalitesini ve sade dili sınır ve dil ötesine taşımak.","cr1":"Alman tıp lisansı","cr2":"Radyoloji eğitimi","cr3":"Çok dilli","cr4":"NRW, Almanya","s5-lbl":"Başvuru","s5-head":"Görüntünüzü yükleyin","disc-title":"Önemli bilgilendirme","disc-text":"Bu hizmet yalnızca eğitsel ikinci görüş sunar — kesin tıbbi tanı değildir. Klinik kararlar için lütfen tedavi eden doktorunuza başvurun.","up-text":"Dosyalarınızı sürükleyip bırakın veya seçmek için tıklayın","up-fmt":"DICOM · JPEG · PNG · PDF · maks 50MB","inp-name":"Adınız","inp-email":"E-posta adresi","inp-note":"Klinik bağlam (isteğe bağlı): belirtiler, görüntü tarihi, önceki tanı...","f-note":"Verileriniz güvenli ve gizli tutulur.","submit-btn":"Başvuruyu gönder →","s6-lbl":"İletişim","s6-head":"Bize ulaşın","c1-type":"En hızlı","c1-label":"WhatsApp","c1-btn":"WhatsApp'ı aç","c2-type":"E-posta","c2-label":"hello@radioloq.com","c2-btn":"E-posta gönder","c3-type":"Video görüşme","c3-label":"Ücretsiz tanışma","c3-btn":"15 dk rezervasyon","cta-head":"Doktor musunuz?","cta-sub":"Radyoloji eğitim kursları — ilk görüntüden Alman standartlarında sınav hazırlığına.","cta-btn":"Kurslara bak →","footer-txt":"© 2025 Radioloq · Eğitsel ikinci görüş hizmeti · Tıbbi tavsiye yerine geçmez · Almanya"},
-az:{"h-badge":"Almaniya · Radiologiya · İkinci Rəy","h-title":"Görüntünüz, <em>Almaniyadakı bir həkim</em> tərəfindən izah edildi","h-sub":"MRT və ya KT görüntünüzü yükləyin. 48 saat ərzində öz dilinizdə aydın ikinci rəy alın.","h-cta1":"Görüntü yüklə","h-cta2":"Necə işləyir","nl-how":"Necə işləyir","nl-price":"Qiymətlər","nl-edu":"Həkimlər üçün","nl-blog":"Öyrən","nl-about":"Haqqımda","nl-cta":"İkinci rəy al","t1":"Cavab müddəti","t2":"Dil","t3":"Alman standartı","t4":"Təhlükəsiz & məxfi","s1-lbl":"Proses","s1-head":"Necə işləyir","s1-sub":"Görüntünüzdən aydın izahata dörd sadə addım.","st1":"Görüntülərinizi yükləyin","sd1":"MRT və ya KT fayllarınızı orijinal hesabatla birlikdə göndərin.","st2":"Həkim tərəfindən baxış","sd2":"Almaniyadakı həkim Avropa diaqnostika standartlarından istifadə edərək görüntülərinizi qiymətləndirir.","st3":"İzahatınızı alın","sd3":"İki dilli hesabat alırsınız: texniki qiymətləndirmə + öz dilinizdə sadə izahat.","st4":"Həkiminizlə danışın","sd4":"Xülasəmizdən müalicə həkiminizlə daha məlumatlı söhbət üçün istifadə edin.","s2-lbl":"Qiymət","s2-head":"Sadə, şəffaf qiymətlər","s2-sub":"Hesabat başına birdəfəlik ödəniş. Abunə yoxdur.","p1-tier":"Əsas","p1-name":"Yazılı rəy","p1-per":"/hesabat","p1-desc":"Yazılı qiymətləndirmə + dilinizdə sadə izahat","p1f1":"Bir görüntü baxışı","p1f2":"PDF hesabat","p1f3":"48 saat çatdırılma","p1f4":"Öz dilinizdə izahat","p1-btn":"Başla","p2-badge":"Ən populyar","p2-tier":"Standart","p2-name":"Rəy + məsləhət","p2-per":"/hesabat","p2-desc":"Tam qiymətləndirmə + 15 dəq video məsləhət","p2f1":"Əsasın hamısı","p2f2":"15 dəq video görüş","p2f3":"Prioritet 24 saat","p2f4":"WhatsApp sualları","p2-btn":"Başla","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Tam ikinci rəy","p3-per":"/hesabat","p3-desc":"Hərtərəfli qiymətləndirmə + uzun məsləhət + izləmə","p3f1":"Standartın hamısı","p3f2":"30 dəq məsləhət","p3f3":"7 gün təqib sualları","p3f4":"Əvvəlki görüntülərlə müqayisə","p3-btn":"Başla","sb-lbl":"Öyrən","sb-head":"Görüntünüzü anlamaq","sb-sub":"Radiologiyanı izah edən sadə bələdçilər — xəstələr üçün.","bc1":"MRT Bələdçisi","bt1":"MRT nədir?","be1":"Şüalanma yoxdur, yalnız maqnitlər. Nə baş verdiyini öyrənin.","bl1":"Daha çox oxu →","bc2":"KT Bələdçisi","bt2":"KT skanı: həkiminiz nə görür?","be2":"KT skanı çörəyi dilimləmək kimidir — amma bədəninizi.","bl2":"Daha çox oxu →","bc3":"Hesabat Bələdçisi","bt3":"Radiologiya hesabatı necə oxunur?","be3":"Ən çox işlədilən terminləri deşifrə edin.","bl3":"Daha çox oxu →","s4-lbl":"Haqqımda","a-name":"Dr. Eddy","a-role":"Radiologiya Rezidenti · Evangelik Xəstəxana, NRW Almaniya","a-bio":"Almaniyanın səhiyyə sistemində diaqnostik radiologiya üzrə ixtisaslaşmış həkim kimi çalışıram. Məqsədim: Alman diaqnostika keyfiyyətini sərhəd və dil xaricindən əlçatan etmək.","cr1":"Alman tibb lisenziyası","cr2":"Radiologiya təhsili","cr3":"Çoxdilli","cr4":"NRW, Almaniya","s5-lbl":"Müraciət","s5-head":"Görüntünüzü yükləyin","disc-title":"Mühüm məlumat","disc-text":"Bu xidmət yalnız təhsil məqsədli ikinci rəy təqdim edir — son tibbi diaqnoz deyil.","up-text":"Fayllarınızı buraya sürükləyin və ya seçmək üçün klikləyin","up-fmt":"DICOM · JPEG · PNG · PDF · maks 50MB","inp-name":"Adınız","inp-email":"E-poçt ünvanı","inp-note":"Klinik kontekst (istəyə bağlı): simptomlar, görüntü tarixi, əvvəlki diaqnoz...","f-note":"Məlumatlarınız təhlükəsiz saxlanılır.","submit-btn":"Müraciəti göndər →","s6-lbl":"Əlaqə","s6-head":"Bizimlə əlaqə","c1-type":"Ən sürətli","c1-label":"WhatsApp","c1-btn":"WhatsApp-ı aç","c2-type":"E-poçt","c2-label":"hello@radioloq.com","c2-btn":"E-poçt göndər","c3-type":"Video görüş","c3-label":"Pulsuz tanışlıq","c3-btn":"15 dəq. rezervasiya","cta-head":"Həkimsiniz?","cta-sub":"Strukturlaşdırılmış radiologiya kursları — ilk skanı oxumaqdan Alman standartlı hazırlığa qədər.","cta-btn":"Kurslara bax →","footer-txt":"© 2025 Radioloq · Təhsil məqsədli ikinci rəy xidməti · Tibbi məsləhətin əvəzi deyil · Almaniya"},
-de:{"h-badge":"Deutschland · Radiologie · Zweitmeinung","h-title":"Ihre Aufnahme, erklärt von einem <em>in Deutschland tätigen Arzt</em>","h-sub":"Laden Sie Ihr MRT oder CT hoch. Erhalten Sie innerhalb von 48 Stunden eine klare Zweitmeinung — in Ihrer Sprache.","h-cta1":"Aufnahme hochladen","h-cta2":"So funktioniert es","nl-how":"So funktioniert es","nl-price":"Preise","nl-edu":"Für Ärzte","nl-blog":"Wissen","nl-about":"Über mich","nl-cta":"Zweitmeinung anfragen","t1":"Antwortzeit","t2":"Sprachen","t3":"Deutscher Standard","t4":"Sicher & vertraulich","s1-lbl":"Ablauf","s1-head":"So funktioniert es","s1-sub":"Vier einfache Schritte von Ihrer Aufnahme zur klaren Erklärung.","st1":"Bilder hochladen","sd1":"Senden Sie Ihre MRT- oder CT-Dateien zusammen mit dem Originalbefund.","st2":"Ärztliche Beurteilung","sd2":"Ein in Deutschland tätiger Arzt bewertet Ihre Bilder nach europäischen Diagnosestandards.","st3":"Erklärung erhalten","sd3":"Sie erhalten einen zweisprachigen Bericht: technische Auswertung + verständliche Erklärung.","st4":"Mit Ihrem Arzt sprechen","sd4":"Nutzen Sie unsere Zusammenfassung für ein informierteres Gespräch.","s2-lbl":"Preise","s2-head":"Einfache, transparente Preise","s2-sub":"Einmalige Zahlung pro Bericht. Keine Abonnements.","p1-tier":"Basis","p1-name":"Schriftliche Meinung","p1-per":"/Bericht","p1-desc":"Schriftliche Auswertung + verständliche Zusammenfassung","p1f1":"Eine Aufnahme","p1f2":"PDF-Bericht","p1f3":"48h Bearbeitung","p1f4":"Erklärung in Ihrer Sprache","p1-btn":"Jetzt starten","p2-badge":"Beliebteste Wahl","p2-tier":"Standard","p2-name":"Meinung + Beratung","p2-per":"/Bericht","p2-desc":"Vollständige Auswertung + 15-Min-Videogespräch","p2f1":"Alles aus Basis","p2f2":"15 Min. Videogespräch","p2f3":"Priorität 24h","p2f4":"Fragen per WhatsApp","p2-btn":"Jetzt starten","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Vollständige Zweitmeinung","p3-per":"/Bericht","p3-desc":"Umfassende Auswertung + Beratung + Nachbetreuung","p3f1":"Alles aus Standard","p3f2":"30 Min. Beratung","p3f3":"7 Tage Nachfragen","p3f4":"Vergleich mit Voraufnahmen","p3-btn":"Jetzt starten","sb-lbl":"Wissen","sb-head":"Ihre Aufnahme verstehen","sb-sub":"Verständliche Ratgeber — für Patienten geschrieben.","bc1":"MRT-Ratgeber","bt1":"Was ist ein MRT?","be1":"Keine Strahlung, nur Magnete. Was in der Röhre passiert.","bl1":"Weiterlesen →","bc2":"CT-Ratgeber","bt2":"CT-Scan erklärt","be2":"Ein CT ist wie Brot schneiden — aber von Ihrem Körper.","bl2":"Weiterlesen →","bc3":"Befund-Ratgeber","bt3":"Einen Radiologiebefund lesen","be3":"Die häufigsten Fachbegriffe einfach erklärt.","bl3":"Weiterlesen →","s4-lbl":"Über mich","a-name":"Dr. Eddy","a-role":"Assistenzarzt Radiologie · Evangelisches Krankenhaus, NRW","a-bio":"Ich arbeite als Arzt im deutschen Gesundheitssystem mit Schwerpunkt diagnostische Radiologie. Mein Ziel: hochwertige Befundung grenzübergreifend zugänglich machen.","cr1":"Deutsche Approbation","cr2":"Radiologieausbildung","cr3":"Mehrsprachig","cr4":"NRW, Deutschland","s5-lbl":"Einreichen","s5-head":"Aufnahme hochladen","disc-title":"Wichtiger Hinweis","disc-text":"Dieser Dienst bietet ausschließlich eine Zweitmeinung zu Bildungszwecken — keine abschließende Diagnose.","up-text":"Dateien hierher ziehen oder zum Auswählen klicken","up-fmt":"DICOM · JPEG · PNG · PDF · max. 50 MB","inp-name":"Ihr Name","inp-email":"E-Mail-Adresse","inp-note":"Klinischer Kontext (optional): Symptome, Datum, Vordiagnose...","f-note":"Ihre Daten werden sicher und vertraulich behandelt.","submit-btn":"Anfrage senden →","s6-lbl":"Kontakt","s6-head":"Kontakt aufnehmen","c1-type":"Schnellste Antwort","c1-label":"WhatsApp","c1-btn":"WhatsApp öffnen","c2-type":"E-Mail","c2-label":"hello@radioloq.com","c2-btn":"E-Mail senden","c3-type":"Videogespräch","c3-label":"Kostenloses Kennenlernen","c3-btn":"15 Min. buchen","cta-head":"Sind Sie Arzt?","cta-sub":"Strukturierte Radiologie-Kurse — vom ersten Scan bis zur Facharztprüfungsvorbereitung.","cta-btn":"Kurse ansehen →","footer-txt":"© 2025 Radioloq · Zweitmeinungsservice · Kein Ersatz für ärztliche Beratung · Deutschland"},
-ru:{"h-badge":"Германия · Радиология · Второе мнение","h-title":"Ваш снимок, объяснённый <em>врачом из Германии</em>","h-sub":"Загрузите МРТ или КТ. Получите чёткое второе мнение на вашем языке в течение 48 часов.","h-cta1":"Загрузить снимок","h-cta2":"Как это работает","nl-how":"Как работает","nl-price":"Цены","nl-edu":"Для врачей","nl-blog":"Обучение","nl-about":"Обо мне","nl-cta":"Получить второе мнение","t1":"Время ответа","t2":"Языки","t3":"Немецкий стандарт","t4":"Безопасно & конфиденциально","s1-lbl":"Процесс","s1-head":"Как это работает","s1-sub":"Четыре простых шага от снимка до понятного объяснения.","st1":"Загрузите снимки","sd1":"Отправьте файлы МРТ или КТ вместе с заключением.","st2":"Проверка врачом","sd2":"Врач из Германии оценивает ваши снимки по европейским стандартам.","st3":"Получите объяснение","sd3":"Вы получаете двуязычный отчёт: техническую оценку + понятное объяснение.","st4":"Поговорите с врачом","sd4":"Используйте наше резюме для информированной беседы с лечащим врачом.","s2-lbl":"Цены","s2-head":"Простые, прозрачные цены","s2-sub":"Разовая оплата за отчёт. Без подписок.","p1-tier":"Базовый","p1-name":"Письменное мнение","p1-per":"/отчёт","p1-desc":"Письменная оценка + понятное резюме на вашем языке","p1f1":"Один снимок","p1f2":"PDF-отчёт","p1f3":"48 ч. обработки","p1f4":"Объяснение на вашем языке","p1-btn":"Начать","p2-badge":"Самый популярный","p2-tier":"Стандарт","p2-name":"Мнение + консультация","p2-per":"/отчёт","p2-desc":"Полная оценка + 15-минутная видеоконсультация","p2f1":"Всё из Базового","p2f2":"Видеозвонок 15 мин.","p2f3":"Приоритет 24 ч.","p2f4":"Вопросы в WhatsApp","p2-btn":"Начать","p3-badge":"Премиум","p3-tier":"Премиум","p3-name":"Полное второе мнение","p3-per":"/отчёт","p3-desc":"Полная оценка + расширенная консультация + поддержка","p3f1":"Всё из Стандарта","p3f2":"Консультация 30 мин.","p3f3":"Вопросы 7 дней","p3f4":"Сравнение с предыдущими снимками","p3-btn":"Начать","sb-lbl":"Обучение","sb-head":"Понять свой снимок","sb-sub":"Простые руководства по радиологии — для пациентов.","bc1":"МРТ Руководство","bt1":"Что такое МРТ?","be1":"Без излучения, только магниты. Что происходит внутри аппарата.","bl1":"Читать далее →","bc2":"КТ Руководство","bt2":"КТ-снимок: что видит врач","be2":"КТ — как нарезка хлеба, но вашего тела.","bl2":"Читать далее →","bc3":"Заключение","bt3":"Как читать радиологическое заключение","be3":"Расшифровка самых распространённых терминов.","bl3":"Читать далее →","s4-lbl":"Обо мне","a-name":"Д-р Эдди","a-role":"Ординатор радиологии · Евангелическая больница, NRW Германия","a-bio":"Я работаю врачом в Германии со специализацией в диагностической радиологии. Моя цель: сделать качественную интерпретацию доступной независимо от границ и языков.","cr1":"Немецкая лицензия","cr2":"Радиологическая подготовка","cr3":"Многоязычный","cr4":"NRW, Германия","s5-lbl":"Отправить","s5-head":"Загрузите снимок","disc-title":"Важное уведомление","disc-text":"Этот сервис предоставляет только образовательное второе мнение — не окончательный диагноз.","up-text":"Перетащите файлы сюда или нажмите для выбора","up-fmt":"DICOM · JPEG · PNG · PDF · макс. 50 МБ","inp-name":"Ваше имя","inp-email":"Адрес эл. почты","inp-note":"Клинический контекст (необязательно): симптомы, дата, диагноз...","f-note":"Ваши данные обрабатываются конфиденциально.","submit-btn":"Отправить запрос →","s6-lbl":"Контакт","s6-head":"Связаться с нами","c1-type":"Самый быстрый","c1-label":"WhatsApp","c1-btn":"Открыть WhatsApp","c2-type":"Эл. почта","c2-label":"hello@radioloq.com","c2-btn":"Написать письмо","c3-type":"Видеозвонок","c3-label":"Бесплатное знакомство","c3-btn":"Забронировать 15 мин.","cta-head":"Вы врач?","cta-sub":"Структурированные курсы радиологии — от первого снимка до подготовки по немецким стандартам.","cta-btn":"Смотреть курсы →","footer-txt":"© 2025 Radioloq · Образовательный сервис · Не заменяет медицинскую консультацию · Германия"}
+en:{"h-badge":"Germany · Radiology · Second Opinion","h-title":"Your scan, explained by a <em>German-trained physician</em>","h-sub":"Upload your MRI or CT. Receive a clear, medically-informed second opinion — in your own language, within 48 hours.","h-cta1":"Get second opinion","h-cta2":"How it works","nl-how":"How it works","nl-price":"Pricing","nl-edu":"For doctors ↗","nl-about":"About me","nl-cta":"Get second opinion","t1":"Response time","t2":"Languages","t3":"German standard","t4":"Secure & private","s1-lbl":"Process","s1-head":"How it works","s1-sub":"Four simple steps from your scan to a clear explanation.","st1":"Upload your images","sd1":"Send your MRI or CT files along with the original report if available.","st2":"Review by a physician","sd2":"A German-trained radiology resident evaluates your images using European diagnostic standards.","st3":"Receive your explanation","sd3":"You receive a bilingual report: technical evaluation + plain-language explanation in your language.","st4":"Speak with your doctor","sd4":"Use our summary to have a more informed conversation with your treating physician.","s2-lbl":"Pricing","s2-head":"Simple, transparent pricing","s2-sub":"One-time payment per report. No subscriptions, no hidden fees.","p1-tier":"Basic","p1-name":"Written opinion","p1-per":"/report","p1-desc":"Written evaluation + plain-language summary","p1f1":"One scan reviewed","p1f2":"Written PDF report","p1f3":"48h turnaround","p1f4":"Explanation in your language","p1-btn":"Upload & get started","p2-badge":"Most popular","p2-tier":"Standard","p2-name":"Opinion + consultation","p2-per":"/report","p2-desc":"Full evaluation + 15-min video consultation","p2f1":"Everything in Basic","p2f2":"15-min video call","p2f3":"Priority 24h review","p2f4":"Q&A via email","p2-btn":"Upload & get started","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Full second opinion","p3-per":"/report","p3-desc":"Comprehensive evaluation + extended consultation + follow-up","p3f1":"Everything in Standard","p3f2":"30-min consultation","p3f3":"Follow-up Q&A (7 days)","p3f4":"Comparison with prior scans","p3-btn":"Upload & get started","s4-lbl":"About me","a-name":"Adalat Ganjali","a-role":"Radiology Resident · EvKB Bielefeld, Germany","a-bio":"I work as a radiology resident in Germany's healthcare system. I understand what it feels like to receive a report full of terminology that means nothing. My mission: bringing German diagnostic quality and plain-language clarity across borders and languages.","a-notice":"This service is entirely independent from my role at EvKB Bielefeld hospital and is offered in a personal capacity.","pq-text":"\"I designed this service around one question: what would I want for my own family member receiving a scan report they can't understand?\"","pq-cite":"— Adalat Ganjali · Radiology Resident · EvKB Bielefeld, Germany","s6-lbl":"Contact","s6-head":"Get in touch","c2-type":"Email","c2-label":"info@radioloq.com","c2-btn":"Send email","c3-type":"Video call","c3-label":"Book a free intro","c3-btn":"Book 15 min","cta-head":"Are you a physician?","cta-sub":"Structured radiology education courses — from reading your first scan to German-standard board preparation.","cta-btn":"View courses →","footer-txt":"© 2025 Radioloq · Educational second opinion service · Not a substitute for medical advice · Germany · info@radioloq.com"},
+tr:{"h-badge":"Almanya · Radyoloji · İkinci Görüş","h-title":"Görüntünüz, <em>Almanya'da çalışan bir hekim</em> tarafından açıklandı","h-sub":"MR veya BT görüntünüzü yükleyin. 48 saat içinde kendi dilinizde net bir ikinci görüş alın.","h-cta1":"İkinci görüş al","h-cta2":"Nasıl çalışır","nl-how":"Nasıl çalışır","nl-price":"Fiyatlar","nl-edu":"Doktorlar için ↗","nl-about":"Hakkımda","nl-cta":"İkinci görüş al","t1":"Yanıt süresi","t2":"Dil","t3":"Alman standardı","t4":"Güvenli & gizli","s1-lbl":"Süreç","s1-head":"Nasıl çalışır","s1-sub":"Görüntünüzden net açıklamaya dört basit adım.","st1":"Görüntülerinizi yükleyin","sd1":"MR veya BT dosyalarınızı orijinal raporunuzla birlikte gönderin.","st2":"Hekim tarafından inceleme","sd2":"Almanya'da görev yapan bir radyoloji asistanı görüntülerinizi Avrupa standartlarıyla değerlendirir.","st3":"Açıklamanızı alın","sd3":"İki dilli rapor alırsınız: teknik değerlendirme + kendi dilinizde sade açıklama.","st4":"Doktorunuzla konuşun","sd4":"Özetimizi tedavi eden doktorunuzla daha bilinçli görüşme için kullanın.","s2-lbl":"Fiyatlar","s2-head":"Basit, şeffaf fiyatlar","s2-sub":"Rapor başına tek seferlik ödeme. Abonelik yok.","p1-tier":"Temel","p1-name":"Yazılı görüş","p1-per":"/rapor","p1-desc":"Yazılı değerlendirme + dilinizde sade açıklama","p1f1":"Bir görüntü incelemesi","p1f2":"PDF rapor","p1f3":"48 saat teslimat","p1f4":"Kendi dilinizde açıklama","p1-btn":"Yükle & başla","p2-badge":"En popüler","p2-tier":"Standart","p2-name":"Görüş + danışma","p2-per":"/rapor","p2-desc":"Tam değerlendirme + 15 dk video görüşmesi","p2f1":"Temel'in tamamı","p2f2":"15 dk video görüşme","p2f3":"Öncelikli 24 saat","p2f4":"E-posta sorular","p2-btn":"Yükle & başla","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Tam ikinci görüş","p3-per":"/rapor","p3-desc":"Kapsamlı değerlendirme + uzun danışma + takip","p3f1":"Standart'ın tamamı","p3f2":"30 dk danışma","p3f3":"7 gün takip soruları","p3f4":"Önceki görüntülerle karşılaştırma","p3-btn":"Yükle & başla","s4-lbl":"Hakkımda","a-name":"Adalat Ganjali","a-role":"Radyoloji Asistanı · EvKB Bielefeld, Almanya","a-bio":"Almanya sağlık sisteminde radyoloji alanında çalışan bir asistan hekimim. Amacım: Alman tanı kalitesini ve sade dili sınır ve dil ötesine taşımak.","a-notice":"Bu hizmet, EvKB Bielefeld'deki görevimden tamamen bağımsız olup kişisel kapasitemde sunulmaktadır.","pq-text":"\"Bu hizmeti tek bir soruyu düşünerek tasarladım: kendi aile üyem için ne isterdim?\"","pq-cite":"— Adalat Ganjali · Radyoloji Asistanı · EvKB Bielefeld, Almanya","s6-lbl":"İletişim","s6-head":"Bize ulaşın","c2-type":"E-posta","c2-label":"info@radioloq.com","c2-btn":"E-posta gönder","c3-type":"Video görüşme","c3-label":"Ücretsiz tanışma","c3-btn":"15 dk rezervasyon","cta-head":"Doktor musunuz?","cta-sub":"Radyoloji eğitim kursları — ilk görüntüden Alman standartlarında sınav hazırlığına.","cta-btn":"Kurslara bak →","footer-txt":"© 2025 Radioloq · Eğitsel ikinci görüş hizmeti · Tıbbi tavsiye yerine geçmez · Almanya · info@radioloq.com"},
+az:{"h-badge":"Almaniya · Radiologiya · İkinci Rəy","h-title":"Görüntünüz, <em>Almaniyadakı bir həkim</em> tərəfindən izah edildi","h-sub":"MRT və ya KT görüntünüzü yükləyin. 48 saat ərzində öz dilinizdə aydın ikinci rəy alın.","h-cta1":"İkinci rəy al","h-cta2":"Necə işləyir","nl-how":"Necə işləyir","nl-price":"Qiymətlər","nl-edu":"Həkimlər üçün ↗","nl-about":"Haqqımda","nl-cta":"İkinci rəy al","t1":"Cavab müddəti","t2":"Dil","t3":"Alman standartı","t4":"Təhlükəsiz & məxfi","s1-lbl":"Proses","s1-head":"Necə işləyir","s1-sub":"Görüntünüzdən aydın izahata dörd sadə addım.","st1":"Görüntülərinizi yükləyin","sd1":"MRT və ya KT fayllarınızı orijinal hesabatla birlikdə göndərin.","st2":"Həkim tərəfindən baxış","sd2":"Almaniyadakı radiologiya rezidenti Avropa diaqnostika standartlarından istifadə edərək görüntülərinizi qiymətləndirir.","st3":"İzahatınızı alın","sd3":"İki dilli hesabat alırsınız: texniki qiymətləndirmə + öz dilinizdə sadə izahat.","st4":"Həkiminizlə danışın","sd4":"Xülasəmizdən müalicə həkiminizlə daha məlumatlı söhbət üçün istifadə edin.","s2-lbl":"Qiymət","s2-head":"Sadə, şəffaf qiymətlər","s2-sub":"Hesabat başına birdəfəlik ödəniş. Abunə yoxdur.","p1-tier":"Əsas","p1-name":"Yazılı rəy","p1-per":"/hesabat","p1-desc":"Yazılı qiymətləndirmə + dilinizdə sadə izahat","p1f1":"Bir görüntü baxışı","p1f2":"PDF hesabat","p1f3":"48 saat çatdırılma","p1f4":"Öz dilinizdə izahat","p1-btn":"Yüklə & başla","p2-badge":"Ən populyar","p2-tier":"Standart","p2-name":"Rəy + məsləhət","p2-per":"/hesabat","p2-desc":"Tam qiymətləndirmə + 15 dəq video məsləhət","p2f1":"Əsasın hamısı","p2f2":"15 dəq video görüş","p2f3":"Prioritet 24 saat","p2f4":"E-poçt sualları","p2-btn":"Yüklə & başla","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Tam ikinci rəy","p3-per":"/hesabat","p3-desc":"Hərtərəfli qiymətləndirmə + uzun məsləhət + izləmə","p3f1":"Standartın hamısı","p3f2":"30 dəq məsləhət","p3f3":"7 gün təqib sualları","p3f4":"Əvvəlki görüntülərlə müqayisə","p3-btn":"Yüklə & başla","s4-lbl":"Haqqımda","a-name":"Adalat Ganjali","a-role":"Radiologiya Rezidenti · EvKB Bielefeld, Almaniya","a-bio":"Almaniyanın səhiyyə sistemində radiologiya rezidenti kimi çalışıram. Məqsədim: Alman diaqnostika keyfiyyətini sərhəd və dil xaricindən əlçatan etmək.","a-notice":"Bu xidmət EvKB Bielefeld xəstəxanasındakı rolumdan tamamilə müstəqildir və şəxsi imkanlarım çərçivəsində təqdim edilir.","pq-text":"\"Bu xidməti bir sual əsasında qurdum: öz ailə üzvüm üçün nə istərdim?\"","pq-cite":"— Adalat Ganjali · Radiologiya Rezidenti · EvKB Bielefeld, Almaniya","s6-lbl":"Əlaqə","s6-head":"Bizimlə əlaqə","c2-type":"E-poçt","c2-label":"info@radioloq.com","c2-btn":"E-poçt göndər","c3-type":"Video görüş","c3-label":"Pulsuz tanışlıq","c3-btn":"15 dəq. rezervasiya","cta-head":"Həkimsiniz?","cta-sub":"Strukturlaşdırılmış radiologiya kursları — ilk skanı oxumaqdan Alman standartlı hazırlığa qədər.","cta-btn":"Kurslara bax →","footer-txt":"© 2025 Radioloq · Təhsil məqsədli ikinci rəy xidməti · Tibbi məsləhətin əvəzi deyil · Almaniya · info@radioloq.com"},
+de:{"h-badge":"Deutschland · Radiologie · Zweitmeinung","h-title":"Ihre Aufnahme, erklärt von einem <em>in Deutschland tätigen Arzt</em>","h-sub":"Laden Sie Ihr MRT oder CT hoch. Erhalten Sie innerhalb von 48 Stunden eine klare Zweitmeinung — in Ihrer Sprache.","h-cta1":"Zweitmeinung anfragen","h-cta2":"So funktioniert es","nl-how":"So funktioniert es","nl-price":"Preise","nl-edu":"Für Ärzte ↗","nl-about":"Über mich","nl-cta":"Zweitmeinung anfragen","t1":"Antwortzeit","t2":"Sprachen","t3":"Deutscher Standard","t4":"Sicher & vertraulich","s1-lbl":"Ablauf","s1-head":"So funktioniert es","s1-sub":"Vier einfache Schritte von Ihrer Aufnahme zur klaren Erklärung.","st1":"Bilder hochladen","sd1":"Senden Sie Ihre MRT- oder CT-Dateien zusammen mit dem Originalbefund.","st2":"Ärztliche Beurteilung","sd2":"Ein Assistenzarzt der Radiologie in Deutschland bewertet Ihre Bilder nach europäischen Diagnosestandards.","st3":"Erklärung erhalten","sd3":"Sie erhalten einen zweisprachigen Bericht: technische Auswertung + verständliche Erklärung.","st4":"Mit Ihrem Arzt sprechen","sd4":"Nutzen Sie unsere Zusammenfassung für ein informierteres Gespräch.","s2-lbl":"Preise","s2-head":"Einfache, transparente Preise","s2-sub":"Einmalige Zahlung pro Bericht. Keine Abonnements.","p1-tier":"Basis","p1-name":"Schriftliche Meinung","p1-per":"/Bericht","p1-desc":"Schriftliche Auswertung + verständliche Zusammenfassung","p1f1":"Eine Aufnahme","p1f2":"PDF-Bericht","p1f3":"48h Bearbeitung","p1f4":"Erklärung in Ihrer Sprache","p1-btn":"Hochladen & starten","p2-badge":"Beliebteste Wahl","p2-tier":"Standard","p2-name":"Meinung + Beratung","p2-per":"/Bericht","p2-desc":"Vollständige Auswertung + 15-Min-Videogespräch","p2f1":"Alles aus Basis","p2f2":"15 Min. Videogespräch","p2f3":"Priorität 24h","p2f4":"Fragen per E-Mail","p2-btn":"Hochladen & starten","p3-badge":"Premium","p3-tier":"Premium","p3-name":"Vollständige Zweitmeinung","p3-per":"/Bericht","p3-desc":"Umfassende Auswertung + Beratung + Nachbetreuung","p3f1":"Alles aus Standard","p3f2":"30 Min. Beratung","p3f3":"7 Tage Nachfragen","p3f4":"Vergleich mit Voraufnahmen","p3-btn":"Hochladen & starten","s4-lbl":"Über mich","a-name":"Adalat Ganjali","a-role":"Assistenzarzt Radiologie · EvKB Bielefeld","a-bio":"Ich bin Assistenzarzt in der Radiologie im deutschen Gesundheitssystem. Mein Ziel: hochwertige Befundung grenzübergreifend zugänglich machen.","a-notice":"Dieses Angebot ist vollständig unabhängig von meiner Tätigkeit am EvKB Bielefeld und wird in persönlicher Eigenschaft erbracht.","pq-text":"\"Ich habe diesen Dienst um eine Frage herum entwickelt: Was würde ich mir für mein eigenes Familienmitglied wünschen?\"","pq-cite":"— Adalat Ganjali · Assistenzarzt Radiologie · EvKB Bielefeld","s6-lbl":"Kontakt","s6-head":"Kontakt aufnehmen","c2-type":"E-Mail","c2-label":"info@radioloq.com","c2-btn":"E-Mail senden","c3-type":"Videogespräch","c3-label":"Kostenloses Kennenlernen","c3-btn":"15 Min. buchen","cta-head":"Sind Sie Arzt?","cta-sub":"Strukturierte Radiologie-Kurse — vom ersten Scan bis zur Facharztprüfungsvorbereitung.","cta-btn":"Kurse ansehen →","footer-txt":"© 2025 Radioloq · Zweitmeinungsservice · Kein Ersatz für ärztliche Beratung · Deutschland · info@radioloq.com"},
+ru:{"h-badge":"Германия · Радиология · Второе мнение","h-title":"Ваш снимок, объяснённый <em>врачом из Германии</em>","h-sub":"Загрузите МРТ или КТ. Получите чёткое второе мнение на вашем языке в течение 48 часов.","h-cta1":"Получить второе мнение","h-cta2":"Как это работает","nl-how":"Как работает","nl-price":"Цены","nl-edu":"Для врачей ↗","nl-about":"Обо мне","nl-cta":"Получить второе мнение","t1":"Время ответа","t2":"Языки","t3":"Немецкий стандарт","t4":"Безопасно & конфиденциально","s1-lbl":"Процесс","s1-head":"Как это работает","s1-sub":"Четыре простых шага от снимка до понятного объяснения.","st1":"Загрузите снимки","sd1":"Отправьте файлы МРТ или КТ вместе с заключением.","st2":"Проверка врачом","sd2":"Ординатор радиологии из Германии оценивает ваши снимки по европейским стандартам.","st3":"Получите объяснение","sd3":"Вы получаете двуязычный отчёт: техническую оценку + понятное объяснение.","st4":"Поговорите с врачом","sd4":"Используйте наше резюме для информированной беседы с лечащим врачом.","s2-lbl":"Цены","s2-head":"Простые, прозрачные цены","s2-sub":"Разовая оплата за отчёт. Без подписок.","p1-tier":"Базовый","p1-name":"Письменное мнение","p1-per":"/отчёт","p1-desc":"Письменная оценка + понятное резюме на вашем языке","p1f1":"Один снимок","p1f2":"PDF-отчёт","p1f3":"48 ч. обработки","p1f4":"Объяснение на вашем языке","p1-btn":"Загрузить & начать","p2-badge":"Самый популярный","p2-tier":"Стандарт","p2-name":"Мнение + консультация","p2-per":"/отчёт","p2-desc":"Полная оценка + 15-минутная видеоконсультация","p2f1":"Всё из Базового","p2f2":"Видеозвонок 15 мин.","p2f3":"Приоритет 24 ч.","p2f4":"Вопросы по эл. почте","p2-btn":"Загрузить & начать","p3-badge":"Премиум","p3-tier":"Премиум","p3-name":"Полное второе мнение","p3-per":"/отчёт","p3-desc":"Полная оценка + расширенная консультация + поддержка","p3f1":"Всё из Стандарта","p3f2":"Консультация 30 мин.","p3f3":"Вопросы 7 дней","p3f4":"Сравнение с предыдущими снимками","p3-btn":"Загрузить & начать","s4-lbl":"Обо мне","a-name":"Адалат Ганджали","a-role":"Ординатор радиологии · EvKB Bielefeld, Германия","a-bio":"Я работаю ординатором радиологии в Германии. Моя цель: сделать качественную интерпретацию доступной независимо от границ и языков.","a-notice":"Данная услуга полностью независима от моей должности в EvKB Bielefeld и предоставляется в личном качестве.","pq-text":"\"Я создал этот сервис вокруг одного вопроса: чего бы я хотел для собственного члена семьи?\"","pq-cite":"— Адалат Ганджали · Ординатор радиологии · EvKB Bielefeld, Германия","s6-lbl":"Контакт","s6-head":"Связаться с нами","c2-type":"Эл. почта","c2-label":"info@radioloq.com","c2-btn":"Написать письмо","c3-type":"Видеозвонок","c3-label":"Бесплатное знакомство","c3-btn":"Забронировать 15 мин.","cta-head":"Вы врач?","cta-sub":"Структурированные курсы радиологии — от первого снимка до подготовки по немецким стандартам.","cta-btn":"Смотреть курсы →","footer-txt":"© 2025 Radioloq · Образовательный сервис · Не заменяет медицинскую консультацию · Германия · info@radioloq.com"}
 };
 
 function setLang(l,btn){
   document.querySelectorAll('.lb').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   const c=L[l];
-  for(const [id,val] of Object.entries(c)){
+  for(const[id,val]of Object.entries(c)){
     const el=document.getElementById(id);
     if(!el)continue;
     if(id==='h-title'){el.innerHTML=val;continue;}
     if(el.tagName==='INPUT'||el.tagName==='TEXTAREA'){el.placeholder=val;continue;}
-    if(el.tagName==='A'||el.tagName==='BUTTON'||el.tagName==='SPAN'||el.tagName==='DIV'||el.tagName==='P'){el.textContent=val;continue;}
     el.textContent=val;
   }
 }
