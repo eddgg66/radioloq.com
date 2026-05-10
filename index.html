@@ -774,6 +774,28 @@ function showPendingStep(){
   document.getElementById('step-pending').style.display='block';
   document.getElementById('step-upload').style.display='none';
   document.querySelector('.modal').scrollTop=0;
+  // Poll for session completion every 3 seconds (if user paid and came back)
+  startPaymentPoll();
+}
+
+let pollInterval = null;
+function startPaymentPoll(){
+  if(pollInterval) clearInterval(pollInterval);
+  // Check URL params every 3s in case Stripe redirected back
+  pollInterval = setInterval(async ()=>{
+    const params = new URLSearchParams(window.location.search);
+    const session = params.get('session');
+    if(!session) return;
+    try {
+      const res = await fetch(`${API_URL}/verify?session=${session}`);
+      const data = await res.json();
+      if(data.valid){
+        clearInterval(pollInterval);
+        confirmPayment();
+        window.history.replaceState({},'',window.location.pathname);
+      }
+    } catch(e){}
+  }, 3000);
 }
 function confirmPayment(){
   paymentDone=true;
@@ -832,6 +854,53 @@ function setLang(l,btn){
   }
   if(document.getElementById('modal').classList.contains('open'))applyModalLang(l);
 }
+
+/* ── SESSION VERIFICATION ON PAGE LOAD ── */
+const API_URL = 'https://radioloq-api.vercel.app';
+
+async function checkSessionOnLoad() {
+  const params = new URLSearchParams(window.location.search);
+  const session = params.get('session');
+  const pkg = params.get('pkg');
+  if (!session) return;
+
+  try {
+    const res = await fetch(`${API_URL}/verify?session=${session}`);
+    const data = await res.json();
+
+    if (data.valid) {
+      // Payment confirmed — open upload modal directly
+      const pkgMap = {
+        basic: 'Basic — €29',
+        standard: 'Standard — €59',
+        premium: 'Premium — €99'
+      };
+      const pkgLabel = pkgMap[pkg] || pkgMap['basic'];
+      currentPkg = pkgLabel;
+      currentLang = currentLang || 'en';
+
+      // Open modal directly to upload step
+      document.getElementById('modal').classList.add('open');
+      document.getElementById('modal-pkg-label').textContent = pkgLabel;
+      document.getElementById('upload-pkg-label').textContent = pkgLabel;
+      document.getElementById('m-pending-pkg').textContent = pkgLabel;
+      document.getElementById('inp-pkg').value = pkgLabel;
+      document.getElementById('step-payment').style.display = 'none';
+      document.getElementById('step-pending').style.display = 'none';
+      document.getElementById('step-upload').style.display = 'block';
+      document.body.style.overflow = 'hidden';
+      applyModalLang(currentLang);
+
+      // Clean URL so refreshing doesn't re-trigger
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  } catch(e) {
+    console.log('Session check failed:', e);
+  }
+}
+
+window.addEventListener('load', checkSessionOnLoad);
+
 </script>
 </body>
 </html>
