@@ -746,6 +746,7 @@ function payStripe(){
   const url=STRIPE[currentPkg];
   if(url)window.open(url,'_blank');
   showPendingStep();
+  startPaymentPoll();
 }
 
 /* ── PAYPAL ── */
@@ -766,22 +767,32 @@ function payPayPal(){
   form.submit();
   document.body.removeChild(form);
   showPendingStep();
+  startPaymentPoll();
 }
 
 /* ── STEPS ── */
 function showPendingStep(){
-  document.getElementById('step-payment').style.display='none';
-  document.getElementById('step-pending').style.display='block';
-  document.getElementById('step-upload').style.display='none';
-  document.querySelector('.modal').scrollTop=0;
-  // Poll for session completion every 3 seconds (if user paid and came back)
-  startPaymentPoll();
+  // Show a simple waiting state inside payment step
+  const payBtn = document.querySelector('.pay-btn.stripe');
+  const paypalBtn = document.getElementById('paypal-btn');
+  if(payBtn) { payBtn.textContent='Opening payment...'; payBtn.style.opacity='.6'; payBtn.style.pointerEvents='none'; }
+  if(paypalBtn) { paypalBtn.style.opacity='.6'; paypalBtn.style.pointerEvents='none'; }
+
+  // Show waiting message under buttons
+  let waiting = document.getElementById('pay-waiting');
+  if(!waiting){
+    waiting = document.createElement('p');
+    waiting.id = 'pay-waiting';
+    waiting.style.cssText = 'font-size:12px;color:var(--muted);text-align:center;margin-top:12px;';
+    waiting.textContent = '⏳ Complete payment in the tab that opened. This page will update automatically.';
+    document.querySelector('.pay-secure').after(waiting);
+  }
 }
 
 let pollInterval = null;
 function startPaymentPoll(){
   if(pollInterval) clearInterval(pollInterval);
-  // Check URL params every 3s in case Stripe redirected back
+  // Poll every 2 seconds — when Stripe redirects back with ?session=, auto-open upload
   pollInterval = setInterval(async ()=>{
     const params = new URLSearchParams(window.location.search);
     const session = params.get('session');
@@ -791,19 +802,29 @@ function startPaymentPoll(){
       const data = await res.json();
       if(data.valid){
         clearInterval(pollInterval);
-        confirmPayment();
+        openUploadDirect(data.pkg || currentPkg);
         window.history.replaceState({},'',window.location.pathname);
       }
     } catch(e){}
-  }, 3000);
+  }, 2000);
 }
-function confirmPayment(){
+function openUploadDirect(pkg){
   paymentDone=true;
+  const pkgMap={basic:'Basic — €29',standard:'Standard — €59',premium:'Premium — €99'};
+  const pkgLabel = typeof pkg === 'string' && pkg.includes('€') ? pkg : (pkgMap[pkg] || currentPkg);
+  currentPkg = pkgLabel;
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modal-pkg-label').textContent = pkgLabel;
+  document.getElementById('upload-pkg-label').textContent = pkgLabel;
+  document.getElementById('inp-pkg').value = pkgLabel;
   document.getElementById('step-payment').style.display='none';
   document.getElementById('step-pending').style.display='none';
   document.getElementById('step-upload').style.display='block';
+  document.body.style.overflow='hidden';
+  applyModalLang(currentLang);
   document.querySelector('.modal').scrollTop=0;
 }
+function confirmPayment(){ openUploadDirect(currentPkg); }
 function resetPayment(){
   document.getElementById('step-payment').style.display='block';
   document.getElementById('step-pending').style.display='none';
@@ -869,29 +890,7 @@ async function checkSessionOnLoad() {
     const data = await res.json();
 
     if (data.valid) {
-      // Payment confirmed — open upload modal directly
-      const pkgMap = {
-        basic: 'Basic — €29',
-        standard: 'Standard — €59',
-        premium: 'Premium — €99'
-      };
-      const pkgLabel = pkgMap[pkg] || pkgMap['basic'];
-      currentPkg = pkgLabel;
-      currentLang = currentLang || 'en';
-
-      // Open modal directly to upload step
-      document.getElementById('modal').classList.add('open');
-      document.getElementById('modal-pkg-label').textContent = pkgLabel;
-      document.getElementById('upload-pkg-label').textContent = pkgLabel;
-      document.getElementById('m-pending-pkg').textContent = pkgLabel;
-      document.getElementById('inp-pkg').value = pkgLabel;
-      document.getElementById('step-payment').style.display = 'none';
-      document.getElementById('step-pending').style.display = 'none';
-      document.getElementById('step-upload').style.display = 'block';
-      document.body.style.overflow = 'hidden';
-      applyModalLang(currentLang);
-
-      // Clean URL so refreshing doesn't re-trigger
+      openUploadDirect(pkg || data.pkg || 'basic');
       window.history.replaceState({}, '', window.location.pathname);
     }
   } catch(e) {
