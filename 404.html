@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>404 — Radioloq</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Outfit',sans-serif;background:#F5F0E8;color:#1A1208;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px}
+nav{position:fixed;top:0;left:0;right:0;background:rgba(12,30,60,.97);height:56px;display:flex;align-items:center;padding:0 40px}
+.logo{font-family:'Playfair Display',serif;font-size:20px;color:#fff;text-decoration:none}
+.logo em{color:#E8C97A;font-style:italic}
+.wrap{max-width:680px;width:100%;display:flex;gap:56px;align-items:center;margin-top:56px}
+.scan-box{flex-shrink:0;width:110px;height:140px;border:1.5px solid rgba(12,30,60,.18);position:relative;display:flex;align-items:center;justify-content:center}
+.tl,.tr,.bl,.br{content:'';position:absolute;width:14px;height:14px}
+.tl{top:-2px;left:-2px;border-top:2px solid #7B2D3A;border-left:2px solid #7B2D3A}
+.tr{top:-2px;right:-2px;border-top:2px solid #7B2D3A;border-right:2px solid #7B2D3A}
+.bl{bottom:-2px;left:-2px;border-bottom:2px solid #7B2D3A;border-left:2px solid #7B2D3A}
+.br{bottom:-2px;right:-2px;border-bottom:2px solid #7B2D3A;border-right:2px solid #7B2D3A}
+.scan-line{position:absolute;top:38%;left:0;right:0;height:1px;background:#7B2D3A;opacity:.4}
+.scan-label{font-size:8px;letter-spacing:2.5px;color:rgba(12,30,60,.25);text-transform:uppercase}
+.content{flex:1}
+.error-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#7B2D3A;font-weight:500;margin-bottom:14px}
+h1{font-family:'Playfair Display',serif;font-size:32px;font-style:italic;font-weight:400;margin-bottom:14px;letter-spacing:-.3px;line-height:1.2}
+p{font-size:15px;color:#7A7060;line-height:1.75;margin-bottom:28px;font-weight:300}
+.btn{display:inline-block;padding:12px 26px;background:#7B2D3A;color:#fff;text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.3px;transition:background .2s}
+.btn:hover{background:#9B3A4A}
+.btn-sec{display:inline-block;margin-left:12px;padding:12px 26px;border:1px solid rgba(12,30,60,.2);color:#1A1208;text-decoration:none;font-size:13px;transition:all .2s}
+.btn-sec:hover{background:rgba(12,30,60,.05)}
+footer{position:fixed;bottom:0;left:0;right:0;text-align:center;padding:14px;font-size:11px;color:rgba(26,18,8,.3)}
+footer a{color:rgba(26,18,8,.35);text-decoration:none}
+@media(max-width:560px){.wrap{flex-direction:column;gap:32px;text-align:center}.btn-sec{margin-left:0;margin-top:10px;display:block}}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVC0651H14"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BVC0651H14');</script>
+</head>
+<body>
+<nav><a href="/" class="logo">Radio<em>loq</em></a></nav>
+<div class="wrap">
+  <div class="scan-box">
+    <div class="tl"></div><div class="tr"></div><div class="bl"></div><div class="br"></div>
+    <div class="scan-line"></div>
+    <div class="scan-label">No signal</div>
+  </div>
+  <div class="content">
+    <div class="error-label">Error 404</div>
+    <h1>Scan came back clear.</h1>
+    <p>No findings at this URL. The page you requested doesn't exist — but your scans will be in good hands.</p>
+    <a href="/" class="btn">← Back to Radioloq</a>
+    <a href="/#pricing" class="btn-sec">Get second opinion</a>
+  </div>
+</div>
+<footer>© 2025 Radioloq · <a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a></footer>
+</body>
+</html>
