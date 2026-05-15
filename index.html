@@ -6,6 +6,21 @@
 <title>Radioloq — Your scan explained. German standard, your language.</title>
 <meta name="description" content="Radioloq — Your scan explained. German standard, your language. MRI and CT second opinions in Turkish, Azerbaijani, Russian, German and English within 48 hours."/>
 <meta name="keywords" content="radiology second opinion, MRI second opinion, CT second opinion, German radiology, ikinci görüş, radiologiya"/>
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://radioloq.com/"/>
+<meta property="og:title" content="Radioloq — Your scan explained. German standard, your language."/>
+<meta property="og:description" content="Educational radiology second opinions by a German-trained physician. MRI and CT evaluations in Turkish, Azerbaijani, Russian, German and English within 48 hours."/>
+<meta property="og:image" content="https://radioloq.com/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Radioloq"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Radioloq — Your scan explained. German standard, your language."/>
+<meta name="twitter:description" content="Educational radiology second opinions by a German-trained physician. MRI and CT evaluations in 5 languages within 48 hours."/>
+<meta name="twitter:image" content="https://radioloq.com/og-image.png"/>
 <link rel="canonical" href="https://radioloq.com/"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -585,9 +600,9 @@ const STRIPE={
   'Premium — €99': 'https://buy.stripe.com/aFa00bdHG6nr3bf0Vm8ww01'
 };
 const PAYPAL={
-  'Basic — €29':   'FP9CMPXGDRQB2',
-  'Standard — €59':'6K3FNDGCHL4VY',
-  'Premium — €99': 'NU9C4F9TJ3X62'
+  'Basic — €29':   'https://www.paypal.com/ncp/payment/FBBSBEV9XZQZ4',
+  'Standard — €59':'https://www.paypal.com/ncp/payment/MKFVEECTYTEDE',
+  'Premium — €99': 'https://www.paypal.com/ncp/payment/KDWLGX32B8B28'
 };
 let currentPkg='', currentLang='en', paymentDone=false;
 
@@ -765,20 +780,8 @@ function payStripe(){
 /* ── PAYPAL ── */
 function payPayPal(){
   if(!validateChecks())return;
-  const id=PAYPAL[currentPkg];
-  const form=document.createElement('form');
-  form.method='post';
-  form.action='https://www.paypal.com/cgi-bin/webscr';
-  form.target='_blank';
-  const fields={cmd:'_s-xclick',hosted_button_id:id,currency_code:'EUR'};
-  for(const[k,v]of Object.entries(fields)){
-    const i=document.createElement('input');
-    i.type='hidden';i.name=k;i.value=v;
-    form.appendChild(i);
-  }
-  document.body.appendChild(form);
-  form.submit();
-  document.body.removeChild(form);
+  const url=PAYPAL[currentPkg];
+  if(url)window.open(url,'_blank');
   showPendingStep();
   startPaymentPoll();
 }
@@ -913,6 +916,24 @@ async function checkSessionOnLoad() {
 
 window.addEventListener('load', checkSessionOnLoad);
 
+</script>
+
+<!-- Cookie Bar -->
+<div id="cookie-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(10,22,40,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08);padding:12px 24px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+  <p style="font-size:12px;color:rgba(255,255,255,.6);margin:0;line-height:1.5">
+    By continuing to use this site, you agree to our <a href="terms.html" style="color:rgba(255,255,255,.8);text-decoration:underline">Terms of Service</a> and <a href="privacy.html" style="color:rgba(255,255,255,.8);text-decoration:underline">Privacy Policy</a>. We use Google Analytics to improve your experience.
+  </p>
+  <button onclick="acceptCookies()" style="background:var(--burgundy);color:#fff;border:none;padding:8px 20px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;flex-shrink:0">OK, got it</button>
+</div>
+
+<script>
+function acceptCookies(){
+  document.getElementById('cookie-bar').style.display='none';
+  localStorage.setItem('cookie-accepted','1');
+}
+if(!localStorage.getItem('cookie-accepted')){
+  document.getElementById('cookie-bar').style.display='flex';
+}
 </script>
 </body>
 </html>
