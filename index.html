@@ -374,7 +374,7 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
       <div class="pcard">
         <div class="ptier" id="p1-tier">Basic</div>
         <div class="pname" id="p1-name">Written opinion</div>
-        <div class="pamt">€29 <span id="p1-per">/report</span></div>
+        <div class="pamt">€49 <span id="p1-per">/report</span></div>
         <div class="pdesc" id="p1-desc">Written evaluation + plain-language summary in your language</div>
         <ul class="pfeats">
           <li><span class="fdot dg"></span><span id="p1f1">One scan reviewed</span></li>
@@ -382,13 +382,13 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
           <li><span class="fdot dg"></span><span id="p1f3">48h turnaround</span></li>
           <li><span class="fdot dg"></span><span id="p1f4">Explanation in your language</span></li>
         </ul>
-        <button class="pbtn burg" onclick="openModal('Basic — €29')"><span id="p1-btn">Upload & get started</span></button>
+        <button class="pbtn burg" onclick="openModal('Basic — €49')"><span id="p1-btn">Upload & get started</span></button>
       </div>
       <div class="pcard feat feat-txt">
         <div class="pbadge b" id="p2-badge">Most popular</div>
         <div class="ptier" id="p2-tier">Standard</div>
         <div class="pname" id="p2-name">Opinion + consultation</div>
-        <div class="pamt">€59 <span id="p2-per">/report</span></div>
+        <div class="pamt">€89 <span id="p2-per">/report</span></div>
         <div class="pdesc" id="p2-desc">Full evaluation + 15-min video consultation</div>
         <ul class="pfeats">
           <li><span class="fdot dn"></span><span id="p2f1">Everything in Basic</span></li>
@@ -396,7 +396,7 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
           <li><span class="fdot dn"></span><span id="p2f3">Priority 24h review</span></li>
           <li><span class="fdot dn"></span><span id="p2f4">Q&amp;A via email</span></li>
         </ul>
-        <button class="pbtn wh" onclick="openModal('Standard — €59')"><span id="p2-btn">Upload & get started</span></button>
+        <button class="pbtn wh" onclick="openModal('Standard — €89')"><span id="p2-btn">Upload & get started</span></button>
       </div>
       <div class="pcard">
         <div class="pbadge n" id="p3-badge">Premium</div>
@@ -578,8 +578,8 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
           </select>
           <select id="inp-pkg">
             <option value="">Package...</option>
-            <option>Basic — €29</option>
-            <option>Standard — €59</option>
+            <option>Basic — €49</option>
+            <option>Standard — €89</option>
             <option>Premium — €99</option>
           </select>
         </div>
@@ -595,13 +595,13 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
 <script>
 /* ── STRIPE & PAYPAL ── */
 const STRIPE={
-  'Basic — €29':   'https://buy.stripe.com/bJe8wHavu7rv9zD33u8ww03',
-  'Standard — €59':'https://buy.stripe.com/aFa4greLK3bfh2547y8ww02',
-  'Premium — €99': 'https://buy.stripe.com/aFa00bdHG6nr3bf0Vm8ww01'
+  'Basic — €49':   'https://buy.stripe.com/00w5kv7ji6nrh258nO8ww04',
+  'Standard — €89':'https://buy.stripe.com/fZu9AL6febHL1370Vm8ww05',
+  'Premium — €99': 'https://buy.stripe.com/bJe3cn7ji3bf6nrdI88ww06'
 };
 const PAYPAL={
-  'Basic — €29':   'https://www.paypal.com/ncp/payment/FBBSBEV9XZQZ4',
-  'Standard — €59':'https://www.paypal.com/ncp/payment/MKFVEECTYTEDE',
+  'Basic — €49':   'https://www.paypal.com/ncp/payment/FBBSBEV9XZQZ4',
+  'Standard — €89':'https://www.paypal.com/ncp/payment/MKFVEECTYTEDE',
   'Premium — €99': 'https://www.paypal.com/ncp/payment/KDWLGX32B8B28'
 };
 let currentPkg='', currentLang='en', paymentDone=false;
@@ -826,7 +826,7 @@ function startPaymentPoll(){
 }
 function openUploadDirect(pkg){
   paymentDone=true;
-  const pkgMap={basic:'Basic — €29',standard:'Standard — €59',premium:'Premium — €99'};
+  const pkgMap={basic:'Basic — €49',standard:'Standard — €89',premium:'Premium — €99'};
   const pkgLabel = typeof pkg === 'string' && pkg.includes('€') ? pkg : (pkgMap[pkg] || currentPkg);
   currentPkg = pkgLabel;
   document.getElementById('modal').classList.add('open');
@@ -855,18 +855,70 @@ function showFiles(input){
 }
 
 /* ── SUBMIT ── */
-function submitForm(){
+async function submitForm(){
   const name=document.getElementById('inp-name').value.trim();
   const email=document.getElementById('inp-email').value.trim();
-  if(!name||!email){alert((MT[currentLang]||MT.en).namePh+' / '+((MT[currentLang]||MT.en).emailPh));return;}
+  const lang=document.getElementById('inp-lang').value;
+  const pkg=document.getElementById('inp-pkg').value;
+  const note=document.getElementById('inp-note').value.trim();
+  const files=document.getElementById('file-input').files;
+
+  if(!name||!email){
+    alert((MT[currentLang]||MT.en).namePh+' / '+((MT[currentLang]||MT.en).emailPh));
+    return;
+  }
+
   const btn=document.getElementById('submit-btn');
-  btn.textContent='⏳';btn.style.opacity='.6';btn.style.pointerEvents='none';
-  setTimeout(()=>{
-    closeModal();
-    btn.style.opacity='';btn.style.pointerEvents='';
-    alert('✓ '+name+' — '+email);
-  },1200);
+  btn.textContent='⏳ Sending...';
+  btn.style.opacity='.6';
+  btn.style.pointerEvents='none';
+
+  try {
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('package', pkg);
+    formData.append('language', lang);
+    formData.append('clinical_context', note || 'Not provided');
+    formData.append('_subject', 'New scan upload — Radioloq | ' + pkg);
+    formData.append('_replyto', email);
+
+    // Attach files
+    for(let i=0; i<files.length; i++){
+      formData.append('scan_file_'+i, files[i], files[i].name);
+    }
+
+    const res = await fetch('https://formspree.io/f/xrejnvok', {
+      method: 'POST',
+      body: formData,
+      headers: { Accept: 'application/json' }
+    });
+
+    if(res.ok){
+      closeModal();
+      btn.textContent=(MT[currentLang]||MT.en).submitBtn;
+      btn.style.opacity='';
+      btn.style.pointerEvents='';
+      // Show success message
+      const msg = {
+        en: 'Thank you '+name+'! Your scan has been submitted. We will contact you at '+email+' within 48 hours.',
+        tr: 'Teşekkürler '+name+'! Görüntünüz gönderildi. '+email+' adresinize 48 saat içinde ulaşacağız.',
+        az: 'Təşəkkür edirik '+name+'! Görüntünüz göndərildi. '+email+' ünvanınıza 48 saat ərzində müraciət edəcəyik.',
+        de: 'Danke '+name+'! Ihre Aufnahme wurde übermittelt. Wir melden uns innerhalb von 48 Stunden unter '+email+'.',
+        ru: 'Спасибо '+name+'! Ваш снимок отправлен. Мы свяжемся с вами по адресу '+email+' в течение 48 часов.'
+      };
+      alert(msg[currentLang]||msg.en);
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch(e) {
+    btn.textContent=(MT[currentLang]||MT.en).submitBtn;
+    btn.style.opacity='';
+    btn.style.pointerEvents='';
+    alert('Something went wrong. Please email us directly at info@radioloq.com');
+  }
 }
+
 
 /* ── MAIN LANGUAGE ── */
 const L={
@@ -901,10 +953,17 @@ async function checkSessionOnLoad() {
   const pkg = params.get('pkg');
   if (!session) return;
 
+  // PayPal direct — no webhook verification needed
+  if (session === 'paypal') {
+    openUploadDirect(pkg || 'basic');
+    window.history.replaceState({}, '', window.location.pathname);
+    return;
+  }
+
+  // Stripe — verify with Vercel backend
   try {
     const res = await fetch(`${API_URL}/verify?session=${session}`);
     const data = await res.json();
-
     if (data.valid) {
       openUploadDirect(pkg || data.pkg || 'basic');
       window.history.replaceState({}, '', window.location.pathname);
