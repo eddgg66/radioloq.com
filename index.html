@@ -889,19 +889,21 @@ async function submitForm(){
   btn.style.pointerEvents='none';
 
   try {
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('package', pkg||'Not selected');
-    formData.append('language', lang||'Not selected');
-    formData.append('clinical_context', note||'Not provided');
-    formData.append('_subject', 'New scan request — Radioloq | '+pkg);
-    formData.append('_replyto', email);
-
     const res = await fetch('https://formspree.io/f/xrejnvok', {
       method: 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' }
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        package: pkg||'Not selected',
+        language: lang||'Not selected',
+        clinical_context: note||'Not provided',
+        _subject: 'New scan request — Radioloq | '+pkg,
+        _replyto: email
+      })
     });
 
     if(res.ok){
