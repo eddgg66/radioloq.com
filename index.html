@@ -593,6 +593,8 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
           </select>
         </div>
         <textarea id="inp-note" placeholder="Brief clinical context (optional)..."></textarea>
+      <!-- Honeypot — do not fill -->
+      <input type="text" name="_honey" id="_honey" style="display:none;position:absolute;left:-9999px" tabindex="-1" autocomplete="off"/>
         <div class="fnote" id="m-fnote">Your data is handled securely and deleted after 30 days.</div>
         <button class="sbtn" id="submit-btn" onclick="submitForm()">Submit scan →</button>
       </div>
@@ -872,6 +874,9 @@ async function submitForm(){
   const note=document.getElementById('inp-note').value.trim();
   const files=document.getElementById('file-input').files;
 
+  // Honeypot check — if filled, it's a bot
+  if(document.getElementById('_honey').value) return;
+
   if(!name||!email){
     alert((MT[currentLang]||MT.en).namePh+' / '+((MT[currentLang]||MT.en).emailPh));
     return;
@@ -889,6 +894,7 @@ async function submitForm(){
     formData.append('package', pkg);
     formData.append('language', lang);
     formData.append('clinical_context', note || 'Not provided');
+    formData.append('_gotcha', '');
     formData.append('_subject', 'New scan upload — Radioloq | ' + pkg);
     formData.append('_replyto', email);
 
