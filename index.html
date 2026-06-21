@@ -324,12 +324,10 @@ footer p{font-size:11px;max-width:560px;margin:0 auto;line-height:1.9}
 @media(max-width:768px){.faq-list{margin-top:4px}.faq-q{padding:18px 20px;font-size:14.5px}.faq-a-inner{padding:0 20px 20px;font-size:14px}}
 </style>
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVC0651H14"></script>
 <script>
+  // GA stub — real GA only loads after cookie consent (see loadGA() below)
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BVC0651H14');
 </script>
 </head>
 <body>
@@ -1107,19 +1105,40 @@ window.addEventListener('load', checkSessionOnLoad);
 </script>
 
 <!-- Cookie Bar -->
-<div id="cookie-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(10,22,40,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08);padding:12px 24px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
-  <p style="font-size:12px;color:rgba(255,255,255,.6);margin:0;line-height:1.5">
-    By continuing to use this site, you agree to our <a href="terms.html" style="color:rgba(255,255,255,.8);text-decoration:underline">Terms of Service</a> and <a href="privacy.html" style="color:rgba(255,255,255,.8);text-decoration:underline">Privacy Policy</a>.
+<div id="cookie-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;background:rgba(10,22,40,.97);backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.08);padding:14px 24px;z-index:9999;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+  <p style="font-size:12px;color:rgba(255,255,255,.6);margin:0;line-height:1.5;flex:1;min-width:200px">
+    We use cookies for essential site function and, with your consent, for analytics. See our <a href="terms.html" style="color:rgba(255,255,255,.8);text-decoration:underline">Terms of Service</a> and <a href="privacy.html" style="color:rgba(255,255,255,.8);text-decoration:underline">Privacy Policy</a>.
   </p>
-  <button onclick="acceptCookies()" style="background:var(--burgundy);color:#fff;border:none;padding:8px 20px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap;flex-shrink:0">OK, got it</button>
+  <div style="display:flex;gap:8px;flex-shrink:0">
+    <button onclick="rejectCookies()" style="background:transparent;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.3);padding:8px 18px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap">Reject</button>
+    <button onclick="acceptCookies()" style="background:var(--burgundy);color:#fff;border:none;padding:8px 20px;font-size:12px;font-weight:500;cursor:pointer;font-family:'Outfit',sans-serif;white-space:nowrap">Accept</button>
+  </div>
 </div>
 
 <script>
+function loadGA(){
+  if(window.gaLoaded) return;
+  window.gaLoaded = true;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-BVC0651H14';
+  document.head.appendChild(s);
+  gtag('js', new Date());
+  gtag('config', 'G-BVC0651H14');
+}
 function acceptCookies(){
   document.getElementById('cookie-bar').style.display='none';
-  localStorage.setItem('cookie-accepted','1');
+  localStorage.setItem('cookie-consent','accepted');
+  loadGA();
 }
-if(!localStorage.getItem('cookie-accepted')){
+function rejectCookies(){
+  document.getElementById('cookie-bar').style.display='none';
+  localStorage.setItem('cookie-consent','rejected');
+}
+var consent = localStorage.getItem('cookie-consent');
+if(consent === 'accepted'){
+  loadGA();
+} else if(!consent){
   document.getElementById('cookie-bar').style.display='flex';
 }
 </script>
