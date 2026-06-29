@@ -16,12 +16,14 @@ export default function About() {
             transition={{ duration: 0.6 }}
             style={{
               width: 260, height: 260, borderRadius: 24, border: '1px solid var(--border)',
-              background: 'linear-gradient(135deg, var(--teal-tint), var(--purple-tint))',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 48, fontWeight: 800, color: 'var(--purple-dark)',
+              overflow: 'hidden', flexShrink: 0,
             }}
           >
-            AG
+            <img
+              src="/photo.jpg"
+              alt="Adalat Ganjali"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', display: 'block' }}
+            />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 30 }}

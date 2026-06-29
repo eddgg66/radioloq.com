@@ -6,8 +6,8 @@ export default function StatBar() {
   const stats = [
     { num: '48h', key: 't1' },
     { num: '5', key: 't2' },
-    { num: '100%', key: 't3' },
-    { num: '🔒', key: 't4' },
+    { num: 'DE', key: 't3' },
+    { num: '100%', key: 't4' },
   ];
 
   return (

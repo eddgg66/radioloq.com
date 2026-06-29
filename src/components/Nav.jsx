@@ -14,6 +14,7 @@ export default function Nav({ onOpenModal }) {
   });
 
   return (
+    <>
     <motion.nav
       style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 999, height: 68,
@@ -71,7 +72,31 @@ export default function Nav({ onOpenModal }) {
         .nav-link{color:var(--muted);font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:99px;transition:all .2s}
         .nav-link:hover{color:var(--ink);background:var(--cream2)}
         @media(max-width:860px){.nav-links-desktop,.nav-langs-desktop{display:none!important}}
+        .mobile-lbar{display:none}
+        @media(max-width:768px){.mobile-lbar{display:flex}}
       `}</style>
     </motion.nav>
+
+    {/* Mobile-only language switcher — original had this as a separate bar below nav */}
+    <div className="mobile-lbar" style={{
+      gap: 8, justifyContent: 'center', padding: '14px 16px',
+      background: 'var(--cream2)', borderBottom: '1px solid var(--border)',
+    }}>
+      {LANGS.map((l) => (
+        <button
+          key={l}
+          onClick={() => setLang(l)}
+          style={{
+            fontSize: 12, fontWeight: 600, padding: '7px 15px', borderRadius: 20,
+            border: `1px solid ${lang === l ? 'var(--ink)' : 'var(--border2)'}`,
+            background: lang === l ? 'var(--ink)' : '#fff',
+            color: lang === l ? '#fff' : 'var(--muted)',
+          }}
+        >
+          {l.toUpperCase()}
+        </button>
+      ))}
+    </div>
+    </>
   );
 }
