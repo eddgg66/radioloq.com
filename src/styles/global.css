@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Noto+Sans:wght@300;400;500&subset=latin-ext&display=swap');
+
+:root{
+  --teal:#0FBFA8;--teal-dark:#0A9A87;--teal-tint:#E6FBF7;
+  --purple:#7B61FF;--purple-dark:#5B3FE0;--purple-tint:#F1EEFF;
+  --ink:#16182B;--ink2:#2D3148;--muted:#5B6178;--faint:#9498AC;
+  --cream:#FFFFFF;--cream2:#F7F6FD;--cream3:#EDEAFB;
+  --border:rgba(22,24,43,.08);--border2:rgba(22,24,43,.13);
+  --grad: linear-gradient(100deg, var(--teal), var(--purple));
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter','Noto Sans',Arial,sans-serif;
+  font-size:15px;line-height:1.75;color:var(--ink);background:#fff;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;letter-spacing:-0.02em}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+img{max-width:100%;display:block}
+:lang(az){font-family:'Inter','Noto Sans',Arial,sans-serif}
+
+.container{max-width:1060px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:13px;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px}
+.section-title{font-size:clamp(26px,3.6vw,42px);font-weight:800;color:var(--ink);margin-bottom:14px;letter-spacing:-.6px;line-height:1.16}
+.section-sub{font-size:15.5px;color:var(--muted);max-width:520px;margin-bottom:48px;line-height:1.75}
+
+.btn-primary{
+  background:var(--grad);color:#fff;border:none;padding:15px 34px;border-radius:99px;
+  font-size:15px;font-weight:600;box-shadow:0 12px 28px rgba(123,97,255,.28);
+}
+.btn-outline{
+  background:#fff;color:var(--ink);border:1.5px solid var(--border2);padding:15px 32px;border-radius:99px;
+  font-size:15px;font-weight:600;
+}
+
+@media(max-width:768px){
+  .container{padding:0 20px}
+}
