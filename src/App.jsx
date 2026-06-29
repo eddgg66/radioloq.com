@@ -3,6 +3,7 @@ import { LanguageProvider } from './i18n/LanguageContext';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import StatBar from './components/StatBar';
+import LanguageToolbar from './components/LanguageToolbar';
 import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
 import About from './components/About';
@@ -25,6 +26,7 @@ export default function App() {
       <Nav onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
       <StatBar />
+      <LanguageToolbar />
       <HowItWorks />
       <Pricing onOpenModal={openModal} />
       <About />

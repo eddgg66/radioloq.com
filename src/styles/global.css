@@ -40,3 +40,25 @@ img{max-width:100%;display:block}
 @media(max-width:768px){
   .container{padding:0 20px}
 }
+
+/* ── Hero background effect — same proven technique as courses.radioloq.com ── */
+.hero-pulse{
+  position:absolute;top:-180px;left:50%;transform:translateX(-50%);
+  width:900px;height:700px;
+  background:radial-gradient(ellipse, rgba(15,191,168,.18) 0%, rgba(123,97,255,.12) 45%, transparent 70%);
+  border-radius:50%;
+  animation:heroBreathe 9s ease-in-out infinite;
+}
+@keyframes heroBreathe{
+  0%,100%{transform:translateX(-50%) scale(1);opacity:.7}
+  50%{transform:translateX(-50%) scale(1.1);opacity:1}
+}
+.hero-scanline{
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(15,191,168,.05),rgba(123,97,255,.35),rgba(15,191,168,.05),transparent);
+  animation:heroScan 8s linear infinite;
+}
+@keyframes heroScan{
+  0%{top:0%}
+  100%{top:100%}
+}

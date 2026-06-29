@@ -1,33 +1,16 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
-
-const blobBase = {
-  position: 'absolute',
-  borderRadius: '50%',
-  filter: 'blur(55px)',
-};
 
 export default function Hero({ onOpenModal }) {
   const { t } = useLanguage();
-  const heroRef = useRef(null);
 
-  // scroll-driven parallax + fade, scoped to this section's scroll progress
   const { scrollY } = useScroll();
   const heroOpacity = useTransform(scrollY, [0, 420], [1, 0]);
   const heroLift = useTransform(scrollY, [0, 420], [0, -70]);
   const heroScale = useTransform(scrollY, [0, 3600], [1, 0.93]);
 
-  const blob1X = useTransform(scrollY, [0, 1000], [0, 180]);
-  const blob1Y = useTransform(scrollY, [0, 1000], [0, -110]);
-  const blob2X = useTransform(scrollY, [0, 1000], [0, -150]);
-  const blob2Y = useTransform(scrollY, [0, 1000], [0, 80]);
-  const blob3X = useTransform(scrollY, [0, 1000], [0, 100]);
-  const blob3Y = useTransform(scrollY, [0, 1000], [0, -160]);
-
   return (
     <section
-      ref={heroRef}
       style={{
         minHeight: '100vh',
         background: '#fff',
@@ -37,35 +20,15 @@ export default function Hero({ onOpenModal }) {
         textAlign: 'center',
         padding: '130px 32px 80px',
         position: 'relative',
-        overflow: 'visible',
+        overflow: 'hidden',
       }}
     >
-      {/* ── Breathing glow blobs (idle animation via Framer Motion) ── */}
-      <div style={{ position: 'absolute', top: -100, left: 0, right: 0, height: 820, pointerEvents: 'none', overflow: 'visible', zIndex: 0 }}>
-        <motion.div style={{ position: 'absolute', inset: 0, x: blob1X, y: blob1Y }}>
-          <motion.div
-            style={{ ...blobBase, width: 620, height: 620, left: '2%', top: -10, background: 'radial-gradient(circle, rgba(15,191,168,.55), transparent 70%)' }}
-            animate={{ scale: [1, 1.2, 1], opacity: [0.85, 1, 0.85], x: [0, 40, 0], y: [0, 50, 0] }}
-            transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
-        <motion.div style={{ position: 'absolute', inset: 0, x: blob2X, y: blob2Y }}>
-          <motion.div
-            style={{ ...blobBase, width: 680, height: 680, right: '0%', top: 50, background: 'radial-gradient(circle, rgba(123,97,255,.50), transparent 70%)' }}
-            animate={{ scale: [1, 1.16, 1], opacity: [0.8, 1, 0.8], x: [0, -50, 0], y: [0, -32, 0] }}
-            transition={{ duration: 17, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
-        <motion.div style={{ position: 'absolute', inset: 0, x: blob3X, y: blob3Y }}>
-          <motion.div
-            style={{ ...blobBase, width: 580, height: 580, left: '32%', top: 165, background: 'radial-gradient(circle, rgba(15,191,168,.32), rgba(123,97,255,.32), transparent 72%)' }}
-            animate={{ scale: [1, 1.24, 1], opacity: [0.7, 1, 0.7], x: [0, 28, 0], y: [0, -48, 0] }}
-            transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
+      {/* ── Simple, proven background effect: soft pulse + scanning line ── */}
+      <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
+        <div className="hero-pulse" />
+        <div className="hero-scanline" />
       </div>
 
-      {/* ── Hero content — fades/lifts/scales as user scrolls past ── */}
       <motion.div
         style={{ maxWidth: 740, position: 'relative', zIndex: 1, opacity: heroOpacity, y: heroLift, scale: heroScale }}
       >
