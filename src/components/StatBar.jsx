@@ -4,7 +4,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 export default function StatBar() {
   const { t } = useLanguage();
   const stats = [
-    { num: '48h', key: 't1' },
+    { num: t('t1-num'), key: 't1' },
     { num: '5', key: 't2' },
     { num: 'DE', key: 't3' },
     { num: '100%', key: 't4' },

@@ -61,7 +61,7 @@
     "p3-btn": "Upload & get started",
     "s4-lbl": "About me",
     "a-name": "Adalat Ganjali",
-    "a-role": "Radiology Resident · EvKB Bielefeld, Germany",
+    "a-role": "Radiology Resident · Bielefeld, Germany",
     "a-bio": "The reason I started Radioloq is simple: quality medical care should be understandable — and accessible — for everyone. With this service, you cut through the bureaucracy and get a clear answer to the question nobody tells you after imaging: \"Now what?\" I'm a radiology resident in Germany, and I'm here to help you make sense of it — calmly, clearly, in your own language.",
     "a-notice": "This service is independent from my role at EvKB Bielefeld. All evaluations reflect my personal professional assessment and are offered for educational purposes — not as formal medical reports.",
     "pq-text": "I designed this service around one question: what would I want for my own family member receiving a scan report they can't understand?",
@@ -94,7 +94,8 @@
     "faq-q5": "Is the 48-hour turnaround guaranteed?",
     "faq-a5": "48 hours is our target. In busy periods it may take slightly longer — but I will always notify you in advance.",
     "faq-q6": "Will my files be used for any other purpose?",
-    "faq-a6": "Absolutely not. Your images are used solely to prepare your evaluation — never for training, research or AI purposes."
+    "faq-a6": "Absolutely not. Your images are used solely to prepare your evaluation — never for training, research or AI purposes.",
+    "t1-num": "48h"
   },
   "tr": {
     "h-badge": "Almanya · Radyoloji · İkinci Görüş",
@@ -158,7 +159,7 @@
     "p3-btn": "Yükle & başla",
     "s4-lbl": "Hakkımda",
     "a-name": "Adalet Gencali",
-    "a-role": "Radyoloji Asistanı · EvKB Bielefeld, Almanya",
+    "a-role": "Radyoloji Asistanı · Bielefeld, Almanya",
     "a-bio": "Radioloq’u kurmamın nedeni basit: kaliteli tıbbi hizmet herkes için anlaşılır ve erişilebilir olmalı. Bu hizmetle bürokratik engelleri aşıyor ve görüntüleme sonrası kimsenin söylemediği soruya net bir cevap alıyorsunuz: 'Peki şimdi ne yapmalıyım?' Almanya’da radyoloji asistanıyım ve size sakin, açık, kendi dilimizde yardımcı olmak için buradayam.",
     "a-notice": "Bu hizmet EvKB Bielefeld'deki görevimden bağımsızdır. Tüm değerlendirmeler kişisel mesleki görüşümü yansıtır ve eğitsel amaçlı sunulmaktadır — resmi tıbbi rapor niteliği taşımaz.",
     "pq-text": "Bu hizmeti tek bir soruyu düşünerek tasarladım: kendi aile üyem için ne isterdim?",
@@ -191,7 +192,8 @@
     "faq-q5": "48 saatlik süre garantili mi?",
     "faq-a5": "Hedef süremiz 48 saattir. Yoğun dönemlerde bu süre uzayabilir — ama her zaman önceden bilgilendiririm.",
     "faq-q6": "Dosyalarım başka amaçlarla kullanılır mı?",
-    "faq-a6": "Kesinlikle hayır. Görüntüleriniz yalnızca değerlendirmenizi hazırlamak için kullanılır — eğitim, araştırma veya yapay zeka için kullanılmaz."
+    "faq-a6": "Kesinlikle hayır. Görüntüleriniz yalnızca değerlendirmenizi hazırlamak için kullanılır — eğitim, araştırma veya yapay zeka için kullanılmaz.",
+    "t1-num": "48 saat"
   },
   "az": {
     "h-badge": "Almaniya · Radiologiya · İKİNCİ BAXIŞ",
@@ -255,7 +257,7 @@
     "p3-btn": "Yüklə & başla",
     "s4-lbl": "Haqqımda",
     "a-name": "Ədalət Gəncəli",
-    "a-role": "Radiologiya Rezidenti · EvKB Bielefeld, Almaniya",
+    "a-role": "Radiologiya üzrə rezident · Bielefeld, Almaniya",
     "a-bio": "Radioloq-u qurmağımın səbəbi sadədir: keyfiyyətli tibbi xidmət hamı üçün anlaşıqlı və əlçatan olmalıdır. Bu xidmətlə bürokratik maneələri aşırsınız və görüntüləmədən  sonra haqqında danışılmayan o suala aydın cavab alırsınız: \"İndi nə etməliyəm?\" Almaniyada radiologiya rezidentiyəm və sizə anlaşıqlı, aydın və öz dilimzdə kömək etmək üçün burdayam.",
     "a-notice": "Bu xidmət EvKB Bielefeld xəstəxanasındakı rolumdan tamamilə müstəqildir və şəxsi imkanlarım çərçivəsində təqdim edilir.",
     "pq-text": "Bu xidməti bir sual əsasında qurdum: öz ailə üzvüm üçün nə istərdim?",
@@ -288,7 +290,8 @@
     "faq-q5": "48 saatlik müddət zəmanətlidirmi?",
     "faq-a5": "Hədəf müddətimiz 48 saatdir. Sıx dövrlərdə bu müddət uzana bilər — amma həmişə əvvəlcədən xəbər verərəm.",
     "faq-q6": "Fayllarım başqa məqsədlər üçün istifadə ediləcəkmi?",
-    "faq-a6": "Qətiyyən xeyr. Görüntüləriniz yalnızca qiymətləndirməni hazırlamaq üçün istifadə edilir — təhsil, tədqiqat və ya süni intellekt üçün heç vaxt istifadə edilmir."
+    "faq-a6": "Qətiyyən xeyr. Görüntüləriniz yalnızca qiymətləndirməni hazırlamaq üçün istifadə edilir — təhsil, tədqiqat və ya süni intellekt üçün heç vaxt istifadə edilmir.",
+    "t1-num": "48 saat"
   },
   "de": {
     "h-badge": "Deutscher Standard · Ihre Sprache · 48 Stunden",
@@ -352,7 +355,7 @@
     "p3-btn": "Hochladen & starten",
     "s4-lbl": "Über mich",
     "a-name": "Adalat Ganjali",
-    "a-role": "Assistenzarzt Radiologie · EvKB Bielefeld",
+    "a-role": "Assistenzarzt Radiologie · Bielefeld, Deutschland",
     "a-bio": "Der Grund, warum ich Radioloq gegründet habe, ist einfach: Qualitativ hochwertige medizinische Versorgung sollte für jeden verständlich — und zugänglich — sein. Mit diesem Service umgehen Sie die Bürokratie und erhalten eine klare Antwort auf die Frage, die nach einer Bildgebung selten besprochen wird: \"Was jetzt?\" Ich bin Assistenzarzt in der Radiologie in Deutschland, und ich bin hier, um Ihnen ruhig, klar und in Ihrer Sprache zu helfen.",
     "a-notice": "Dieses Angebot ist vollständig unabhängig von meiner Tätigkeit am EvKB Bielefeld. Alle Auswertungen spiegeln meine persönliche fachliche Einschätzung wider und dienen ausschließlich Bildungszwecken — nicht als formelle medizinische Berichte.",
     "pq-text": "Ich habe diesen Dienst um eine Frage entwickelt: Was würde ich mir für mein eigenes Familienmitglied wünschen, das einen Befund nicht versteht?",
@@ -385,7 +388,8 @@
     "faq-q5": "Ist die 48-Stunden-Frist garantiert?",
     "faq-a5": "48 Stunden ist unser Ziel. In arbeitsreichen Zeiten kann es etwas länger dauern — ich informiere Sie jedoch stets im Voraus.",
     "faq-q6": "Werden meine Dateien für andere Zwecke verwendet?",
-    "faq-a6": "Absolut nicht. Ihre Aufnahmen werden ausschließlich zur Erstellung Ihrer Auswertung verwendet — niemals für Ausbildung, Forschung oder KI."
+    "faq-a6": "Absolut nicht. Ihre Aufnahmen werden ausschließlich zur Erstellung Ihrer Auswertung verwendet — niemals für Ausbildung, Forschung oder KI.",
+    "t1-num": "48h"
   },
   "ru": {
     "h-badge": "Немецкий стандарт · Ваш язык · 48 часов",
@@ -449,7 +453,7 @@
     "p3-btn": "Загрузить & начать",
     "s4-lbl": "Обо мне",
     "a-name": "Адалат Ганджали",
-    "a-role": "Ординатор радиологии · EvKB Bielefeld, Германия",
+    "a-role": "Ординатор радиологии · Билефельд, Германия",
     "a-bio": "Причина, по которой я создал Radioloq, проста: качественная медицинская помощь должна быть понятной — и доступной — для каждого. С этим сервисом вы обходите бюрократию и получаете чёткий ответ на вопрос, который редко обсуждается после обследования: \"Что теперь?\" Я ординатор радиологии в Германии, и я здесь, чтобы помочь вам разобраться — спокойно, ясно, на нашем языке.",
     "a-notice": "Этот сервис полностью независим от моей должности в EvKB Bielefeld. Все оценки отражают мою личную профессиональную точку зрения и предоставляются в образовательных целях — не как официальные медицинские заключения.",
     "pq-text": "Я создал этот сервис вокруг одного вопроса: чего бы я хотел для своего близкого, получившего заключение, которое он не понимает?",
@@ -482,6 +486,7 @@
     "faq-q5": "Гарантируется ли срок 48 часов?",
     "faq-a5": "48 часов — наша цель. В загруженные периоды это может занять немного больше времени — но я всегда предупрежу заранее.",
     "faq-q6": "Будут ли мои файлы использованы в других целях?",
-    "faq-a6": "Абсолютно нет. Ваши снимки используются исключительно для подготовки оценки — никогда для обучения, исследований или ИИ."
+    "faq-a6": "Абсолютно нет. Ваши снимки используются исключительно для подготовки оценки — никогда для обучения, исследований или ИИ.",
+    "t1-num": "48 часов"
   }
 }
