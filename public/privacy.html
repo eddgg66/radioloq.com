@@ -4,43 +4,88 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Datenschutzerklärung — Radioloq</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--cream:#F5F0E8;--navy:#0C1E3C;--burgundy:#7B2D3A;--ink:#1A1208;--muted:#7A7060;--border:rgba(26,18,8,.1)}
-body{font-family:'Outfit',sans-serif;font-size:15px;line-height:1.8;color:var(--ink);background:var(--cream)}
-nav{background:var(--navy);padding:0 40px;height:56px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:'Playfair Display',serif;font-size:20px;color:#fff;text-decoration:none}
-
-.back{font-size:13px;color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
-.back:hover{color:#fff}
-.wrap{max-width:760px;margin:0 auto;padding:64px 16px 96px}
-.page-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--burgundy);font-weight:500;margin-bottom:10px}
-h1{font-family:'Playfair Display',serif;font-size:36px;margin-bottom:8px;letter-spacing:-.4px;line-height:1.15}
-.meta{font-size:12px;color:var(--muted);margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--border)}
-h2{font-family:'Playfair Display',serif;font-size:20px;margin:36px 0 12px;letter-spacing:-.2px;color:var(--navy)}
-h3{font-size:15px;font-weight:500;margin:20px 0 8px}
-p{margin-bottom:14px;color:var(--muted);font-weight:300}
+:root{
+  --teal:#0FBFA8;--teal-dark:#0A9A87;--teal-tint:#E6FBF7;
+  --purple:#7B61FF;--purple-dark:#5B3FE0;--purple-tint:#F1EEFF;
+  --ink:#16182B;--muted:#5B6178;--faint:#9498AC;
+  --cream:#FFFFFF;--cream2:#F7F6FD;
+  --border:rgba(22,24,43,.08);--border2:rgba(22,24,43,.13);
+  --grad:linear-gradient(100deg,#0FBFA8,#7B61FF);
+}
+body{font-family:'Inter',sans-serif;font-size:15px;line-height:1.8;color:var(--ink);background:#fff}
+nav{
+  background:var(--ink);padding:0 48px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:2px solid var(--teal);
+}
+.logo{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:700;
+  color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;letter-spacing:-.2px;
+}
+.logo::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0}
+.back{
+  font-size:11px;color:rgba(255,255,255,.5);text-decoration:none;
+  letter-spacing:2px;text-transform:uppercase;transition:color .2s;font-family:'Inter',sans-serif;
+}
+.back:hover{color:var(--teal)}
+.wrap{max-width:760px;margin:0 auto;padding:72px 24px 100px}
+.page-label{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--teal-dark);font-weight:600;margin-bottom:10px;font-family:'Inter',sans-serif;
+}
+h1{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:700;
+  margin-bottom:8px;letter-spacing:-.6px;line-height:1.12;color:var(--ink);
+}
+.meta{
+  font-size:11.5px;color:var(--faint);margin-bottom:52px;
+  padding-bottom:24px;border-bottom:1px solid var(--border);line-height:1.8;
+}
+h2{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:600;
+  margin:42px 0 12px;letter-spacing:-.3px;color:var(--ink);
+  padding-left:14px;border-left:3px solid var(--teal);
+}
+h3{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;
+  margin:22px 0 8px;letter-spacing:.2px;text-transform:uppercase;color:var(--teal-dark);
+}
+p{margin-bottom:14px;color:var(--muted);font-weight:300;font-size:14.5px;line-height:1.85}
 p strong{color:var(--ink);font-weight:500}
-ul{margin:0 0 14px 22px;color:var(--muted);font-weight:300}
-ul li{margin-bottom:6px}
-.alert{border-left:3px solid var(--burgundy);background:#F5E8EB;padding:16px 20px;margin:24px 0}
-.alert p{margin:0;color:var(--burgundy);font-weight:400}
+ul{margin:0 0 14px 0;color:var(--muted);font-weight:300;list-style:none}
+ul li{
+  margin-bottom:7px;padding-left:16px;position:relative;
+  font-size:14.5px;line-height:1.8;
+}
+ul li::before{content:'▸';position:absolute;left:0;color:var(--teal);font-size:11px;top:3px}
+.alert{
+  border-left:3px solid var(--teal);background:var(--teal-tint);
+  padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0;
+}
+.alert p{margin:0;color:var(--teal-dark);font-weight:400;font-size:14px}
 .table-wrap{overflow-x:auto;margin-bottom:20px}
 table{width:100%;border-collapse:collapse;font-size:13px}
-th{background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-weight:500}
-td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--muted);vertical-align:top}
-td:first-child{color:var(--ink);font-weight:500}
-footer{background:var(--navy);color:rgba(255,255,255,.35);text-align:center;padding:28px;font-size:12px}
-footer a{color:rgba(255,255,255,.5);text-decoration:none}
-footer a:hover{color:#fff}
+th{
+  background:var(--ink);color:#fff;padding:11px 14px;
+  text-align:left;font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:600;font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+}
+td{
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  color:var(--muted);font-size:13px;line-height:1.7;vertical-align:top;
+}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--cream2)}
+a{color:var(--teal-dark);text-decoration:underline;transition:color .2s}
+a:hover{color:var(--purple)}
 @media(max-width:600px){
-  .wrap{padding:48px 16px 64px}
+  nav{padding:0 20px}
+  .wrap{padding:48px 16px 72px}
   h1{font-size:26px}
-  h2{font-size:18px}
-  table{font-size:11px}
-  td,th{padding:8px 8px}
-  nav{padding:0 16px}
+  h2{font-size:16px}
 }
 </style>
 <!-- Google Analytics -->
@@ -62,7 +107,7 @@ footer a:hover{color:#fff}
   <div class="page-label">Datenschutz · DSGVO</div>
   <h1>Datenschutzerklärung</h1>
   <div class="meta">
-    Stand: 1. Juni 2026 &nbsp;·&nbsp; Gilt für: radioloq.com und courses.radioloq.com<br>
+    Stand: 1. Juli 2026 &nbsp;·&nbsp; Gilt für: radioloq.com und courses.radioloq.com<br>
     Verantwortlicher im Sinne der DSGVO: Adalat Ganjali, Bielefeld, Deutschland
   </div>
 
@@ -138,6 +183,7 @@ footer a:hover{color:#fff}
         <tr><td>Formspree, Inc.</td><td>Formularverarbeitung — Kontaktdaten (Hauptwebsite)</td><td>USA</td><td>Standardvertragsklauseln</td></tr>
         <tr><td>Dropbox, Inc.</td><td>Sichere Übertragung medizinischer Bilddateien</td><td>USA (EU-Serverstandort wählbar)</td><td>Standardvertragsklauseln; DSGVO-konform</td></tr>
         <tr><td>Google Ireland Limited</td><td>Reichweitenmessung (nur mit Einwilligung)</td><td>EU/USA</td><td>Standardvertragsklauseln; nur nach Cookie-Zustimmung aktiv</td></tr>
+        <tr><td>Cloudflare, Inc.</td><td>Spracherkennung anhand des Herkunftslandes (CF-IPCountry-Header); keine Speicherung der IP-Adresse durch Radioloq; Verarbeitung erfolgt am Netzwerk-Edge</td><td>USA / EU</td><td>Standardvertragsklauseln; Daten werden nicht an Radioloq-Server übermittelt; Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse — sprachliche Barrierefreiheit)</td></tr>
         <tr><td>Formspree, Inc.</td><td>E-Mail-Benachrichtigung (courses.radioloq.com Warteliste)</td><td>USA</td><td>Standardvertragsklauseln</td></tr>
         <tr><td>GitHub, Inc. (GitHub Pages)</td><td>Website-Hosting</td><td>USA</td><td>Standardvertragsklauseln; keine Nutzerdaten gespeichert</td></tr>
       </tbody>
@@ -217,6 +263,9 @@ footer a:hover{color:#fff}
   <p>Radioloq verwendet technisch notwendige Cookies für grundlegende Sitzungsfunktionen. Diese erfordern keine Einwilligung gemäß § 25 Abs. 2 TTDSG.</p>
   <p>Zusätzlich nutzen wir mit Ihrer ausdrücklichen Einwilligung Google Analytics (Google Ireland Limited) zur anonymisierten Reichweitenmessung. Beim ersten Besuch der Website wird Ihnen ein Cookie-Banner angezeigt, über das Sie der Nutzung von Google Analytics zustimmen oder diese ablehnen können. Ihre Wahl wird lokal in Ihrem Browser gespeichert. Google Analytics wird ausschließlich nach erteilter Zustimmung geladen; bei Ablehnung erfolgt keine Datenübermittlung an Google. Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die lokal gespeicherten Browserdaten löschen und die Seite neu laden.</p>
   <p>Zahlungsdienstleister (Stripe, PayPal) können auf ihren jeweiligen Zahlungsseiten gemäß ihren eigenen Datenschutzrichtlinien eigene Cookies setzen.</p>
+
+  <h3>14. Automatische Spracherkennung</h3>
+  <p>Radioloq erkennt beim ersten Seitenbesuch automatisch Ihr Herkunftsland anhand des von Cloudflare bereitgestellten Länder-Headers (CF-IPCountry). Diese Information wird verwendet, um die Website in Ihrer Landessprache anzuzeigen (z. B. Türkisch für Besucher aus der Türkei). Die IP-Adresse selbst wird von Radioloq weder gespeichert noch verarbeitet — die Ländererkennung erfolgt ausschließlich am Netzwerk-Edge von Cloudflare. Ihre Sprachauswahl können Sie jederzeit manuell über die Sprachauswahl-Schaltflächen ändern; die getroffene Auswahl wird in Ihrem Browser (localStorage) gespeichert und bei zukünftigen Besuchen beibehalten. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an sprachlicher Barrierefreiheit).</p>
 
   <h2>14. Daten Minderjähriger</h2>
   <p>Dieser Dienst richtet sich an Erwachsene ab 18 Jahren. Wir erheben wissentlich keine personenbezogenen Daten von Kindern unter 16 Jahren ohne nachweisbare elterliche Einwilligung gemäß Art. 8 DSGVO. Wenn Sie der Meinung sind, dass Daten eines Kindes ohne entsprechende Befugnis eingereicht wurden, kontaktieren Sie uns bitte umgehend unter info@radioloq.com, und wir werden die Daten unverzüglich löschen.</p>
