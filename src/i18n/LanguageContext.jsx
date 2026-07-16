@@ -6,12 +6,26 @@ const LanguageContext = createContext(null);
 const SUPPORTED = ['en', 'tr', 'az', 'de', 'ru'];
 const STORAGE_KEY = 'radioloq-lang';
 
-// Country code -> forced language. Only applied on first visit (no saved preference yet).
-// These countries get their national language directly, regardless of browser language setting.
+// Country → language mapping
 const COUNTRY_LANG_OVERRIDE = {
-  AZ: 'az',
+  // Turkish
   TR: 'tr',
+  // Azerbaijani
+  AZ: 'az',
+  // German (Germany, Austria, Switzerland)
+  DE: 'de', AT: 'de', CH: 'de',
+  // Russian (Russia + CIS + Baltic ex-Soviet states)
   RU: 'ru',
+  UA: 'ru', // Ukraine
+  KZ: 'ru', // Kazakhstan
+  TJ: 'ru', // Tajikistan
+  UZ: 'ru', // Uzbekistan
+  GE: 'ru', // Georgia
+  AM: 'ru', // Armenia
+  EE: 'ru', // Estonia
+  LV: 'ru', // Latvia
+  BY: 'ru', // Belarus
+  LT: 'ru', // Lithuania
 };
 
 function detectBrowserLanguage() {
@@ -35,10 +49,8 @@ function getSavedLang() {
 export function LanguageProvider({ children }) {
   const [lang, setLangState] = useState(() => getSavedLang() || detectBrowserLanguage());
 
-  // On first visit only (no saved preference), check visitor's country via Cloudflare edge geo
-  // and override to a specific language where it makes sense (currently: Azerbaijan -> az).
   useEffect(() => {
-    if (getSavedLang()) return; // user already has an explicit/detected preference, don't override
+    if (getSavedLang()) return;
     fetch('/api/geo')
       .then((res) => res.json())
       .then((data) => {
@@ -47,7 +59,7 @@ export function LanguageProvider({ children }) {
           setLangState(override);
         }
       })
-      .catch(() => { /* geo lookup unavailable — keep browser-language detection result */ });
+      .catch(() => { /* keep browser-language result */ });
   }, []);
 
   useEffect(() => {
