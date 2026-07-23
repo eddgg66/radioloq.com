@@ -8,6 +8,7 @@ export default function Contact() {
     { icon: '✉️', typeKey: 'c2-type', labelKey: 'c2-label', btnKey: 'c2-btn', href: 'mailto:info@radioloq.com' },
     { icon: '📅', typeKey: 'c3-type', labelKey: 'c3-label', btnKey: 'c3-btn', href: 'https://calendly.com/adalat-ganjali/15min' },
     { icon: '💼', typeKey: 'c4-type', labelKey: 'c4-label', btnKey: 'c4-btn', href: 'https://linkedin.com/in/adalatganjali' },
+    { icon: '📸', typeKey: 'c5-type', labelKey: 'c5-label', btnKey: 'c5-btn', href: 'https://instagram.com/adalat.radiologie' },
   ];
 
   return (
@@ -16,7 +17,7 @@ export default function Contact() {
         <div className="eyebrow">{t('s6-lbl')}</div>
         <h2 className="section-title" style={{ marginBottom: 48 }}>{t('s6-head')}</h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }} className="contact-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 18 }} className="contact-grid">
           {cards.map((c, i) => (
             <motion.div
               key={c.typeKey}
