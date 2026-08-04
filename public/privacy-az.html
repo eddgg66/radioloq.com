@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Məxfilik Siyasəti — Radioloq</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#0FBFA8;--teal-dark:#0A9A87;--teal-tint:#E6FBF7;
+  --purple:#7B61FF;--purple-dark:#5B3FE0;--purple-tint:#F1EEFF;
+  --ink:#16182B;--muted:#5B6178;--faint:#9498AC;
+  --cream:#FFFFFF;--cream2:#F7F6FD;
+  --border:rgba(22,24,43,.08);--border2:rgba(22,24,43,.13);
+  --grad:linear-gradient(100deg,#0FBFA8,#7B61FF);
+}
+body{font-family:'Inter',sans-serif;font-size:15px;line-height:1.8;color:var(--ink);background:#fff}
+nav{
+  background:var(--ink);padding:0 48px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:2px solid var(--teal);
+}
+.logo{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:700;
+  color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;letter-spacing:-.2px;
+}
+.logo::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--grad);flex-shrink:0}
+.back{
+  font-size:11px;color:rgba(255,255,255,.5);text-decoration:none;
+  letter-spacing:2px;text-transform:uppercase;transition:color .2s;font-family:'Inter',sans-serif;
+}
+.back:hover{color:var(--teal)}
+.wrap{max-width:760px;margin:0 auto;padding:72px 24px 100px}
+.page-label{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--teal-dark);font-weight:600;margin-bottom:10px;font-family:'Inter',sans-serif;
+}
+h1{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:36px;font-weight:700;
+  margin-bottom:8px;letter-spacing:-.6px;line-height:1.12;color:var(--ink);
+}
+.meta{
+  font-size:11.5px;color:var(--faint);margin-bottom:52px;
+  padding-bottom:24px;border-bottom:1px solid var(--border);line-height:1.8;
+}
+.mt-banner{
+  background:var(--purple-tint);border:1px solid rgba(123,97,255,.25);
+  border-radius:12px;padding:16px 20px;margin-bottom:36px;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.mt-banner-icon{font-size:18px;flex-shrink:0;line-height:1.4}
+.mt-banner p{margin:0;color:var(--purple-dark);font-size:13px;font-weight:400;line-height:1.7}
+.mt-banner a{color:var(--purple-dark);font-weight:600;text-decoration:underline}
+h2{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:19px;font-weight:600;
+  margin:42px 0 12px;letter-spacing:-.3px;color:var(--ink);
+  padding-left:14px;border-left:3px solid var(--teal);
+}
+h3{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;
+  margin:22px 0 8px;letter-spacing:.2px;text-transform:uppercase;color:var(--teal-dark);
+}
+p{margin-bottom:14px;color:var(--muted);font-weight:300;font-size:14.5px;line-height:1.85}
+p strong{color:var(--ink);font-weight:500}
+ul{margin:0 0 14px 0;color:var(--muted);font-weight:300;list-style:none}
+ul li{
+  margin-bottom:7px;padding-left:16px;position:relative;
+  font-size:14.5px;line-height:1.8;
+}
+ul li::before{content:'▸';position:absolute;left:0;color:var(--teal);font-size:11px;top:3px}
+.alert{
+  border-left:3px solid var(--teal);background:var(--teal-tint);
+  padding:16px 20px;margin:24px 0;border-radius:0 8px 8px 0;
+}
+.alert p{margin:0;color:var(--teal-dark);font-weight:400;font-size:14px}
+.table-wrap{overflow-x:auto;margin-bottom:20px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{
+  background:var(--ink);color:#fff;padding:11px 14px;
+  text-align:left;font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:600;font-size:11px;letter-spacing:.5px;text-transform:uppercase;
+}
+td{
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  color:var(--muted);font-size:13px;line-height:1.7;vertical-align:top;
+}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--cream2)}
+a{color:var(--teal-dark);text-decoration:underline;transition:color .2s}
+a:hover{color:var(--purple)}
+@media(max-width:600px){
+  nav{padding:0 20px}
+  .wrap{padding:48px 16px 72px}
+  h1{font-size:26px}
+  h2{font-size:16px}
+}
+</style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BVC0651H14"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BVC0651H14');
+</script>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="logo">Radioloq</a>
+  <a href="index.html" class="back">← Vebsayta qayıt</a>
+</nav>
+
+<div class="wrap">
+  <div class="page-label">Məxfilik · DSGVO</div>
+  <h1>Məxfilik Siyasəti</h1>
+  <div class="meta">
+    Yenilənmə: 1 İyul 2026 &nbsp;·&nbsp; Aid olduğu ünvanlar: radioloq.com və courses.radioloq.com<br>
+    DSGVO mənasında Məlumat Nəzarətçisi: Ədalət Gəncəli, Bielefeld, Almaniya
+  </div>
+
+  <div class="mt-banner">
+    <span class="mt-banner-icon">🌐</span>
+    <p><strong>Bu səhifə süni intellekt tərəfindən tərcümə edilmişdir.</strong> Hüquqi cəhətdən etibarlı və bağlayıcı olan orijinal mətn Alman dilindəki versiyadır. Hər hansı mübahisə zamanı Alman dilindəki mətn əsas götürülür. <a href="privacy-de.html">Alman dilindəki orijinalı gör →</a></p>
+  </div>
+
+  <div class="alert">
+    <p><strong>Xüsusi kateqoriya şəxsi məlumatlara dair bildiriş:</strong> Radioloq, DSGVO Maddə 9-a əsasən xüsusi kateqoriya şəxsi məlumatları, xüsusilə tibbi görüntü faylları və səhiyyə ilə bağlı məlumatları emal edir. Bu emal, təqdimat formasında müvafiq qutucuğu işarələməklə verdiyiniz açıq razılığınıza əsaslanır. Razılığınızı info@radioloq.com ünvanı ilə bizimlə əlaqə saxlayaraq istənilən vaxt gələcəyə təsir edəcək şəkildə geri götürə bilərsiniz. Bu halda məlumatlarınız 30 gün ərzində silinəcək.</p>
+  </div>
+
+  <h2>1. Məlumat Nəzarətçisi (DSGVO Maddə 13/1(a))</h2>
+  <p>Şəxsi məlumatlarınızın emalına görə məsul şəxs:</p>
+  <p>
+    <strong>Ədalət Gəncəli</strong><br>
+    Fəaliyyət adı: Radioloq<br>
+    Yer: Bielefeld, Şimali Reyn-Vestfaliya, Almaniya<br>
+    E-poçt: info@radioloq.com<br>
+    Vebsayt: radioloq.com
+  </p>
+  <p>Almaniyada yaşayan fiziki şəxs olaraq Ədalət Gəncəli, AB Ümumi Məlumatların Qorunması Reqlamentinə (DSGVO) və Federal Məlumatların Qorunması Qanununa (BDSG n.F.) tabedir. Bütün məlumat emalı bu hüquqi çərçivəyə uyğun həyata keçirilir.</p>
+
+  <h2>2. Topladığımız Məlumatlar</h2>
+  <p>Yalnız xidmətin göstərilməsi üçün zəruri olan məlumatları toplayırıq (məlumatların minimuma endirilməsi prinsipi, DSGVO Maddə 5/1(c)):</p>
+
+  <h3>2.1 Birbaşa sizin tərəfinizdən təqdim edilən məlumatlar</h3>
+  <ul>
+    <li><strong>Şəxsiyyət məlumatları:</strong> Adınız</li>
+    <li><strong>Əlaqə məlumatları:</strong> E-poçt ünvanınız</li>
+    <li><strong>Tibbi görüntü faylları:</strong> Göndərdiyiniz MRT, KT, rentgen və ya digər diaqnostik görüntülər (bunlar DSGVO Maddə 9 mənasında xüsusi kateqoriya şəxsi məlumatlardır)</li>
+    <li><strong>Klinik kontekst:</strong> Könüllü olaraq göstərdiyiniz simptom təsvirləri, əvvəlki diaqnozlar və ya çəkiliş tarixləri</li>
+    <li><strong>Dil seçimi:</strong> Qiymətləndirmənizi almaq istədiyiniz dil</li>
+    <li><strong>Ödəniş məlumatları:</strong> Ödənişlər tamamilə Stripe və ya PayPal vasitəsilə işlənir — kart nömrələrini, bank məlumatlarını və ya tam ödəniş məlumatlarını almırıq və ya saxlamırıq</li>
+  </ul>
+
+  <h3>2.2 Avtomatik toplanan məlumatlar</h3>
+  <ul>
+    <li><strong>Texniki məlumatlar:</strong> IP ünvanı, brauzer növü və təhlükəsizlik məqsədilə veb-hostinq infrastrukturu (GitHub Pages / Cloudflare) tərəfindən saxlanılan əsas giriş qeydləri</li>
+    <li>Texniki cəhətdən zəruri kukilər və yalnız sizin razılığınızla giriş ölçüsü üçün Google Analytics istifadə edirik</li>
+    <li>İzləmə piksellərindən, davranış analizindən və ya reklam kukilərindən istifadə etmirik</li>
+    <li>Google Analytics yalnız kuki bildirişimiz vasitəsilə açıq razılığınızdan sonra yüklənir</li>
+  </ul>
+
+  <h2>3. Emalın Hüquqi Əsasları (DSGVO Maddə 13/1(c))</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Məlumat Kateqoriyası</th><th>Hüquqi Əsas</th><th>DSGVO Maddəsi</th></tr></thead>
+      <tbody>
+        <tr><td>Ad, e-poçt</td><td>Müqavilənin icrası (tələb etdiyiniz xidmətin göstərilməsi)</td><td>Md. 6/1(b)</td></tr>
+        <tr><td>Tibbi görüntü faylları</td><td>Xüsusi kateqoriya səhiyyə məlumatlarının emalına açıq razılığınız</td><td>Md. 9/2(a)</td></tr>
+        <tr><td>Klinik kontekst</td><td>Açıq razılığınız</td><td>Md. 9/2(a)</td></tr>
+        <tr><td>Ödəniş qeydləri</td><td>Qanuni öhdəlik (vergi/mühasibat öhdəlikləri, §§ 238, 257 HGB)</td><td>Md. 6/1(c)</td></tr>
+        <tr><td>Giriş qeydləri</td><td>Qanuni maraqlar (təhlükəsizlik, fırıldaqçılığın qarşısının alınması)</td><td>Md. 6/1(f)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4. Emal Məqsədləri</h2>
+  <p>Məlumatlarınız yalnız aşağıdakı məqsədlər üçün istifadə edilir:</p>
+  <ul>
+    <li>Göndərdiyiniz görüntü fayllarının qiymətləndirilməsi və tibbi ikinci rəy hesabatınızın hazırlanması</li>
+    <li>Göndərişinizlə bağlı sizinlə əlaqə, hesabatınızın çatdırılması daxil olmaqla</li>
+    <li>Göndərişinizlə bağlı sualların və ya təqib tələblərinin cavablandırılması</li>
+    <li>Qanuni öhdəliklərin yerinə yetirilməsi (fakturalaşdırma, vergi öhdəlikləri)</li>
+  </ul>
+  <p>Məlumatlarınızı marketinq, reklam, profilləşdirmə və ya tələb etdiyiniz xidmətlə əlaqəsi olmayan digər məqsədlər üçün istifadə etmirik. Məlumatlarınız heç vaxt satılmır, lisenziyalanmır və ya kommersiya məqsədilə üçüncü tərəflərə ötürülmür.</p>
+
+  <h2>5. Məlumat Paylaşımı və Üçüncü Tərəflər</h2>
+  <p>Məlumatlarınızı yalnız xidmətin göstərilməsi üçün mütləq zəruri olan minimum həcmdə üçüncü tərəflərlə paylaşırıq:</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Alıcı</th><th>Məqsəd</th><th>Yer</th><th>Qoruma Tədbiri</th></tr></thead>
+      <tbody>
+        <tr><td>Stripe, Inc.</td><td>Ödəniş emalı</td><td>ABŞ / AB</td><td>Standart müqavilə şərtləri; PCI-DSS sertifikatlı</td></tr>
+        <tr><td>PayPal (Europe) S.à r.l.</td><td>Ödəniş emalı</td><td>Lüksemburq / AB</td><td>AB şirkəti; DSGVO uyğun</td></tr>
+        <tr><td>Formspree, Inc.</td><td>Forma emalı — əlaqə məlumatları (əsas vebsayt)</td><td>ABŞ</td><td>Standart müqavilə şərtləri</td></tr>
+        <tr><td>Dropbox, Inc.</td><td>Tibbi görüntü fayllarının təhlükəsiz ötürülməsi</td><td>ABŞ (AB server yeri seçilə bilər)</td><td>Standart müqavilə şərtləri; DSGVO uyğun</td></tr>
+        <tr><td>Google Ireland Limited</td><td>Giriş ölçüsü (yalnız razılıqla)</td><td>AB/ABŞ</td><td>Standart müqavilə şərtləri; yalnız kuki razılığından sonra aktiv</td></tr>
+        <tr><td>Cloudflare, Inc.</td><td>Mənşə ölkəyə əsasən dil tanınması (CF-IPCountry başlığı); Radioloq tərəfindən IP ünvanı saxlanılmır; emal şəbəkə kənarında (edge) baş verir</td><td>ABŞ / AB</td><td>Standart müqavilə şərtləri; məlumatlar Radioloq serverlərinə ötürülmür; hüquqi əsas: Md. 6/1(f) DSGVO (qanuni maraq — dil əlçatanlığı)</td></tr>
+        <tr><td>Formspree, Inc.</td><td>E-poçt bildirişi (courses.radioloq.com gözləmə siyahısı)</td><td>ABŞ</td><td>Standart müqavilə şərtləri</td></tr>
+        <tr><td>GitHub, Inc. (GitHub Pages)</td><td>Vebsayt hostinqi</td><td>ABŞ</td><td>Standart müqavilə şərtləri; istifadəçi məlumatı saxlanılmır</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Tibbi görüntü fayllarınız və qiymətləndirmə hesabatlarınız, xidmətin göstərilməsi üçün mütləq zəruri olmadıqca <strong>heç vaxt üçüncü tərəflərlə paylaşılmır</strong>. Onlar Stripe, PayPal və ya analitika təminatçıları ilə paylaşılmır.</p>
+  <p>Qanunla, məhkəmə qərarı ilə və ya səlahiyyətli Alman orqanı tərəfindən tələb olunarsa, məlumatlarınızı aça bilərik. Qanunla icazə verilən dərəcədə sizi bu cür açıqlama barədə məlumatlandıracağıq.</p>
+
+  <h2>6. Tibbi Görüntü Məlumatları — Xüsusi Qoruma Tədbirləri</h2>
+  <p>Tibbi görüntü fayllarınız DSGVO Maddə 9 mənasında xüsusi kateqoriya şəxsi məlumatlardır. Bu məlumatları ən yüksək diqqətlə ələ alırıq:</p>
+  <ul>
+    <li>Fayllar yalnız qiymətləndirmənizin hazırlanması üçün istifadə edilir və başqa məqsədlər üçün istifadə edilmir</li>
+    <li>Fayllar yalnız xidmətin göstərilməsi üçün zəruri olduğu müddət saxlanılır (bax Bölmə 7)</li>
+    <li>Fayllar süni intellekt sistemlərinin təliminə, maşın öyrənməsinə və ya avtomatlaşdırılmış qərar qəbuluna istifadə edilmir</li>
+    <li>Fayllar tədqiqat qurumlarına, səhiyyə xidməti təminatçılarına və ya kommersiya müəssisələrinə ötürülmür</li>
+    <li>Fayllarınıza giriş yalnız xidmət təminatçısı Ədalət Gəncəli ilə məhdudlaşdırılıb</li>
+  </ul>
+
+  <h2>7. Saxlama Müddəti (DSGVO Maddə 13/2(a))</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Məlumat Kateqoriyası</th><th>Saxlama Müddəti</th><th>Səbəb</th></tr></thead>
+      <tbody>
+        <tr><td>Tibbi görüntü faylları</td><td>Qiymətləndirmənin çatdırılmasından 30 gün sonra</td><td>Təqib sualları üçün; sonra silinir</td></tr>
+        <tr><td>Qiymətləndirmə hesabatları</td><td>Çatdırılmadan 30 gün sonra</td><td>Qəbul təsdiqi; sonra silinir</td></tr>
+        <tr><td>Ad və e-poçt</td><td>Qiymətləndirmənin çatdırılmasından 30 gün sonra</td><td>Əlaqə; sonra silinir</td></tr>
+        <tr><td>Ödəniş qeydləri</td><td>10 il</td><td>Alman ticarət və vergi hüququ (§ 257 HGB, § 147 AO)</td></tr>
+        <tr><td>Giriş qeydləri</td><td>7 gün (hostinq infrastrukturu tərəfindən avtomatik)</td><td>Təhlükəsizlik</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>info@radioloq.com ünvanı ilə bizimlə əlaqə saxlayaraq, qanunla tələb olunan saxlama öhdəlikləri istisna olmaqla, şəxsi məlumatlarınızın daha erkən silinməsini istənilən vaxt tələb edə bilərsiniz.</p>
+
+  <h2>8. Hüquqlarınız (DSGVO Maddə 13/2(b)–(e))</h2>
+  <p>DSGVO və BDSG-yə əsasən aşağıdakı hüquqlara maliksiniz:</p>
+  <ul>
+    <li><strong>Məlumat əldə etmə hüququ (Md. 15):</strong> Haqqınızda saxladığımız bütün şəxsi məlumatların surətini tələb edə bilərsiniz</li>
+    <li><strong>Düzəliş hüququ (Md. 16):</strong> Yanlış şəxsi məlumatların düzəldilməsini tələb edə bilərsiniz</li>
+    <li><strong>Silinmə hüququ (Md. 17 / "unudulmaq hüququ"):</strong> Qanuni saxlama öhdəlikləri istisna olmaqla, şəxsi məlumatlarınızın silinməsini tələb edə bilərsiniz</li>
+    <li><strong>Emalın məhdudlaşdırılması hüququ (Md. 18):</strong> Müəyyən şərtlər altında məlumatlarınızın emalının məhdudlaşdırılmasını tələb edə bilərsiniz</li>
+    <li><strong>Məlumatların köçürülməsi hüququ (Md. 20):</strong> Məlumatlarınızı strukturlaşdırılmış, maşın tərəfindən oxuna bilən formatda tələb edə bilərsiniz</li>
+    <li><strong>Etiraz hüququ (Md. 21):</strong> Qanuni maraqlara əsaslanan emala etiraz edə bilərsiniz</li>
+    <li><strong>Razılığın geri götürülməsi hüququ (Md. 7/3):</strong> Tibbi görüntü məlumatlarınızın emalına razılığınızı, geri götürülənə qədər aparılan emalın qanuniliyinə təsir etmədən, əsas göstərmədən və gələcəyə təsir edəcək şəkildə istənilən vaxt geri götürə bilərsiniz</li>
+    <li><strong>Şikayət hüququ:</strong> Səlahiyyətli nəzarət orqanına şikayət vermək hüququnuz var</li>
+  </ul>
+  <p>Hüquqlarınızı istifadə etmək üçün info@radioloq.com ünvanına müraciət edin. DSGVO Maddə 12-yə əsasən 30 gün ərzində cavab veririk.</p>
+
+  <h2>9. Nəzarət Orqanına Şikayət Hüququ (DSGVO Maddə 13/2(d))</h2>
+  <p>Bizdən məsul olan məlumatların qorunması nəzarət orqanına şikayət vermək hüququnuz var:</p>
+  <p>
+    <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br>
+    Kavalleriestraße 2–4<br>
+    40213 Düsseldorf<br>
+    Tel.: +49 211 38424-0<br>
+    E-poçt: ldi@ldi.nrw.de<br>
+    Vebsayt: ldi.nrw.de
+  </p>
+
+  <h2>10. Avtomatlaşdırılmış Qərar Qəbulu</h2>
+  <p>Sizin üzərinizdə hüquqi və ya bənzər əhəmiyyətli təsirlər yaradacaq avtomatlaşdırılmış qərar qəbulu və ya profilləşdirmə istifadə etmirik (DSGVO Maddə 22). Bütün qiymətləndirmələr insan tərəfindən aparılır.</p>
+
+  <h2>11. Beynəlxalq Məlumat Ötürmələri</h2>
+  <p>Bəzi xidmət təminatçılarımız (Stripe, Formspree, GitHub) ABŞ-da yerləşir. Avropa İqtisadi Zonasından kənar ölkələrə məlumat ötürülməsində, Avropa Komissiyası tərəfindən təsdiqlənmiş Standart Müqavilə Şərtlərini (SCC) hüquqi ötürmə mexanizmi kimi istifadə edirik (DSGVO Maddə 46/2(c)). Tibbi görüntü fayllarınız beynəlxalq olaraq ötürülmür.</p>
+
+  <h2>12. Məlumat Təhlükəsizliyi (DSGVO Maddə 32)</h2>
+  <p>Şəxsi məlumatlarınızı qorumaq üçün müvafiq texniki və təşkilati tədbirlər görürük, o cümlədən:</p>
+  <ul>
+    <li>Bütün məlumatlar ötürülmə zamanı TLS/SSL (HTTPS) ilə şifrələnir</li>
+    <li>Göndərilən fayllara giriş yalnız xidmət təminatçısı ilə məhdudlaşdırılıb</li>
+    <li>Ödəniş məlumatları yalnız PCI-DSS sertifikatlı ödəniş xidməti təminatçıları tərəfindən emal edilir</li>
+    <li>Kart nömrələrini, CVV kodlarını və ya bank məlumatlarını saxlamırıq</li>
+  </ul>
+  <p>Hüquqlarınıza və azadlıqlarınıza təsir edən məlumat pozuntusu halında, səlahiyyətli nəzarət orqanını 72 saat ərzində məlumatlandıracağıq (DSGVO Maddə 33) və zərurət olduqda təsirlənən istifadəçiləri gecikmədən məlumatlandıracağıq (DSGVO Maddə 34).</p>
+
+  <h2>13. Kukilər və İzləmə</h2>
+  <p>Radioloq, əsas sessiya funksiyaları üçün texniki cəhətdən zəruri kukilər istifadə edir. Bunlar § 25 Abs. 2 TTDSG əsasında razılıq tələb etmir.</p>
+  <p>Bundan əlavə, açıq razılığınızla anonimləşdirilmiş giriş ölçüsü üçün Google Analytics (Google Ireland Limited) istifadə edirik. Vebsaytı ilk ziyarətinizdə, Google Analytics istifadəsini təsdiq edə və ya rədd edə biləcəyiniz kuki bildirişi göstərilir. Seçiminiz brauzerinizdə yerli olaraq saxlanılır. Google Analytics yalnız razılıq verildikdən sonra yüklənir; rədd edildikdə Google-a məlumat ötürülməsi baş vermir. Yerli olaraq saxlanılan brauzer məlumatlarını silib səhifəni yenidən yükləyərək razılığınızı istənilən vaxt geri götürə bilərsiniz.</p>
+  <p>Ödəniş xidməti təminatçıları (Stripe, PayPal) öz ödəniş səhifələrində öz məxfilik siyasətlərinə əsasən öz kukilərini quraşdıra bilər.</p>
+
+  <h3>14. Avtomatik Dil Tanınması</h3>
+  <p>Radioloq, ilk səhifə ziyarətinizdə Cloudflare tərəfindən təqdim edilən ölkə başlığına (CF-IPCountry) əsasən mənşə ölkənizi avtomatik olaraq tanıyır. Bu məlumat vebsaytı öz ölkənizin dilində göstərmək üçün istifadə edilir (məsələn, Türkiyədən gələn ziyarətçilər üçün türk dili). IP ünvanının özü Radioloq tərəfindən saxlanılmır və ya emal edilmir — ölkə tanınması yalnız Cloudflare-in şəbəkə kənarında (edge) baş verir. Dil seçiminizi istənilən vaxt dil seçim düymələri vasitəsilə əl ilə dəyişə bilərsiniz; etdiyiniz seçim brauzerinizdə (localStorage) saxlanılır və gələcək ziyarətlərdə qorunur. Hüquqi əsas: DSGVO Maddə 6/1(f) (dil əlçatanlığına dair qanuni maraq).</p>
+
+  <h2>14. Yetkinlik Yaşına Çatmayanların Məlumatları</h2>
+  <p>Bu xidmət 18 yaş və yuxarı yetkin şəxslər üçün nəzərdə tutulub. DSGVO Maddə 8-ə əsasən sübut edilə bilən valideyn razılığı olmadan 16 yaşından kiçik uşaqlardan bilə-bilə şəxsi məlumat toplamırıq. Bir uşağın məlumatlarının müvafiq səlahiyyət olmadan göndərildiyini düşünürsünüzsə, dərhal info@radioloq.com ünvanı ilə bizimlə əlaqə saxlayın, məlumatları gecikmədən siləcəyik.</p>
+
+  <h2>15. Bu Məxfilik Siyasətindəki Dəyişikliklər</h2>
+  <p>Bu məxfilik siyasətini vaxtaşırı yeniləyə bilərik. Cari versiya həmişə radioloq.com/privacy.html ünvanında mövcuddur. Mühüm dəyişikliklər zamanı, etibarlı e-poçt ünvanınız varsa, istifadəçiləri e-poçt vasitəsilə məlumatlandıracağıq.</p>
+
+  <h2>16. Əlaqə</h2>
+  <p>
+    <strong>Ədalət Gəncəli · Radioloq</strong><br>
+    E-poçt: info@radioloq.com<br>
+    Vebsayt: radioloq.com
+  </p>
+</div>
+
+<footer>
+  <p>© 2026 Radioloq · <a href="index.html">Ana Səhifə</a> · <a href="privacy.html">Məxfilik Siyasəti</a> · <a href="terms.html">İstifadə Şərtləri</a> · info@radioloq.com</p>
+</footer>
+</body>
+</html>
