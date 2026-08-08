@@ -20,6 +20,7 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
   const [step, setStep] = useState('payment'); // payment | pending | upload
   const [termsChecked, setTermsChecked] = useState(false);
   const [privacyChecked, setPrivacyChecked] = useState(false);
+  const [priceChecked, setPriceChecked] = useState(false);
   const [showErr, setShowErr] = useState(false);
   const [stripeOpening, setStripeOpening] = useState(false);
   const [paypalOpening, setPaypalOpening] = useState(false);
@@ -62,7 +63,7 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
   }, []);
 
   const validate = () => {
-    if (!termsChecked || !privacyChecked) {
+    if (!termsChecked || !privacyChecked || !priceChecked) {
       setShowErr(true);
       return false;
     }
@@ -206,6 +207,15 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
                       <input type="checkbox" checked={privacyChecked} onChange={(e) => { setPrivacyChecked(e.target.checked); setShowErr(false); }} style={{ marginTop: 2, accentColor: 'var(--purple)' }} />
                       <span style={{ fontSize: 12.5, color: 'var(--ink2)', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: mt('chk2') }} />
                     </label>
+                    <label style={{
+                      display: 'flex', gap: 10, alignItems: 'flex-start', padding: '14px 16px',
+                      border: `1px solid ${showErr && !priceChecked ? '#E24B4A' : 'var(--border)'}`,
+                      background: showErr && !priceChecked ? '#FCEBEB' : 'var(--cream2)',
+                      borderRadius: 14, cursor: 'pointer',
+                    }}>
+                      <input type="checkbox" checked={priceChecked} onChange={(e) => { setPriceChecked(e.target.checked); setShowErr(false); }} style={{ marginTop: 2, accentColor: 'var(--purple)' }} />
+                      <span style={{ fontSize: 12.5, color: 'var(--ink2)', lineHeight: 1.6 }} dangerouslySetInnerHTML={{ __html: mt('chk3') }} />
+                    </label>
                   </div>
 
                   {showErr && (
@@ -272,24 +282,24 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
                 <div style={{ padding: '20px 32px 32px' }}>
                   <div style={{ background: 'var(--teal-tint)', borderLeft: '3px solid var(--teal)', padding: '14px 16px', marginBottom: 20, fontSize: 13, color: 'var(--ink2)', lineHeight: 1.65 }}>
                     <strong>Step 1:</strong> Fill in your details below and click Submit.<br />
-                    <strong>Step 2:</strong> Upload your scan files via the secure Dropbox link that appears.
+                    <strong>Step 2:</strong> Upload your scan files via the secure upload link that appears.
                   </div>
 
                   <AnimatePresence mode="wait">
                     {submitted ? (
-                      <motion.div key="dropbox" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ textAlign: 'center', padding: '28px 0' }}>
+                      <motion.div key="upload-link" initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ textAlign: 'center', padding: '28px 0' }}>
                         <div style={{ fontSize: 32, marginBottom: 12 }}>✓</div>
                         <div style={{ fontSize: 15, fontWeight: 500, marginBottom: 8 }}>Details received!</div>
                         <div style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 24, lineHeight: 1.7 }}>
                           Now please upload your scan files using the button below.
                         </div>
-                        <a href="https://www.dropbox.com/request/a9bvwr5bxub0srx6xn3q" style={{
-                          display: 'inline-block', padding: '14px 32px', background: '#0061FF', color: '#fff',
+                        <a href="https://sync.luckycloud.de/u/d/47c6a267df094a9a8e65/" target="_blank" rel="noreferrer" style={{
+                          display: 'inline-block', padding: '14px 32px', background: 'var(--grad)', color: '#fff',
                           fontSize: 14, fontWeight: 500, borderRadius: 99,
                         }}>
                           📁 Upload scan files →
                         </a>
-                        <div style={{ fontSize: 11, color: 'var(--faint)', marginTop: 12 }}>Secure · No Dropbox account needed</div>
+                        <div style={{ fontSize: 11, color: 'var(--faint)', marginTop: 12 }}>Secure upload · Hosted in Germany · No account needed</div>
                       </motion.div>
                     ) : (
                       <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
