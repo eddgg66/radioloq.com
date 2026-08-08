@@ -15,7 +15,7 @@ const PAYPAL = {
   'Premium — €99': 'https://www.paypal.com/ncp/payment/KDWLGX32B8B28',
 };
 
-export default function UploadModal({ isOpen, pkg, onClose }) {
+export default function UploadModal({ isOpen, pkg, initialStep, onClose }) {
   const { lang, mt } = useLanguage();
   const [step, setStep] = useState('payment'); // payment | pending | upload
   const [termsChecked, setTermsChecked] = useState(false);
@@ -26,6 +26,8 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
   const [paypalOpening, setPaypalOpening] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [nameErr, setNameErr] = useState(false);
+  const [emailErr, setEmailErr] = useState(false);
   const [langPref, setLangPref] = useState('');
   const [note, setNote] = useState('');
   const [honey, setHoney] = useState('');
@@ -36,19 +38,21 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
   // reset state every time modal opens for a (possibly new) package
   useEffect(() => {
     if (isOpen) {
-      setStep('payment');
+      setStep(initialStep || 'payment');
       setTermsChecked(false);
       setPrivacyChecked(false);
       setShowErr(false);
       setStripeOpening(false);
       setPaypalOpening(false);
       setSubmitted(false);
+      setNameErr(false);
+      setEmailErr(false);
       document.body.style.overflow = 'hidden';
       window.gtag && window.gtag('event', 'modal_open', { event_category: 'funnel', event_label: pkg });
     } else {
       document.body.style.overflow = '';
     }
-  }, [isOpen, pkg]);
+  }, [isOpen, pkg, initialStep]);
 
   // ESC to close
   useEffect(() => {
@@ -113,10 +117,11 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
 
   const submitForm = async () => {
     if (honey) return; // honeypot
-    if (!name.trim() || !email.trim()) {
-      alert(`${mt('namePh')} / ${mt('emailPh')}`);
-      return;
-    }
+    const nameMissing = !name.trim();
+    const emailMissing = !email.trim();
+    setNameErr(nameMissing);
+    setEmailErr(emailMissing);
+    if (nameMissing || emailMissing) return;
     setSubmitting(true);
     try {
       const res = await fetch('https://formspree.io/f/xrejnvok', {
@@ -303,10 +308,20 @@ export default function UploadModal({ isOpen, pkg, onClose }) {
                       </motion.div>
                     ) : (
                       <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }} className="modal-frow">
-                          <input type="text" placeholder={mt('namePh')} value={name} onChange={(e) => setName(e.target.value)} style={inputStyle} />
-                          <input type="email" placeholder={mt('emailPh')} value={email} onChange={(e) => setEmail(e.target.value)} style={inputStyle} />
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 4 }} className="modal-frow">
+                          <input type="text" placeholder={mt('namePh')} value={name}
+                            onChange={(e) => { setName(e.target.value); if (nameErr) setNameErr(false); }}
+                            style={{ ...inputStyle, border: nameErr ? '1.5px solid #E24B4A' : inputStyle.border, background: nameErr ? '#FCEBEB' : '#fff' }} />
+                          <input type="email" placeholder={mt('emailPh')} value={email}
+                            onChange={(e) => { setEmail(e.target.value); if (emailErr) setEmailErr(false); }}
+                            style={{ ...inputStyle, border: emailErr ? '1.5px solid #E24B4A' : inputStyle.border, background: emailErr ? '#FCEBEB' : '#fff' }} />
                         </div>
+                        {(nameErr || emailErr) && (
+                          <div style={{ fontSize: 11.5, color: '#A32D2D', marginBottom: 10 }}>
+                            {nameErr && emailErr ? mt('fieldsRequiredBoth') : nameErr ? mt('fieldsRequiredName') : mt('fieldsRequiredEmail')}
+                          </div>
+                        )}
+                        <div style={{ marginBottom: 12 }} />
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 12 }} className="modal-frow">
                           <select value={langPref} onChange={(e) => setLangPref(e.target.value)} style={inputStyle}>
                             <option value="">Language preference...</option>
