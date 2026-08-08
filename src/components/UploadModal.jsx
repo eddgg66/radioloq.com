@@ -123,29 +123,45 @@ export default function UploadModal({ isOpen, pkg, initialStep, onClose }) {
     setEmailErr(emailMissing);
     if (nameMissing || emailMissing) return;
     setSubmitting(true);
-    try {
-      const res = await fetch('https://formspree.io/f/xrejnvok', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name, email, package: pkg || 'Not selected',
-          language: langPref || 'Not selected',
-          clinical_context: note || 'Not provided',
-          _subject: `New scan request — Radioloq | ${pkg}`,
-          _replyto: email,
-        }),
-      });
-      if (res.ok) {
-        window.gtag && window.gtag('event', 'upload_complete', { event_category: 'funnel', event_label: pkg });
-        setSubmitted(true);
-      } else {
-        throw new Error('Failed');
+
+    const payload = JSON.stringify({
+      name, email, package: pkg || 'Not selected',
+      language: langPref || 'Not selected',
+      clinical_context: note || 'Not provided',
+      _subject: `New scan request — Radioloq | ${pkg}`,
+      _replyto: email,
+    });
+
+    const MAX_ATTEMPTS = 3;
+    let lastError = null;
+
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        const res = await fetch('https://formspree.io/f/xrejnvok', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: payload,
+        });
+        if (res.ok) {
+          window.gtag && window.gtag('event', 'upload_complete', { event_category: 'funnel', event_label: pkg });
+          setSubmitted(true);
+          setSubmitting(false);
+          return;
+        }
+        lastError = new Error(`HTTP ${res.status}`);
+      } catch (e) {
+        lastError = e;
       }
-    } catch (e) {
-      alert('Something went wrong — please try again or email info@radioloq.com directly.');
-    } finally {
-      setSubmitting(false);
+      // wait briefly before retrying (skip wait after the last attempt)
+      if (attempt < MAX_ATTEMPTS) {
+        await new Promise((resolve) => setTimeout(resolve, 1200));
+      }
     }
+
+    // all attempts failed — now show the error to the user
+    console.error('Formspree submission failed after retries:', lastError);
+    alert('Something went wrong — please try again or email info@radioloq.com directly.');
+    setSubmitting(false);
   };
 
   return (
