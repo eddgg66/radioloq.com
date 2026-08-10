@@ -5,7 +5,7 @@ export function CtaBand() {
   const { t } = useLanguage();
   return (
     <section style={{
-      background: 'linear-gradient(120deg,#0FBFA8,#7B61FF)', padding: '88px 32px',
+      background: 'linear-gradient(120deg,#0A233F,#3B82F6)', padding: '88px 32px',
       textAlign: 'center', position: 'relative', overflow: 'hidden',
     }}>
       <motion.div

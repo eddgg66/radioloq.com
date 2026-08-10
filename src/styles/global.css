@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Noto+Sans:wght@300;400;500&subset=latin-ext&display=swap');
 
 :root{
-  --teal:#0FBFA8;--teal-dark:#0A9A87;--teal-tint:#E6FBF7;
-  --purple:#7B61FF;--purple-dark:#5B3FE0;--purple-tint:#F1EEFF;
+  --teal:#3B82F6;--teal-dark:#2563EB;--teal-tint:#EAF1FE;
+  --purple:#0A233F;--purple-dark:#071729;--purple-tint:#E9EDF3;
+  --navy:#0A233F;--navy-deep:#071729;--navy-soft:#122E4E;
+  --blue:#3B82F6;--blue-soft:#8FB8F5;--blue-whisper:#C7DBFB;
   --ink:#16182B;--ink2:#2D3148;--muted:#5B6178;--faint:#9498AC;
-  --cream:#FFFFFF;--cream2:#F7F6FD;--cream3:#EDEAFB;
-  --border:rgba(22,24,43,.08);--border2:rgba(22,24,43,.13);
-  --grad: linear-gradient(100deg, var(--teal), var(--purple));
+  --cream:#FFFFFF;--cream2:#F8FAFD;--cream3:#E9EDF3;
+  --border:rgba(10,35,63,.08);--border2:rgba(10,35,63,.13);
+  --grad: linear-gradient(100deg, var(--navy), var(--blue));
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -30,7 +32,7 @@ img{max-width:100%;display:block}
 
 .btn-primary{
   background:var(--grad);color:#fff;border:none;padding:15px 34px;border-radius:99px;
-  font-size:15px;font-weight:600;box-shadow:0 12px 28px rgba(123,97,255,.28);
+  font-size:15px;font-weight:600;box-shadow:0 12px 28px rgba(59,130,246,.28);
 }
 .btn-outline{
   background:#fff;color:var(--ink);border:1.5px solid var(--border2);padding:15px 32px;border-radius:99px;
@@ -39,26 +41,4 @@ img{max-width:100%;display:block}
 
 @media(max-width:768px){
   .container{padding:0 20px}
-}
-
-/* ── Hero background effect — same proven technique as courses.radioloq.com ── */
-.hero-pulse{
-  position:absolute;top:-180px;left:50%;transform:translateX(-50%);
-  width:900px;height:700px;
-  background:radial-gradient(ellipse, rgba(15,191,168,.18) 0%, rgba(123,97,255,.12) 45%, transparent 70%);
-  border-radius:50%;
-  animation:heroBreathe 9s ease-in-out infinite;
-}
-@keyframes heroBreathe{
-  0%,100%{transform:translateX(-50%) scale(1);opacity:.7}
-  50%{transform:translateX(-50%) scale(1.1);opacity:1}
-}
-.hero-scanline{
-  position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(15,191,168,.05),rgba(123,97,255,.35),rgba(15,191,168,.05),transparent);
-  animation:heroScan 8s linear infinite;
-}
-@keyframes heroScan{
-  0%{top:0%}
-  100%{top:100%}
 }

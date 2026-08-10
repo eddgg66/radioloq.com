@@ -65,7 +65,7 @@ export default function CookieBar() {
               Reject
             </button>
             <button onClick={accept} style={{
-              background: 'linear-gradient(100deg,#0FBFA8,#7B61FF)', color: '#fff', border: 'none',
+              background: 'linear-gradient(100deg,#0A233F,#3B82F6)', color: '#fff', border: 'none',
               padding: '9px 22px', fontSize: 12.5, fontWeight: 600, borderRadius: 99,
             }}>
               Accept
