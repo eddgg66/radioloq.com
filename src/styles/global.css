@@ -1,4 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Noto+Sans:wght@300;400;500&subset=latin-ext&display=swap');
+@import '@fontsource/plus-jakarta-sans/latin-400.css';
+@import '@fontsource/plus-jakarta-sans/latin-500.css';
+@import '@fontsource/plus-jakarta-sans/latin-600.css';
+@import '@fontsource/plus-jakarta-sans/latin-700.css';
+@import '@fontsource/plus-jakarta-sans/latin-800.css';
+@import '@fontsource/inter/latin-300.css';
+@import '@fontsource/inter/latin-400.css';
+@import '@fontsource/inter/latin-500.css';
+@import '@fontsource/inter/latin-600.css';
+@import '@fontsource/inter/latin-ext-300.css';
+@import '@fontsource/inter/latin-ext-400.css';
+@import '@fontsource/inter/latin-ext-500.css';
+@import '@fontsource/inter/latin-ext-600.css';
+@import '@fontsource/noto-sans/latin-300.css';
+@import '@fontsource/noto-sans/latin-400.css';
+@import '@fontsource/noto-sans/latin-500.css';
+@import '@fontsource/noto-sans/latin-ext-300.css';
+@import '@fontsource/noto-sans/latin-ext-400.css';
+@import '@fontsource/noto-sans/latin-ext-500.css';
+@import '@fontsource/noto-sans/cyrillic-300.css';
+@import '@fontsource/noto-sans/cyrillic-400.css';
+@import '@fontsource/noto-sans/cyrillic-500.css';
+@import '@fontsource/noto-sans/cyrillic-ext-300.css';
+@import '@fontsource/noto-sans/cyrillic-ext-400.css';
+@import '@fontsource/noto-sans/cyrillic-ext-500.css';
 
 :root{
   --teal:#3B82F6;--teal-dark:#2563EB;--teal-tint:#EAF1FE;

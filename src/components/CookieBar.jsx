@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 function loadGA() {
   if (window.gaLoaded) return;
@@ -14,7 +15,14 @@ function loadGA() {
   window.gtag('config', 'G-BVC0651H14');
 }
 
+function unloadGA() {
+  // Best-effort: stop future tracking. Already-set gaLoaded flag prevents reloading
+  // without a full page reload, which is acceptable for a reject-after-accept edge case.
+  window['ga-disable-G-BVC0651H14'] = true;
+}
+
 export default function CookieBar() {
+  const { t } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -24,6 +32,11 @@ export default function CookieBar() {
     } else if (!consent) {
       setVisible(true);
     }
+
+    // Allow reopening from the footer "Cookie Settings" link at any time
+    const reopen = () => setVisible(true);
+    window.addEventListener('radioloq-open-cookie-settings', reopen);
+    return () => window.removeEventListener('radioloq-open-cookie-settings', reopen);
   }, []);
 
   const accept = () => {
@@ -34,6 +47,7 @@ export default function CookieBar() {
 
   const reject = () => {
     localStorage.setItem('cookie-consent', 'rejected');
+    unloadGA();
     setVisible(false);
   };
 
@@ -53,22 +67,23 @@ export default function CookieBar() {
           }}
         >
           <p style={{ fontSize: 12.5, color: '#5B6178', margin: 0, lineHeight: 1.5, flex: 1, minWidth: 200 }}>
-            We use cookies for essential site function and, with your consent, for analytics. See our{' '}
-            <a href="/terms.html" style={{ color: '#16182B', textDecoration: 'underline' }}>Terms</a> and{' '}
-            <a href="/privacy.html" style={{ color: '#16182B', textDecoration: 'underline' }}>Privacy Policy</a>.
+            {t('cookie-text')}{' '}
+            <a href="/terms.html" style={{ color: '#16182B', textDecoration: 'underline' }}>{t('cookie-terms-link')}</a>{' '}
+            {t('cookie-and')}{' '}
+            <a href="/privacy.html" style={{ color: '#16182B', textDecoration: 'underline' }}>{t('cookie-privacy-link')}</a>.
           </p>
           <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
             <button onClick={reject} style={{
               background: '#F7F6FD', color: '#16182B', border: '1px solid rgba(22,24,43,.13)',
               padding: '9px 18px', fontSize: 12.5, fontWeight: 600, borderRadius: 99,
             }}>
-              Reject
+              {t('cookie-reject')}
             </button>
             <button onClick={accept} style={{
               background: 'linear-gradient(100deg,#0A233F,#3B82F6)', color: '#fff', border: 'none',
               padding: '9px 22px', fontSize: 12.5, fontWeight: 600, borderRadius: 99,
             }}>
-              Accept
+              {t('cookie-accept')}
             </button>
           </div>
         </motion.div>

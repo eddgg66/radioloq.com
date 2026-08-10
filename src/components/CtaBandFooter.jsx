@@ -46,6 +46,16 @@ export function Footer() {
         <a href="/terms.html" style={{ fontSize: 12.5, fontWeight: 500 }}>Terms</a>
         <a href="/privacy.html" style={{ fontSize: 12.5, fontWeight: 500 }}>Privacy</a>
         <a href="mailto:info@radioloq.com" style={{ fontSize: 12.5, fontWeight: 500 }}>info@radioloq.com</a>
+        <button
+          onClick={() => window.dispatchEvent(new Event('radioloq-open-cookie-settings'))}
+          style={{
+            fontSize: 12.5, fontWeight: 500, color: 'var(--muted)', background: 'none',
+            border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit',
+            textDecoration: 'underline', textUnderlineOffset: 2,
+          }}
+        >
+          {t('cookie-settings-link')}
+        </button>
       </div>
       <p style={{ fontSize: 11.5, maxWidth: 560, margin: '0 auto', lineHeight: 1.85, color: 'var(--faint)' }}>
         {t('footer-txt')}
