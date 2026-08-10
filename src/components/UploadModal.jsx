@@ -320,7 +320,13 @@ export default function UploadModal({ isOpen, pkg, initialStep, onClose }) {
                         }}>
                           📁 Upload scan files →
                         </a>
-                        <div style={{ fontSize: 11, color: 'var(--faint)', marginTop: 12 }}>Secure upload · Hosted in Germany · No account needed</div>
+                        <div style={{
+                          display: 'inline-flex', alignItems: 'center', gap: 6, marginTop: 14,
+                          fontSize: 12, color: 'var(--teal-dark)', fontWeight: 500,
+                          background: 'var(--teal-tint)', padding: '7px 16px', borderRadius: 99,
+                        }}>
+                          🔒 {mt('uploadSecureNote')}
+                        </div>
                       </motion.div>
                     ) : (
                       <motion.div key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>

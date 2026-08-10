@@ -6,7 +6,7 @@ export default function FAQ() {
   const { t } = useLanguage();
   const [openIdx, setOpenIdx] = useState(null);
 
-  const items = [1, 2, 3, 4, 5, 6];
+  const items = [1, 2, 3, 4, 5, 6, 7];
 
   return (
     <section id="faq" style={{ background: 'var(--cream2)', padding: '96px 32px' }}>
