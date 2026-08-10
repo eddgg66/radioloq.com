@@ -100,7 +100,14 @@
     "c5-label": "@adalat.radiologie",
     "c5-btn": "Follow",
     "faq-q7": "Where is my data stored?",
-    "faq-a7": "Your medical images are stored on encrypted servers in Germany. Payment is processed securely via Stripe or PayPal. We never see or store your card details."
+    "faq-a7": "Your medical images are stored on encrypted servers in Germany. Payment is processed securely via Stripe or PayPal. We never see or store your card details.",
+    "cookie-text": "We use cookies for essential site function and, with your consent, for analytics. See our",
+    "cookie-terms-link": "Terms",
+    "cookie-and": "and",
+    "cookie-privacy-link": "Privacy Policy",
+    "cookie-reject": "Reject",
+    "cookie-accept": "Accept",
+    "cookie-settings-link": "Cookie Settings"
   },
   "tr": {
     "h-badge": "Almanya · Radyoloji · İkinci Görüş",
@@ -203,7 +210,14 @@
     "c5-label": "@adalat.radiologie",
     "c5-btn": "Takip Et",
     "faq-q7": "Verilerim nerede saklanıyor?",
-    "faq-a7": "Tıbbi görüntüleriniz Almanya'da, şifreli sunucularda saklanır. Ödemeniz Stripe veya PayPal üzerinden güvenli şekilde işlenir. Kart bilgilerinizi hiçbir zaman görmeyiz veya saklamayız."
+    "faq-a7": "Tıbbi görüntüleriniz Almanya'da, şifreli sunucularda saklanır. Ödemeniz Stripe veya PayPal üzerinden güvenli şekilde işlenir. Kart bilgilerinizi hiçbir zaman görmeyiz veya saklamayız.",
+    "cookie-text": "Temel site işlevleri için ve onayınızla analiz amaçlı çerezler kullanıyoruz. Bkz.",
+    "cookie-terms-link": "Kullanım Koşulları",
+    "cookie-and": "ve",
+    "cookie-privacy-link": "Gizlilik Politikası",
+    "cookie-reject": "Reddet",
+    "cookie-accept": "Kabul Et",
+    "cookie-settings-link": "Çerez Ayarları"
   },
   "az": {
     "h-badge": "Almaniya · Radiologiya · İKİNCİ BAXIŞ",
@@ -306,7 +320,14 @@
     "c5-label": "@adalat.radiologie",
     "c5-btn": "İzlə",
     "faq-q7": "Məlumatlarım harada saxlanılır?",
-    "faq-a7": "Tibbi görüntüləriniz Almaniyada, şifrələnmiş serverlərdə saxlanılır. Ödənişiniz Stripe və ya PayPal vasitəsilə təhlükəsiz şəkildə işlənir. Kart məlumatlarınızı heç vaxt görmürük və ya saxlamırıq."
+    "faq-a7": "Tibbi görüntüləriniz Almaniyada, şifrələnmiş serverlərdə saxlanılır. Ödənişiniz Stripe və ya PayPal vasitəsilə təhlükəsiz şəkildə işlənir. Kart məlumatlarınızı heç vaxt görmürük və ya saxlamırıq.",
+    "cookie-text": "Əsas sayt funksiyaları üçün və razılığınızla analitika üçün kukilər istifadə edirik. Bax",
+    "cookie-terms-link": "İstifadə Şərtləri",
+    "cookie-and": "və",
+    "cookie-privacy-link": "Məxfilik Siyasəti",
+    "cookie-reject": "Rədd Et",
+    "cookie-accept": "Qəbul Et",
+    "cookie-settings-link": "Kuki Tənzimləmələri"
   },
   "de": {
     "h-badge": "Deutscher Standard · Ihre Sprache · 48 Stunden",
@@ -409,7 +430,14 @@
     "c5-label": "@adalat.radiologie",
     "c5-btn": "Folgen",
     "faq-q7": "Wo werden meine Daten gespeichert?",
-    "faq-a7": "Ihre medizinischen Aufnahmen werden auf verschlüsselten Servern in Deutschland gespeichert. Die Zahlung erfolgt sicher über Stripe oder PayPal. Wir sehen oder speichern Ihre Kartendaten niemals."
+    "faq-a7": "Ihre medizinischen Aufnahmen werden auf verschlüsselten Servern in Deutschland gespeichert. Die Zahlung erfolgt sicher über Stripe oder PayPal. Wir sehen oder speichern Ihre Kartendaten niemals.",
+    "cookie-text": "Wir verwenden Cookies für wesentliche Website-Funktionen und, mit Ihrer Einwilligung, für Analysen. Siehe unsere",
+    "cookie-terms-link": "Nutzungsbedingungen",
+    "cookie-and": "und",
+    "cookie-privacy-link": "Datenschutzerklärung",
+    "cookie-reject": "Ablehnen",
+    "cookie-accept": "Akzeptieren",
+    "cookie-settings-link": "Cookie-Einstellungen"
   },
   "ru": {
     "h-badge": "Немецкий стандарт · Ваш язык · 48 часов",
@@ -512,6 +540,13 @@
     "c5-label": "@adalat.radiologie",
     "c5-btn": "Подписаться",
     "faq-q7": "Где хранятся мои данные?",
-    "faq-a7": "Ваши медицинские снимки хранятся на зашифрованных серверах в Германии. Оплата обрабатывается безопасно через Stripe или PayPal. Мы никогда не видим и не храним данные вашей карты."
+    "faq-a7": "Ваши медицинские снимки хранятся на зашифрованных серверах в Германии. Оплата обрабатывается безопасно через Stripe или PayPal. Мы никогда не видим и не храним данные вашей карты.",
+    "cookie-text": "Мы используем файлы cookie для основных функций сайта и, с вашего согласия, для аналитики. См.",
+    "cookie-terms-link": "Условия использования",
+    "cookie-and": "и",
+    "cookie-privacy-link": "Политику конфиденциальности",
+    "cookie-reject": "Отклонить",
+    "cookie-accept": "Принять",
+    "cookie-settings-link": "Настройки cookie"
   }
 }
