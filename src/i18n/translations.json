@@ -14,7 +14,7 @@
     "t1": "Answer within",
     "t2": "Languages spoken",
     "t3": "German standard care",
-    "t4": "Safe & confidential",
+    "t4": "Encrypted · Germany",
     "s1-lbl": "Process",
     "s1-head": "How it works",
     "s1-sub": "Four simple steps from your scan to a clear explanation.",
@@ -98,7 +98,9 @@
     "t1-num": "48h",
     "c5-type": "Instagram",
     "c5-label": "@adalat.radiologie",
-    "c5-btn": "Follow"
+    "c5-btn": "Follow",
+    "faq-q7": "Where is my data stored?",
+    "faq-a7": "Your medical images are stored on encrypted servers in Germany. Payment is processed securely via Stripe or PayPal — we never see or store your card details."
   },
   "tr": {
     "h-badge": "Almanya · Radyoloji · İkinci Görüş",
@@ -115,7 +117,7 @@
     "t1": "Yanıt süresi",
     "t2": "Dil",
     "t3": "Alman standardı",
-    "t4": "Güvenli & gizli",
+    "t4": "Şifreli · Almanya",
     "s1-lbl": "Süreç",
     "s1-head": "Nasıl çalışır",
     "s1-sub": "Görüntünüzden net açıklamaya dört basit adım.",
@@ -199,7 +201,9 @@
     "t1-num": "48 saat",
     "c5-type": "Instagram",
     "c5-label": "@adalat.radiologie",
-    "c5-btn": "Takip Et"
+    "c5-btn": "Takip Et",
+    "faq-q7": "Verilerim nerede saklanıyor?",
+    "faq-a7": "Tıbbi görüntüleriniz Almanya'da, şifreli sunucularda saklanır. Ödemeniz Stripe veya PayPal üzerinden güvenli şekilde işlenir — kart bilgilerinizi hiçbir zaman görmeyiz veya saklamayız."
   },
   "az": {
     "h-badge": "Almaniya · Radiologiya · İKİNCİ BAXIŞ",
@@ -216,7 +220,7 @@
     "t1": "Cavab müddəti",
     "t2": "Dil",
     "t3": "Alman standartı",
-    "t4": "Təhlükəsiz & məxfi",
+    "t4": "Şifrələnmiş · Almaniya",
     "s1-lbl": "Proses",
     "s1-head": "Necə işləyir",
     "s1-sub": "Görüntünüzdən aydın izahata dörd sadə addım.",
@@ -300,7 +304,9 @@
     "t1-num": "48 saat",
     "c5-type": "Instagram",
     "c5-label": "@adalat.radiologie",
-    "c5-btn": "İzlə"
+    "c5-btn": "İzlə",
+    "faq-q7": "Məlumatlarım harada saxlanılır?",
+    "faq-a7": "Tibbi görüntüləriniz Almaniyada, şifrələnmiş serverlərdə saxlanılır. Ödənişiniz Stripe və ya PayPal vasitəsilə təhlükəsiz şəkildə həyata keçirilir — kart məlumatlarınızı heç vaxt görmürük və ya saxlamırıq."
   },
   "de": {
     "h-badge": "Deutscher Standard · Ihre Sprache · 48 Stunden",
@@ -317,7 +323,7 @@
     "t1": "Antwort innerhalb",
     "t2": "Gesprochene Sprachen",
     "t3": "Deutscher Pflegestandard",
-    "t4": "Sicher & vertraulich",
+    "t4": "Verschlüsselt · Deutschland",
     "s1-lbl": "Ablauf",
     "s1-head": "So funktioniert es",
     "s1-sub": "Vier einfache Schritte von Ihrer Aufnahme zur klaren Erklärung.",
@@ -401,7 +407,9 @@
     "t1-num": "48h",
     "c5-type": "Instagram",
     "c5-label": "@adalat.radiologie",
-    "c5-btn": "Folgen"
+    "c5-btn": "Folgen",
+    "faq-q7": "Wo werden meine Daten gespeichert?",
+    "faq-a7": "Ihre medizinischen Aufnahmen werden auf verschlüsselten Servern in Deutschland gespeichert. Die Zahlung erfolgt sicher über Stripe oder PayPal — wir sehen oder speichern Ihre Kartendaten niemals."
   },
   "ru": {
     "h-badge": "Немецкий стандарт · Ваш язык · 48 часов",
@@ -418,7 +426,7 @@
     "t1": "Ответ в течение",
     "t2": "Языки общения",
     "t3": "Немецкий стандарт помощи",
-    "t4": "Безопасно & конфиденциально",
+    "t4": "Зашифровано · Германия",
     "s1-lbl": "Процесс",
     "s1-head": "Как это работает",
     "s1-sub": "Четыре простых шага от снимка до понятного объяснения.",
@@ -502,6 +510,8 @@
     "t1-num": "48 часов",
     "c5-type": "Instagram",
     "c5-label": "@adalat.radiologie",
-    "c5-btn": "Подписаться"
+    "c5-btn": "Подписаться",
+    "faq-q7": "Где хранятся мои данные?",
+    "faq-a7": "Ваши медицинские снимки хранятся на зашифрованных серверах в Германии. Оплата обрабатывается безопасно через Stripe или PayPal — мы никогда не видим и не храним данные вашей карты."
   }
 }

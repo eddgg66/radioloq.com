@@ -28,7 +28,8 @@
     "chk3": "I understand that this fee is a private arrangement and may not be reimbursed, in full or in part, by my health insurance (statutory or private). I accept the price as stated before payment.",
     "fieldsRequiredName": "Please enter your name.",
     "fieldsRequiredEmail": "Please enter your email address.",
-    "fieldsRequiredBoth": "Please enter your name and email address."
+    "fieldsRequiredBoth": "Please enter your name and email address.",
+    "uploadSecureNote": "Encrypted upload · Servers in Germany · No account needed"
   },
   "tr": {
     "title": "İkinci görüşünüzü alın",
@@ -59,7 +60,8 @@
     "chk3": "Bu ücretin özel bir düzenleme olduğunu ve sağlık sigortamın (yasal veya özel) bu tutarı kısmen veya tamamen karşılamayabileceğini anlıyorum. Ödeme öncesi belirtilen fiyatı kabul ediyorum.",
     "fieldsRequiredName": "Lütfen adınızı girin.",
     "fieldsRequiredEmail": "Lütfen e-posta adresinizi girin.",
-    "fieldsRequiredBoth": "Lütfen adınızı ve e-posta adresinizi girin."
+    "fieldsRequiredBoth": "Lütfen adınızı ve e-posta adresinizi girin.",
+    "uploadSecureNote": "Şifreli yükleme · Almanya'da sunucular · Hesap gerekmiyor"
   },
   "az": {
     "title": "İkinci rəyinizi alın",
@@ -90,7 +92,8 @@
     "chk3": "Bu ödənişin şəxsi razılaşma olduğunu və səhiyyə sığortamın (dövlət və ya özəl) bu məbləği qismən və ya tamamilə ödəməyə bilməyəcəyini anlayıram. Ödənişdən əvvəl göstərilən qiyməti qəbul edirəm.",
     "fieldsRequiredName": "Zəhmət olmasa adınızı daxil edin.",
     "fieldsRequiredEmail": "Zəhmət olmasa e-poçt ünvanınızı daxil edin.",
-    "fieldsRequiredBoth": "Zəhmət olmasa adınızı və e-poçt ünvanınızı daxil edin."
+    "fieldsRequiredBoth": "Zəhmət olmasa adınızı və e-poçt ünvanınızı daxil edin.",
+    "uploadSecureNote": "Şifrələnmiş yükləmə · Almaniyada serverlər · Hesab tələb olunmur"
   },
   "de": {
     "title": "Ihre Zweitmeinung anfragen",
@@ -121,7 +124,8 @@
     "chk3": "Mir ist bewusst, dass es sich bei diesem Honorar um eine private Vereinbarung handelt, die von meiner Krankenversicherung (gesetzlich oder privat) möglicherweise nicht oder nicht vollständig erstattet wird. Ich akzeptiere den genannten Preis vor Zahlung.",
     "fieldsRequiredName": "Bitte geben Sie Ihren Namen ein.",
     "fieldsRequiredEmail": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
-    "fieldsRequiredBoth": "Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein."
+    "fieldsRequiredBoth": "Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein.",
+    "uploadSecureNote": "Verschlüsselter Upload · Server in Deutschland · Kein Konto erforderlich"
   },
   "ru": {
     "title": "Получить второе мнение",
@@ -152,6 +156,7 @@
     "chk3": "Я понимаю, что эта плата является частной договорённостью и может не быть возмещена (полностью или частично) моей медицинской страховкой (государственной или частной). Я принимаю указанную цену до оплаты.",
     "fieldsRequiredName": "Пожалуйста, введите ваше имя.",
     "fieldsRequiredEmail": "Пожалуйста, введите ваш email.",
-    "fieldsRequiredBoth": "Пожалуйста, введите ваше имя и email."
+    "fieldsRequiredBoth": "Пожалуйста, введите ваше имя и email.",
+    "uploadSecureNote": "Зашифрованная загрузка · Серверы в Германии · Аккаунт не нужен"
   }
 }
