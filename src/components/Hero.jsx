@@ -61,18 +61,19 @@ export default function Hero({ onOpenModal }) {
           transition={{ duration: 0.7, delay: 0.3 }}
           style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 20 }}
         >
-          <motion.button
+          <motion.a
             whileHover={{ y: -2, boxShadow: '0 24px 48px -10px rgba(59,130,246,.6)' }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => onOpenModal('Basic — €49')}
+            href="#pricing"
             style={{
+              display: 'inline-block', textAlign: 'center',
               background: 'var(--blue)', color: '#fff', border: 'none', padding: '17px 38px',
               borderRadius: 99, fontWeight: 600, fontSize: 15.5,
               boxShadow: '0 20px 40px -10px rgba(59,130,246,.5)',
             }}
           >
             {t('h-cta1')}
-          </motion.button>
+          </motion.a>
           <motion.a
             whileHover={{ y: -1, borderColor: 'rgba(255,255,255,.3)' }}
             href="#how"

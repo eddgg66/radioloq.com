@@ -28,6 +28,14 @@ const NetworkIcon = () => (
   </svg>
 );
 
+const InstagramIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
+  </svg>
+);
+
 export default function Contact() {
   const { t } = useLanguage();
 
@@ -35,6 +43,7 @@ export default function Contact() {
     { Icon: MailIcon, typeKey: 'c2-type', labelKey: 'c2-label', btnKey: 'c2-btn', href: 'mailto:info@radioloq.com' },
     { Icon: CalendarIcon, typeKey: 'c3-type', labelKey: 'c3-label', btnKey: 'c3-btn', href: 'https://calendly.com/adalat-ganjali/15min' },
     { Icon: NetworkIcon, typeKey: 'c4-type', labelKey: 'c4-label', btnKey: 'c4-btn', href: 'https://linkedin.com/in/adalatganjali' },
+    { Icon: InstagramIcon, typeKey: 'c5-type', labelKey: 'c5-label', btnKey: 'c5-btn', href: 'https://instagram.com/adalat.radiologie' },
   ];
 
   return (
@@ -43,7 +52,7 @@ export default function Contact() {
         <div className="eyebrow">{t('s6-lbl')}</div>
         <h2 className="section-title" style={{ marginBottom: 48 }}>{t('s6-head')}</h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }} className="contact-grid">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 18 }} className="contact-grid">
           {cards.map((c, i) => (
             <motion.div
               key={c.typeKey}

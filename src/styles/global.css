@@ -48,6 +48,8 @@ a{text-decoration:none;color:inherit}
 button{font-family:inherit;cursor:pointer}
 img{max-width:100%;display:block}
 :lang(az){font-family:'Inter','Noto Sans',Arial,sans-serif}
+:lang(az) h1,:lang(az) h2,:lang(az) h3,:lang(az) h4{font-family:'Inter','Noto Sans',Arial,sans-serif}
+:lang(az) button,:lang(az) .btn-primary,:lang(az) .btn-outline{font-family:'Inter','Noto Sans',Arial,sans-serif}
 
 .container{max-width:1060px;margin:0 auto;padding:0 32px}
 .eyebrow{font-size:13px;font-weight:700;color:var(--teal-dark);text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px}
