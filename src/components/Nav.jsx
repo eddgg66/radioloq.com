@@ -41,10 +41,11 @@ export default function Nav({ onOpenModal }) {
         <a href="#about" className="nav-link" style={{ color: mutedColor }}>{t('nl-about')}</a>
       </div>
 
-      <motion.button
+      <motion.a
         whileHover={{ y: -1 }}
-        onClick={() => onOpenModal('Basic — €49')}
+        href="#pricing"
         style={{
+          display: 'inline-block',
           background: scrolled ? 'var(--grad)' : 'rgba(255,255,255,.1)',
           color: '#fff', border: scrolled ? 'none' : '1px solid rgba(255,255,255,.18)',
           padding: '10px 22px', borderRadius: 99, fontSize: 13.5, fontWeight: 600,
@@ -53,7 +54,7 @@ export default function Nav({ onOpenModal }) {
         }}
       >
         {t('nl-cta')}
-      </motion.button>
+      </motion.a>
 
       <style>{`
         .nav-link{font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:99px;transition:color .4s,background .2s}
