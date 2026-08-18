@@ -5,14 +5,14 @@ import { useLanguage } from '../i18n/LanguageContext';
 const API_URL = 'https://radioloq-api.vercel.app';
 
 const STRIPE = {
-  'Basic — €49': 'https://buy.stripe.com/00w5kv7ji6nrh258nO8ww04',
-  'Standard — €89': 'https://buy.stripe.com/fZu9AL6febHL1370Vm8ww05',
-  'Premium — €99': 'https://buy.stripe.com/bJe3cn7ji3bf6nrdI88ww06',
+  'Basic — €52': 'https://buy.stripe.com/00w5kv7ji6nrh258nO8ww04',
+  'Standard — €72': 'https://buy.stripe.com/fZu9AL6febHL1370Vm8ww05',
+  'Premium — €83': 'https://buy.stripe.com/bJe3cn7ji3bf6nrdI88ww06',
 };
 const PAYPAL = {
-  'Basic — €49': 'https://www.paypal.com/ncp/payment/FBBSBEV9XZQZ4',
-  'Standard — €89': 'https://www.paypal.com/ncp/payment/MKFVEECTYTEDE',
-  'Premium — €99': 'https://www.paypal.com/ncp/payment/KDWLGX32B8B28',
+  'Basic — €52': 'https://www.paypal.com/ncp/payment/FBBSBEV9XZQZ4',
+  'Standard — €72': 'https://www.paypal.com/ncp/payment/MKFVEECTYTEDE',
+  'Premium — €83': 'https://www.paypal.com/ncp/payment/KDWLGX32B8B28',
 };
 
 export default function UploadModal({ isOpen, pkg, initialStep, onClose }) {

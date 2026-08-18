@@ -6,15 +6,15 @@ export default function Pricing({ onOpenModal }) {
 
   const tiers = [
     {
-      pkg: 'Basic — €49', tierKey: 'p1-tier', nameKey: 'p1-name', amt: '€49', perKey: 'p1-per',
+      pkg: 'Basic — €52', tierKey: 'p1-tier', nameKey: 'p1-name', amt: '€52', perKey: 'p1-per',
       descKey: 'p1-desc', feats: ['p1f1', 'p1f2', 'p1f3', 'p1f4'], btnKey: 'p1-btn', dot: 'var(--navy)',
     },
     {
-      pkg: 'Standard — €89', tierKey: 'p2-tier', nameKey: 'p2-name', amt: '€89', perKey: 'p2-per', popular: true,
+      pkg: 'Standard — €72', tierKey: 'p2-tier', nameKey: 'p2-name', amt: '€72', perKey: 'p2-per', popular: true,
       badgeKey: 'p2-badge', descKey: 'p2-desc', feats: ['p2f1', 'p2f2', 'p2f3'], btnKey: 'p2-btn', dot: 'var(--blue)',
     },
     {
-      pkg: 'Premium — €99', tierKey: 'p3-tier', nameKey: 'p3-name', amt: '€99', perKey: 'p3-per',
+      pkg: 'Premium — €83', tierKey: 'p3-tier', nameKey: 'p3-name', amt: '€83', perKey: 'p3-per',
       badgeKey: 'p3-badge', descKey: 'p3-desc', feats: ['p3f1', 'p3f2', 'p3f3', 'p3f4'], btnKey: 'p3-btn', dot: 'var(--navy)',
     },
   ];
