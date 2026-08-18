@@ -15,14 +15,14 @@ import CookieBar from './components/CookieBar';
 import UploadModal from './components/UploadModal';
 
 const PKG_MAP = {
-  basic: 'Basic — €49',
-  standard: 'Standard — €89',
-  premium: 'Premium — €99',
+  basic: 'Basic — €52',
+  standard: 'Standard — €72',
+  premium: 'Premium — €83',
 };
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [pkg, setPkg] = useState('Basic — €49');
+  const [pkg, setPkg] = useState('Basic — €52');
   const [initialStep, setInitialStep] = useState(null);
 
   // Detect return from Stripe/PayPal payment (?paid=1&pkg=standard) and
