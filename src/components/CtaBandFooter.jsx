@@ -36,15 +36,15 @@ export function CtaBand() {
 }
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   return (
     <footer style={{ background: '#fff', color: 'var(--muted)', padding: '48px 32px', textAlign: 'center', borderTop: '1px solid var(--border)' }}>
       <div style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 21, fontWeight: 800, color: 'var(--ink)', marginBottom: 14 }}>
         Radioloq
       </div>
       <div style={{ display: 'flex', gap: 22, justifyContent: 'center', marginBottom: 18, flexWrap: 'wrap' }}>
-        <a href="/terms.html" style={{ fontSize: 12.5, fontWeight: 500 }}>Terms</a>
-        <a href="/privacy.html" style={{ fontSize: 12.5, fontWeight: 500 }}>Privacy</a>
+        <a href={`/terms-${lang}.html`} style={{ fontSize: 12.5, fontWeight: 500 }}>Terms</a>
+        <a href={`/privacy-${lang}.html`} style={{ fontSize: 12.5, fontWeight: 500 }}>Privacy</a>
         <a href="mailto:info@radioloq.com" style={{ fontSize: 12.5, fontWeight: 500 }}>info@radioloq.com</a>
         <button
           onClick={() => window.dispatchEvent(new Event('radioloq-open-cookie-settings'))}

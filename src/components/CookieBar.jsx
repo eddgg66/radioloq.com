@@ -22,7 +22,7 @@ function unloadGA() {
 }
 
 export default function CookieBar() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -68,9 +68,9 @@ export default function CookieBar() {
         >
           <p style={{ fontSize: 12.5, color: '#5B6178', margin: 0, lineHeight: 1.5, flex: 1, minWidth: 200 }}>
             {t('cookie-text')}{' '}
-            <a href="/terms.html" style={{ color: '#16182B', textDecoration: 'underline' }}>{t('cookie-terms-link')}</a>{' '}
+            <a href={`/terms-${lang}.html`} style={{ color: '#16182B', textDecoration: 'underline' }}>{t('cookie-terms-link')}</a>{' '}
             {t('cookie-and')}{' '}
-            <a href="/privacy.html" style={{ color: '#16182B', textDecoration: 'underline' }}>{t('cookie-privacy-link')}</a>.
+            <a href={`/privacy-${lang}.html`} style={{ color: '#16182B', textDecoration: 'underline' }}>{t('cookie-privacy-link')}</a>.
           </p>
           <div style={{ display: 'flex', gap: 8, flexShrink: 0 }}>
             <button onClick={reject} style={{
