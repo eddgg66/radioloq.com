@@ -1,6 +1,7 @@
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Nav({ onOpenModal }) {
   const { t } = useLanguage();
@@ -55,6 +56,10 @@ export default function Nav({ onOpenModal }) {
       >
         {t('nl-cta')}
       </motion.a>
+
+      <div style={{ marginLeft: 14, display: 'flex', alignItems: 'center' }}>
+        <LanguageSwitcher color={textColor} />
+      </div>
 
       <style>{`
         .nav-link{font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:99px;transition:color .4s,background .2s}
