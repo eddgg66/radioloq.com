@@ -43,6 +43,7 @@ export default function Nav({ onOpenModal }) {
       </div>
 
       <motion.a
+        className="nav-cta"
         whileHover={{ y: -1 }}
         href="#pricing"
         style={{
@@ -65,6 +66,7 @@ export default function Nav({ onOpenModal }) {
         .nav-link{font-size:13.5px;font-weight:500;padding:8px 14px;border-radius:99px;transition:color .4s,background .2s}
         .nav-link:hover{background:rgba(120,120,120,.08)}
         @media(max-width:860px){.nav-links-desktop{display:none!important}}
+        @media(max-width:600px){.nav-cta{display:none!important}}
       `}</style>
     </motion.nav>
   );
