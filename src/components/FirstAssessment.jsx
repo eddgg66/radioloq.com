@@ -12,7 +12,7 @@ export default function FirstAssessment() {
   const { t } = useLanguage();
 
   return (
-    <section id="first-assessment" style={{ background: '#fff', padding: '84px 32px 12px' }}>
+    <section id="first-assessment" style={{ background: '#fff', padding: '52px 32px' }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
