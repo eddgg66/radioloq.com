@@ -107,7 +107,12 @@
     "cookie-privacy-link": "Privacy Policy",
     "cookie-reject": "Reject",
     "cookie-accept": "Accept",
-    "cookie-settings-link": "Cookie Settings"
+    "cookie-settings-link": "Cookie Settings",
+    "fa-lbl": "Free first assessment",
+    "fa-head": "Not sure yet? Start with a free first look.",
+    "fa-sub": "Before any payment or choosing a package, let's talk. In a free 15-minute call I look at your situation and tell you honestly whether I can help. If it's not the right fit, you pay nothing.",
+    "fa-btn": "Book a free 15-min call →",
+    "fa-note": "No payment · No obligation"
   },
   "tr": {
     "h-badge": "Almanya · Radyoloji · İkinci Görüş",
@@ -217,7 +222,12 @@
     "cookie-privacy-link": "Gizlilik Politikası",
     "cookie-reject": "Reddet",
     "cookie-accept": "Kabul Et",
-    "cookie-settings-link": "Çerez Ayarları"
+    "cookie-settings-link": "Çerez Ayarları",
+    "fa-lbl": "Ücretsiz ilk değerlendirme",
+    "fa-head": "Henüz emin değil misiniz? Ücretsiz bir ön değerlendirmeyle başlayın.",
+    "fa-sub": "Herhangi bir ödeme yapmadan ya da paket seçmeden önce konuşalım. Ücretsiz 15 dakikalık görüşmede durumunuza bakar, size yardımcı olup olamayacağımı dürüstçe söylerim. Uygun değilse hiçbir ödeme yapmazsınız.",
+    "fa-btn": "Ücretsiz 15 dk görüşme ayarla →",
+    "fa-note": "Ödeme yok · Yükümlülük yok"
   },
   "az": {
     "h-badge": "Almaniya · Radiologiya · İKİNCİ BAXIŞ",
@@ -261,9 +271,9 @@
     "p1-btn": "Yüklə & başla",
     "p2-badge": "Ən populyar",
     "p2-tier": "Standart",
-    "p2-name": "Rəy + məsləhət",
+    "p2-name": "Rəy + konsultasiya",
     "p2-per": "/hesabat",
-    "p2-desc": "Tam qiymətləndirmə + 15 dəq video məsləhət",
+    "p2-desc": "Tam qiymətləndirmə + 15 dəq video konsultasiya",
     "p2f1": "Əsasın hamısı",
     "p2f2": "15 dəq video görüş",
     "p2f3": "Prioritet 24 saat",
@@ -273,9 +283,9 @@
     "p3-tier": "Premium",
     "p3-name": "Tam ikinci rəy",
     "p3-per": "/hesabat",
-    "p3-desc": "Hərtərəfli qiymətləndirmə + 30 dəq məsləhət + 3 günlük e-mail təqibi",
+    "p3-desc": "Hərtərəfli qiymətləndirmə + 30 dəq konsultasiya + 3 günlük e-mail təqibi",
     "p3f1": "Standartın hamısı",
-    "p3f2": "30 dəq məsləhət",
+    "p3f2": "30 dəq konsultasiya",
     "p3f3": "3 günlük e-mail təqibi (24 saat ərzində cavab)",
     "p3f4": "Əvvəlki görüntülərlə müqayisə",
     "p3-btn": "Yüklə & başla",
@@ -327,7 +337,12 @@
     "cookie-privacy-link": "Məxfilik Siyasəti",
     "cookie-reject": "Rədd Et",
     "cookie-accept": "Qəbul Et",
-    "cookie-settings-link": "Kuki Tənzimləmələri"
+    "cookie-settings-link": "Kuki Tənzimləmələri",
+    "fa-lbl": "Pulsuz ilkin dəyərləndirmə",
+    "fa-head": "Hələ əmin deyilsiniz? Pulsuz ilkin dəyərləndirmə ilə başlayın.",
+    "fa-sub": "Hər hansı ödəniş etməzdən və ya paket seçməzdən əvvəl danışaq. Pulsuz 15 dəqiqəlik görüşdə vəziyyətinizə baxıb sizə kömək edə biləcəyimi dürüst şəkildə deyəcəyəm. Uyğun deyilsə, heç bir ödəniş etmirsiniz.",
+    "fa-btn": "Pulsuz 15 dəq görüş təyin et →",
+    "fa-note": "Ödəniş yoxdur · Öhdəlik yoxdur"
   },
   "de": {
     "h-badge": "Deutscher Standard · Ihre Sprache · 48 Stunden",
@@ -437,7 +452,12 @@
     "cookie-privacy-link": "Datenschutzerklärung",
     "cookie-reject": "Ablehnen",
     "cookie-accept": "Akzeptieren",
-    "cookie-settings-link": "Cookie-Einstellungen"
+    "cookie-settings-link": "Cookie-Einstellungen",
+    "fa-lbl": "Kostenlose Ersteinschätzung",
+    "fa-head": "Noch unsicher? Beginnen Sie mit einer kostenlosen Ersteinschätzung.",
+    "fa-sub": "Vor jeder Zahlung oder Paketwahl sprechen wir zuerst. In einem kostenlosen 15-minütigen Gespräch sehe ich mir Ihre Situation an und sage Ihnen ehrlich, ob ich helfen kann. Wenn es nicht passt, zahlen Sie nichts.",
+    "fa-btn": "Kostenloses 15-Min-Gespräch buchen →",
+    "fa-note": "Keine Zahlung · Keine Verpflichtung"
   },
   "ru": {
     "h-badge": "Немецкий стандарт · Ваш язык · 48 часов",
@@ -547,6 +567,11 @@
     "cookie-privacy-link": "Политику конфиденциальности",
     "cookie-reject": "Отклонить",
     "cookie-accept": "Принять",
-    "cookie-settings-link": "Настройки cookie"
+    "cookie-settings-link": "Настройки cookie",
+    "fa-lbl": "Бесплатная первичная оценка",
+    "fa-head": "Ещё не уверены? Начните с бесплатной первичной оценки.",
+    "fa-sub": "Прежде чем что-либо оплачивать или выбирать пакет, давайте поговорим. Во время бесплатного 15-минутного разговора я посмотрю вашу ситуацию и честно скажу, смогу ли я помочь. Если это вам не подходит — вы ничего не платите.",
+    "fa-btn": "Записаться на бесплатный 15-мин разговор →",
+    "fa-note": "Без оплаты · Без обязательств"
   }
 }
