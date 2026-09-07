@@ -49,7 +49,8 @@ export default function Contact() {
   return (
     <section id="contact" style={{ background: '#fff', padding: '96px 32px' }}>
       <div className="container">
-        <h2 className="section-title" style={{ marginBottom: 48 }}>{t('s6-lbl')}</h2>
+        <div className="eyebrow">{t('s6-lbl')}</div>
+        <h2 className="section-title" style={{ marginBottom: 48 }}>{t('s6-head')}</h2>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 18 }} className="contact-grid">
           {cards.map((c, i) => (
