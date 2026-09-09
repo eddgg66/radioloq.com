@@ -3,9 +3,9 @@ import { LanguageProvider } from './i18n/LanguageContext';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
 import StatBar from './components/StatBar';
-import LanguageToolbar from './components/LanguageToolbar';
 import HowItWorks from './components/HowItWorks';
 import Pricing from './components/Pricing';
+import FirstAssessment from './components/FirstAssessment';
 import About from './components/About';
 import PullQuote from './components/PullQuote';
 import FAQ from './components/FAQ';
@@ -50,8 +50,8 @@ export default function App() {
       <Nav onOpenModal={openModal} />
       <Hero onOpenModal={openModal} />
       <StatBar />
-      <LanguageToolbar />
       <HowItWorks />
+      <FirstAssessment />
       <Pricing onOpenModal={openModal} />
       <About />
       <PullQuote />
